@@ -32,6 +32,11 @@ module lab_02;
         constraint data_rule2 {data[31:16] > 'hafff;}
     endclass
 
+    // Create a class named "MyBus" that extends "Bus" and change its "address_rule" so that "addr[7:0]" can not be 8'hff and also not in the range 8'h11:8'h77
+    // Randomize and test "MyBus" in a new class named "Task3", but turn off "data_rule1"
+    class MyBus extends Bus;
+        constraint address_rule1 {addr[7:0] != 8'hff; addr[7:0] < 8'h11; addr[7:0] > 8'h77;}
+    endclass
 
     class CylicIntro;
         rand logic [2:0] d_normal;
@@ -142,6 +147,31 @@ module lab_02;
         endtask
     endclass: Test6
 
+    class Task2;
+        task run;
+            Packet packet;
+            packet = new();
+
+            result = packet.randomize(src, payload);
+            $display("Source: %d, Destination: %d, Payload: %p\n", packet.src, packet.dest, packet.payload);
+            $display("");
+        endtask
+    endclass: Task2
+
+    class Task3;
+        task run;
+            MyBus mybus;
+            mybus = new();
+
+            mybus.data_rule1.constraint_mode(0);
+            mybus.address_rule.constraint_mode(0);
+
+            result = mybus.randomize(addr);
+            
+            $display("Bus Adress: %d", mybus.addr);
+            $display("");
+        endtask
+    endclass: Task3
 
     initial begin
         Test1 test1;
@@ -150,7 +180,8 @@ module lab_02;
         Test4 test4;
         Test5 test5;
         Test6 test6;
-
+        Task2 task2;
+        Task3 task3;
 
         test1 = new();
         test1.run();        
@@ -172,13 +203,18 @@ module lab_02;
 
         // Task 1
         // Uncomment the line in the "Packet" class containing the "payload_size_conflict" constraint and see what transpires. What on earth is happening?
+        // Extend function sets >= 15 but Packet sets == 5 so we get a conflict here :) / ( :( )
 
         // Task 2
         // Create a class named "Task2" and in its "run" task call "randomize" in a way to only apply randomization to "src" and "payload" members of "Packet"
+        task2 = new();
+        task2.run();
 
         // Task 3
         // Create a class named "MyBus" that extends "Bus" and change its "address_rule" so that "addr[7:0]" can not be 8'hff and also not in the range 8'h11:8'h77
         // Randomize and test "MyBus" in a new class named "Task3", but turn off "data_rule1"
+        task3 = new();
+        task3.run();
 
     end
 

@@ -1,9 +1,9 @@
 The lab is divided into 5 parts and organized as follows: 
  - Lab 1 
      - lab 01.sv 
-        - [ ] Task 1: Create a function that randomizes my_state 16 times in a way that it excludes START from the randomization 
-        - [ ] Task 2: Create a function that randomizes data 16 times in a way that it is twice as likely to get data <= 10 than it is to get data >= 200 (and 0 likelihood for 10 < data < 200)
-        - [ ] Task 3: Create a function that randomizes data 16 times in a way that if my_state is [S1:S6] then 50 <= data <= 60 or 100 <= data <= 150, otherwise data <= 20
+        - [x] Task 1: Create a function that randomizes my_state 16 times in a way that it excludes START from the randomization 
+        - [x] Task 2: Create a function that randomizes data 16 times in a way that it is twice as likely to get data <= 10 than it is to get data >= 200 (and 0 likelihood for 10 < data < 200)
+        - [x] Task 3: Create a function that randomizes data 16 times in a way that if my_state is [S1:S6] then 50 <= data <= 60 or 100 <= data <= 150, otherwise data <= 20
      - lab 02.sv 
         - [ ] Task 1: Uncomment the line in the "Packet" class containing the "payload_size_conflict" constraint and see what transpires. What on earth is happening?
         - [ ] Task 2: Create a class named "Task2" and in its "run" task call "randomize" in a way to only apply randomization to "src" and "payload" members of "Packet"
@@ -21,3 +21,4 @@ The lab is divided into 5 parts and organized as follows:
         - [ ] Task 2: Change covergroup_2's data coverpoint so that it only creates 1 bin for { 0, 1, 2, 5, 100 } instead of 5 individual bins
         - [ ] Task 3: Change covergroup_3 and achieve the same functionality without using the 'default' keyword        
         - [ ] Task 4: Change the testbench to achieve 100% cross coverage for covergroup_5 
+
