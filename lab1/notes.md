@@ -5,9 +5,9 @@ The lab is divided into 5 parts and organized as follows:
         - [x] Task 2: Create a function that randomizes data 16 times in a way that it is twice as likely to get data <= 10 than it is to get data >= 200 (and 0 likelihood for 10 < data < 200)
         - [x] Task 3: Create a function that randomizes data 16 times in a way that if my_state is [S1:S6] then 50 <= data <= 60 or 100 <= data <= 150, otherwise data <= 20
      - lab 02.sv 
-        - [ ] Task 1: Uncomment the line in the "Packet" class containing the "payload_size_conflict" constraint and see what transpires. What on earth is happening?
-        - [ ] Task 2: Create a class named "Task2" and in its "run" task call "randomize" in a way to only apply randomization to "src" and "payload" members of "Packet"
-        - [ ] Task 3: Create a class named "MyBus" that extends "Bus" and change its "address_rule" so that "addr[7:0]" can not be 8'hff and also not in the range 8'h11:8'h77 Randomize and test "MyBus" in a new class named "Task3", but turn off "data_rule1"
+        - [x] Task 1: Uncomment the line in the "Packet" class containing the "payload_size_conflict" constraint and see what transpires. What on earth is happening?
+        - [x] Task 2: Create a class named "Task2" and in its "run" task call "randomize" in a way to only apply randomization to "src" and "payload" members of "Packet"
+        - [x] Task 3: Create a class named "MyBus" that extends "Bus" and change its "address_rule" so that "addr[7:0]" can not be 8'hff and also not in the range 8'h11:8'h77 Randomize and test "MyBus" in a new class named "Task3", but turn off "data_rule1"
      - lab 03.sv 
         - [ ] Task 1: Create a new class named "Task1" that is a carbon copy of the "Test1" class with the exception that the "fork-join" block only creates 1 thread.
         - [ ] Task 2: Create a new class named "Task2" that is a carbon copy of the "Test5" class with the exception that the threads created in the "fork-join" blocks need to finish first before moving on      

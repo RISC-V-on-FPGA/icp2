@@ -35,7 +35,7 @@ module lab_02;
     // Create a class named "MyBus" that extends "Bus" and change its "address_rule" so that "addr[7:0]" can not be 8'hff and also not in the range 8'h11:8'h77
     // Randomize and test "MyBus" in a new class named "Task3", but turn off "data_rule1"
     class MyBus extends Bus;
-        constraint address_rule1 {addr[7:0] != 8'hff; addr[7:0] < 8'h11; addr[7:0] > 8'h77;}
+        constraint address_rule {addr[7:0] != 8'hff; addr[7:0] < 8'h11 || addr[7:0] > 8'h77;}
     endclass
 
     class CylicIntro;
@@ -164,11 +164,10 @@ module lab_02;
             mybus = new();
 
             mybus.data_rule1.constraint_mode(0);
-            mybus.address_rule.constraint_mode(0);
 
-            result = mybus.randomize(addr);
+            result = mybus.randomize();
             
-            $display("Bus Adress: %d", mybus.addr);
+            $display("Bus Adress: %h", mybus.addr);
             $display("");
         endtask
     endclass: Task3

@@ -110,7 +110,6 @@ module lab_03;
         Test4 test4;
         Test5 test5;
 
-
         test1 = new();
         test1.run();
 
@@ -125,7 +124,6 @@ module lab_03;
 
         test5 = new();
         test5.run();
-
 
         // Task 1
         // Create a new class named "Task1" that is a carbon copy of the "Test1" class with the exception that the "fork-join" block only creates 1 thread.
