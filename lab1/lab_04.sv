@@ -54,6 +54,10 @@ module lab_04 #(parameter PERIOD = 10) (
     assert_6 : assert property ( @(posedge clk) disable iff (reset) (a && c) |-> ##2 b );
 
 
+    assert_Task1 : assert property ( @(posedge clk) (b && c && d) |=> ##1 d );
+
+
+
     initial begin
         reset = 0;
 
@@ -111,6 +115,7 @@ module lab_04 #(parameter PERIOD = 10) (
         // Task 1
         // Add an assertion that checks if b, c, and d are high this cycle, then d must be high 2 cycles later
 
+ 
         // Task 2
         // Same as Task 1 except that reset disables the check
 
@@ -120,7 +125,9 @@ module lab_04 #(parameter PERIOD = 10) (
         // Task 4
         // Add an assertion that checks if a is high this cycle, and c is high the cycle after, and b is high 2 cycles after a was high, then d must be high 3 cycles after a was high
         // So for example if a is high at cycle 1 and c is high at cycle 2 and b is high at cycle 3 then d must be high at cycle 4
+        
 
+        $stop;
     end
 
 endmodule

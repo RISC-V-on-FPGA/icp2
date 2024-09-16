@@ -9,10 +9,10 @@ The lab is divided into 5 parts and organized as follows:
         - [x] Task 2: Create a class named "Task2" and in its "run" task call "randomize" in a way to only apply randomization to "src" and "payload" members of "Packet"
         - [x] Task 3: Create a class named "MyBus" that extends "Bus" and change its "address_rule" so that "addr[7:0]" can not be 8'hff and also not in the range 8'h11:8'h77 Randomize and test "MyBus" in a new class named "Task3", but turn off "data_rule1"
      - lab 03.sv 
-        - [ ] Task 1: Create a new class named "Task1" that is a carbon copy of the "Test1" class with the exception that the "fork-join" block only creates 1 thread.
-        - [ ] Task 2: Create a new class named "Task2" that is a carbon copy of the "Test5" class with the exception that the threads created in the "fork-join" blocks need to finish first before moving on      
+        - [x] Task 1: Create a new class named "Task1" that is a carbon copy of the "Test1" class with the exception that the "fork-join" block only creates 1 thread.
+        - [x] Task 2: Create a new class named "Task2" that is a carbon copy of the "Test5" class with the exception that the threads created in the "fork-join" blocks need to finish first before moving on      
      - lab 04.sv 
-        - [ ] Task 1: Add an assertion that checks if b, c, and d are high this cycle, then d must be high 2 cycles later
+        - x ] Task 1: Add an assertion that checks if b, c, and d are high this cycle, then d must be high 2 cycles later
         - [ ] Task 2: Same as Task 1 except that reset disables the check
         - [ ] Task 3: Add an assertion that checks data <= 200 at positive clock edges
         - [ ] Task 4: Add an assertion that checks if a is high this cycle, and c is high the cycle after, and b is high 2 cycles after a was high, then d must be high 3 cycles after a was high So for example if a is high at cycle 1 and c is high at cycle 2 and b is high at cycle 3 then d must be high at cycle 4
