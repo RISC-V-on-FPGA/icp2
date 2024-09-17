@@ -2,15 +2,11 @@ module lab_05 #(parameter PERIOD = 10) (
     output logic enable_1,
     output logic enable_2
 );
-
-
     logic reset;
-
     logic clk;
 
     logic [2:0] address;
     logic [7:0] data;
-
 
     typedef enum logic [2:0] { ADD, SUB, AND, OR, XOR, MUL, DIV, MOD } operations_t;
     typedef enum logic [1:0] { REG0, REG1, REG2, REG3 } registers_t;
@@ -34,7 +30,7 @@ module lab_05 #(parameter PERIOD = 10) (
     covergroup covergroup_2 @(posedge clk);
         c1: coverpoint address;  // This creates automatic bins (7 bins)
         c2: coverpoint data {
-            bins data_bin[] = { 0, 1, 2, 5, 100 };  // This creates custom bins (5 bins)
+            bins data_bin = { 0, 1, 2, 5, 100 };  // This creates custom bins (5 bins)
         }
     endgroup: covergroup_2
 
@@ -43,7 +39,8 @@ module lab_05 #(parameter PERIOD = 10) (
         c1: coverpoint address;  // This creates automatic bins (7 bins)
         c2: coverpoint data {
             bins data_bin[] = { 0, 1, 2, 5, 100 };  // This creates custom bins (5 bins)
-            bins data_bin_rest = default;  // This creates 1 bin for all the remaining values
+            //bins data_bin_rest = { [3:4], [6:99], [101:255] };  // This creates 1 bin for all the remaining values
+            bins data_bin_rest = { [0:255] } with (!(item inside {0, 1, 2, 5, 100})); 
         }
     endgroup: covergroup_3
 
@@ -73,6 +70,7 @@ module lab_05 #(parameter PERIOD = 10) (
 
     initial begin
         #10 address = 0;
+        #10 address = 1;
         #10 address = 2;
         #10 address = 3;
         #10 address = 4;
@@ -80,7 +78,7 @@ module lab_05 #(parameter PERIOD = 10) (
         #10 address = 6;
         #10 address = 7;
 
-        for (int i = 0; i < 200; i++) begin
+        for (int i = 0; i < 255; i++) begin
             #10ns;
             data = i;
         end
@@ -95,16 +93,29 @@ module lab_05 #(parameter PERIOD = 10) (
         // Change covergroup_3 and achieve the same functionality without using the 'default' keyword        
     end
 
-
     initial begin
-        for (operations_t op = my_operation.first; op < my_operation.last; op = op.next) begin            
-            my_operation = op;
+        for (operations_t op = my_operation.first; op < my_operation.last; op = op.next) begin
             for (registers_t register = my_register.first; register < my_register.last; register = my_register.next) begin
+                my_operation = op;
                 my_register = register;
                 #10ns;
-                $display(register);
             end           
         end
+
+        for (registers_t register = my_register.first; register < my_register.last; register = my_register.next) begin
+            my_operation = my_operation.last;
+            my_register = register;
+            #10ns;
+        end           
+        
+        for (operations_t op = my_operation.first; op < my_operation.last; op = op.next) begin
+            my_operation = op;
+            my_register = my_register.last;
+            #10ns;
+        end      
+
+        my_operation = my_operation.last;
+        my_register = my_register.last;
 
         // Task 4
         // Change the testbench to achieve 100% cross coverage for covergroup_5 

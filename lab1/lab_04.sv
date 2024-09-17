@@ -55,6 +55,9 @@ module lab_04 #(parameter PERIOD = 10) (
 
 
     assert_Task1 : assert property ( @(posedge clk) (b && c && d) |=> ##1 d );
+    assert_Task2 : assert property ( @(posedge clk) disable iff (reset) (b && c && d) |=> ##1 d );
+    assert_Task3 : assert property ( @(posedge clk) (data <= 200));
+    assert_Task4 : assert property ( @(posedge clk) (a ##1 c ##1 b) |=> d);
 
 
 
