@@ -6,8 +6,8 @@ import tb_pkg::*;
 class RANDOMIZER;
     // Task 2: Modify this class so that we can randomize 
     opcode op;
-    randc logic[7:0] operand_1;
-    randc logic[7:0] operand_2;
+    logic[7:0] operand_1;
+    logic[7:0] operand_2;
 endclass
 
 module simple_alu_tb;
@@ -134,30 +134,10 @@ module simple_alu_tb;
             bins reset = { 0 };
             bins run=    { 1 };
         }
-
-        //Task 3: Expand our coverage...
-        tb_opcode:coverpoint tb_opcode{
-            bins opcode = { [0:4] };
-        }
-        tb_a:coverpoint tb_operand_1{
-            bins min = { 0 };
-            bins med[4] = { [1:254] };
-            bins max = { 255 };
-        }
-        tb_b:coverpoint tb_operand_2{
-            bins min = { 0 };
-            bins med[4] = { [1:254] };
-            bins max = { 255 };
-        }
-        tb_c:coverpoint tb_result{
-            bins min = { 0 };
-            bins med[4] = { [1:254] };
-            bins max = { 255 };
-        }
+    //Task 3: Expand our coverage...
+    
 
     //Task 5: Add some crosses aswell to get some granularity going!
-        cp_operand_1_operand_2_opcode_criss_cross: cross tb_opcode, tb_a, tb_b;    
-
     endgroup: basic_fcov
 
     basic_fcov coverage_instance;
@@ -173,8 +153,8 @@ module simple_alu_tb;
     task test_case();
         reset(.delay(0), .length(2));
 
-        repeat(50)
-        do_math(randy.randomize(operand_1),randy.randomize(operand_2),ADD);
+        repeat(2)
+        do_math(1,2,ADD);
 
         reset(.delay(10), .length(2));
         // Task 1: The DUT is causing this assertion to be hit...
@@ -182,6 +162,7 @@ module simple_alu_tb;
             $display ("Output reset");
         else
             $error("Reset doesn't clear output!");
+            
         
 
     endtask
@@ -195,15 +176,14 @@ module simple_alu_tb;
         coverage_instance = new();
         
         //Uncomment this to try randomizing internal randomizable variables.
-        // if(randy.randomize(operand_1))
-        //     $display("Randomization done! :D");
-        // else 
+        //if(randy.randomize())
+        //    $display("Randomization done! :D");
+        //else 
         //    $error("Failed to randomize :(");
         $display("*****************************************************");
         $display("Starting Tests");
         $display("*****************************************************");
         test_case();
-
         $display("*****************************************************");
         $display("Tests Finished!");
         $display("*****************************************************");

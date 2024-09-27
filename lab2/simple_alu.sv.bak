@@ -34,36 +34,33 @@ module simple_alu(
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
     always_comb begin
-    	if (~reset_n) begin
-			c <= 0;
-		end else begin
-			c <= internal_result;
-			case (mode_select)
+    
+        c <= internal_result;
+        case (mode_select)
 
-				//ADD
-				ADD:  begin 
-					n_internal_result <= a+b;
-				
-				end
-				//SUB
-				SUB:  begin 
-					n_internal_result <= a-b;                      
-				end
-				//MUL
-				MUL:  begin 
-					n_internal_result <= a*b;
-				end
-				//DIV
-				DIV:  begin 
-					n_internal_result <= a/b;                        
-				end
-				//MOD
-				MOD:  begin 
-					n_internal_result <= a%b;
-				end
+            //ADD
+            ADD:  begin 
+                n_internal_result <= a+b;
+                
+            end
+            //SUB
+            SUB:  begin 
+                n_internal_result <= a-b;                      
+            end
+            //MUL
+            MUL:  begin 
+                n_internal_result <= a*b;
+            end
+            //DIV
+            DIV:  begin 
+                n_internal_result <= a/b;                        
+            end
+            //MOD
+            MOD:  begin 
+                n_internal_result <= a%b;
+            end
 
-			endcase
-		end
+        endcase
     end
 
 
