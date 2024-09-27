@@ -5,9 +5,21 @@ import tb_pkg::*;
 //------------------------------------------------------------------------------------------------
 class RANDOMIZER;
     // Task 2: Modify this class so that we can randomize 
-    opcode op;
+    rand opcode op;
     randc logic[7:0] operand_1;
     randc logic[7:0] operand_2;
+
+    constraint opcode_constraint {op < 5;}
+    constraint op_constraint {
+        operand_1 dist {0       := 1,
+                        [1:254] := 33,
+                        255     := 9999999};
+
+        operand_2 dist {0       := 1,
+                        [1:254] := 33,
+                        255     := 9999999};
+    }
+
 endclass
 
 module simple_alu_tb;
@@ -108,11 +120,12 @@ module simple_alu_tb;
     // Task to simplify generation of signals.
     //------------------------------------------------------------------------------
     task automatic do_math(int a,int b,opcode code);
-        if(randy.randomize())
-            $display("Randomization done! :D");
-        else 
-           $error("Failed to randomize :(");
-        $display("%0t do_math:   Opcode:%0s     First number=%0d Second Value=%0d",$time(),code.name(), a, b);
+        // if(randy.randomize())
+        //     $display("Randomization done! :D");
+        // else 
+        //    $error("Failed to randomize :(");
+        // $display("%0t do_math:   Opcode:%0s     First number=%0d Second Value=%0d",$time(),code.name(), a, b);
+
         @(posedge tb_clock);
         tb_start_bit <= 1;
         tb_operand_1 <= a;
@@ -132,7 +145,7 @@ module simple_alu_tb;
     covergroup basic_fcov @(negedge tb_clock);
         reset:coverpoint tb_reset_n{
             bins reset = { 0 };
-            bins run=    { 1 };
+            bins run =   { 1 };
         }
 
         //Task 3: Expand our coverage...
@@ -140,30 +153,32 @@ module simple_alu_tb;
             bins opcode = { [0:4] };
         }
         tb_a:coverpoint tb_operand_1{
-            bins min = { 0 };
+            bins min[] = { 0 };
             bins med[4] = { [1:254] };
-            bins max = { 255 };
+            bins max[] = { 255 };
         }
         tb_b:coverpoint tb_operand_2{
-            bins min = { 0 };
+            bins min[] = { 0 };
             bins med[4] = { [1:254] };
-            bins max = { 255 };
+            bins max[] = { 255 };
         }
         tb_c:coverpoint tb_result{
-            bins min = { 0 };
+            bins min[] = { 0 };
             bins med[4] = { [1:254] };
-            bins max = { 255 };
+            bins max[] = { 255 };
         }
 
     //Task 5: Add some crosses aswell to get some granularity going!
-        cp_operand_1_operand_2_opcode_criss_cross: cross tb_opcode, tb_a, tb_b;    
+        cp_operand_1_opcode_criss_cross: cross tb_a, tb_opcode;
+        cp_operand_2_opcode_criss_cross: cross tb_b, tb_opcode; 
+        cp_opcode_tb_c_criss_cross: cross tb_c, tb_opcode {
+            ignore_bins div_zero = cp_opcode_tb_c_criss_cross with (tb_opcode == DIV && tb_operand_2 == 0);
+            ignore_bins mod_255 = cp_opcode_tb_c_criss_cross with (tb_opcode == MOD && tb_result == 255);
+        } // ta bort mod 255, går ej, vet ej hur man gör :(
 
     endgroup: basic_fcov
 
     basic_fcov coverage_instance;
-
-
-
 
     //------------------------------------------------------------------------------
     // Section 9
@@ -173,8 +188,11 @@ module simple_alu_tb;
     task test_case();
         reset(.delay(0), .length(2));
 
-        repeat(50)
-        do_math(randy.randomize(operand_1),randy.randomize(operand_2),ADD);
+        repeat(100000) begin
+            randy.randomize();
+            do_math(randy.operand_1, randy.operand_2, randy.op);
+            #1ns;
+        end
 
         reset(.delay(10), .length(2));
         // Task 1: The DUT is causing this assertion to be hit...
