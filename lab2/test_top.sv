@@ -6,19 +6,24 @@ import tb_pkg::*;
 class RANDOMIZER;
     // Task 2: Modify this class so that we can randomize 
     rand opcode op;
-    randc logic[7:0] operand_1;
-    randc logic[7:0] operand_2;
-
-    constraint opcode_constraint {op < 5;}
-    constraint op_constraint {
-        operand_1 dist {0       := 1,
-                        [1:254] := 33,
-                        255     := 9999999};
-
-        operand_2 dist {0       := 1,
-                        [1:254] := 33,
-                        255     := 9999999};
+    rand logic[7:0] operand_1;
+    rand logic[7:0] operand_2;
+    constraint yappa {
+        operand_1 < 256;
+        operand_1 >= 0;
+        operand_2 >= 0;
+        operand_2 <256;
     }
+    constraint opcode_constraint {op < 5;}
+    //constraint op_constraint {
+    //    operand_1 dist {0       := 1,
+    //                    [1:254] := 1,
+    //                    255     := 2};
+//
+    //    operand_2 dist {0       := 1,
+    //                    [1:254] := 1,
+    //                    255     := 2};
+    //}
 
 endclass
 
@@ -148,37 +153,43 @@ module simple_alu_tb;
             bins run =   { 1 };
         }
 
-        //Task 3: Expand our coverage...
-        tb_opcode:coverpoint tb_opcode{
-            bins opcode = { [0:4] };
-        }
-        tb_a:coverpoint tb_operand_1{
-            bins min[] = { 0 };
-            bins med[4] = { [1:254] };
-            bins max[] = { 255 };
-        }
-        tb_b:coverpoint tb_operand_2{
-            bins min[] = { 0 };
-            bins med[4] = { [1:254] };
-            bins max[] = { 255 };
-        }
-        tb_c:coverpoint tb_result{
-            bins min[] = { 0 };
-            bins med[4] = { [1:254] };
-            bins max[] = { 255 };
-        }
-
-    //Task 5: Add some crosses aswell to get some granularity going!
-        cp_operand_1_opcode_criss_cross: cross tb_a, tb_opcode;
-        cp_operand_2_opcode_criss_cross: cross tb_b, tb_opcode; 
-        cp_opcode_tb_c_criss_cross: cross tb_c, tb_opcode {
-            ignore_bins div_zero = cp_opcode_tb_c_criss_cross with (tb_opcode == DIV && tb_operand_2 == 0);
-            ignore_bins mod_255 = cp_opcode_tb_c_criss_cross with (tb_opcode == MOD && tb_result == 255);
-        } // ta bort mod 255, går ej, vet ej hur man gör :(
-
     endgroup: basic_fcov
 
+    covergroup do_math_fcov @(posedge tb_clock && tb_start_bit == 1);
+        // if (tb_start_bit) begin
+            //Task 3: Expand our coverage...
+            tb_opcode:coverpoint tb_opcode{
+                bins opcode = { [0:4] };
+            }
+            tb_a:coverpoint tb_operand_1{
+                bins min[] = { 0 };
+                bins med[4] = { [1:254] };
+                bins max[] = { 255 };
+            }
+            tb_b:coverpoint tb_operand_2{
+                bins min[] = { 0 };
+                bins med[4] = { [1:254] };
+                bins max[] = { 255 };
+            }
+            tb_c:coverpoint tb_result{
+                bins min[] = { 0 };
+                bins med[4] = { [1:254] };
+                bins max[] = { 255 };
+            }
+
+            //Task 5: Add some crosses aswell to get some granularity going!
+            cp_operand_1_opcode_criss_cross: cross tb_a, tb_opcode;
+            cp_operand_2_opcode_criss_cross: cross tb_b, tb_opcode; 
+            cp_opcode_tb_c_criss_cross: cross tb_c, tb_opcode {
+                ignore_bins div_zero = cp_opcode_tb_c_criss_cross with (tb_opcode == DIV && tb_operand_2 == 0);
+                ignore_bins mod_255 = cp_opcode_tb_c_criss_cross with (tb_opcode == MOD && tb_result == 255);
+            } // ta bort mod 255, går ej, vet ej hur man gör :(
+
+        // end
+    endgroup: do_math_fcov
+
     basic_fcov coverage_instance;
+    do_math_fcov coverage_instance_1;
 
     //------------------------------------------------------------------------------
     // Section 9
@@ -191,7 +202,7 @@ module simple_alu_tb;
         repeat(100000) begin
             randy.randomize();
             do_math(randy.operand_1, randy.operand_2, randy.op);
-            #1ns;
+            #10ns;
         end
 
         reset(.delay(10), .length(2));
@@ -211,6 +222,7 @@ module simple_alu_tb;
     initial begin
         // Here we can call our tests. Start by initializing our coverage!
         coverage_instance = new();
+        coverage_instance_1 = new();
         
         //Uncomment this to try randomizing internal randomizable variables.
         // if(randy.randomize(operand_1))

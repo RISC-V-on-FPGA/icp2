@@ -24,6 +24,7 @@ class base_test extends uvm_test;
     tb_env  m_tb_env;
     // Number of loop with generate data_serial_data transaction
     int unsigned no_of_data_loop = 40;
+    int unsigned no_of_resets = 10;
 
     //------------------------------------------------------------------------------
 // FUNCTION: new
@@ -68,13 +69,21 @@ class base_test extends uvm_test;
         reset.start(m_tb_env.m_reset_agent.m_sequencer);
         // Fork two processes that running in parallel
         fork
-            // Randomize reset the DUT N times
+            // Randomize reset the DUT no_of_data_loop times
             begin
-
+                repeat (no_of_data_loop) begin
+                    serial_data = serial_data_seq::type_id::create("serial_data");
+                    if(!(serial_data.randomize())) `uvm_fatal(get_name(), "Failed to randomize serial_data")
+                    serial_data.start(m_tb_env.m_serial_data_agent.m_sequencer);
+                end
             end
 
             begin
-
+                repeat (no_of_resets) begin
+                    reset = reset_seq::type_id::create("reset");
+                    if (!(reset.randomize())) `uvm_fatal(get_name(), "Failed to randomize reset")
+                    reset.start(m_tb_env.m_reset_agent.m_sequencer);
+                end
             end
         
         join
