@@ -48,7 +48,7 @@ class serial_data_driver extends uvm_driver #(serial_data_seq_item);
         m_config.m_vif.start_bit <= 0;
         m_config.m_vif.serial_data <= 0;
         //TASK 1: Add a parity_enable signal:
-
+        m_config.m_vif.parity_enable <= 1;
         //
         
         forever begin
@@ -67,7 +67,28 @@ class serial_data_driver extends uvm_driver #(serial_data_seq_item);
 
 
                     //TASK 3: Implement a 9th bit if parity_enable is enabled.
+                    if  (m_config.m_vif.parity_enable) begin
+                        $display("kuk");
+                        @(posedge m_config.m_vif.clk);
+                        $display("kuk kuk");
+                        if ($countones(seq_item.serial_data) %2)begin
+                            m_config.m_vif.serial_data <= 0;
+                            $display("kuk kuk kuk");
+                        end else begin
+                            m_config.m_vif.serial_data <= 1;
+                            $display("kuk kuk kuk hej ");
+                        end  
+                    end
+                    
+
+
+
                     //TASK 4: If the seq_item parity error is 1, flip the parity_bit.
+                    if  (seq_item.parity_error) begin
+                        $display("par(ity)ra knas");
+                        m_config.m_vif.serial_data <= ~m_config.m_vif.serial_data;
+                    end   
+    
                     
                 end
                 begin
