@@ -116,6 +116,7 @@ class serial_data_monitor  extends uvm_monitor;
                                 seq_item = serial_data_seq_item::type_id::create("seq_item");
                                 seq_item.serial_data= rec_data;
                                 //Task 5: And this!
+                                #1ns;
                                 seq_item.parity_error= parity_error;
                                 seq_item.monitor_data_valid = 1;
                                 m_analysis_port.write(seq_item);

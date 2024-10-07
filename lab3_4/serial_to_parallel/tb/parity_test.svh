@@ -44,7 +44,9 @@ class parity_test extends base_test;
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
         // Set number data transactions
-        no_of_data_loop = 80;
+        no_of_data_loop = 1000;//80;
+        super.m_top_config.m_serial_data_config.parity_enable = 1;
+
         // Run the test as defined in base test
         super.run_phase(phase);
     endtask : run_phase

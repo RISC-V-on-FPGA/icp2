@@ -81,7 +81,7 @@ class base_test extends uvm_test;
             begin
                 repeat (no_of_resets) begin
                     reset = reset_seq::type_id::create("reset");
-                    if (!(reset.randomize())) `uvm_fatal(get_name(), "Failed to randomize reset")
+                    if (!(reset.randomize()with {length>0;delay>0;})) `uvm_fatal(get_name(), "Failed to randomize reset")
                     reset.start(m_tb_env.m_reset_agent.m_sequencer);
                 end
             end

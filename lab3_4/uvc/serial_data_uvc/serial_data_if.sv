@@ -17,4 +17,5 @@ interface serial_data_if (input logic clk, input logic rst_n);
     logic serial_data;
     // Parity enable signal.
     logic parity_enable;
+    logic parity_error;
 endinterface : serial_data_if

@@ -42,6 +42,26 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
 !s11f vlog 2022.1 2022.01, Jan 29 2022
 13
 !s112 1.1
@@ -52,10 +72,10 @@ cModel Technology
 Z1 dH:/ICP2_labs/lab1/icp2/lab3
 T_opt
 Z2 !s11d tb_pkg H:/ICP2_labs/lab1/icp2/lab3_4/work 4 clock_if 1 H:/ICP2_labs/lab1/icp2/lab3_4/work reset_if 1 H:/ICP2_labs/lab1/icp2/lab3_4/work serial_data_if 1 H:/ICP2_labs/lab1/icp2/lab3_4/work parallel_data_if 1 H:/ICP2_labs/lab1/icp2/lab3_4/work 
-!s110 1728283017
-V1^_9GGeda8J?fA]ECU?dQ0
+!s110 1728295732
+V2K4]_ZKh>9`ZPLVQI_`SU2
 Z3 04 6 4 work tb_top fast 0
-=1-6c2b59f031ab-67038187-3cd-228c
+=1-6c2b59f031ab-6703b333-1a-17e0
 R0
 Z4 !s124 OEM100
 Z5 o-quiet -auto_acc_if_foreign -work work
@@ -90,7 +110,7 @@ R7
 R1
 Yclock_if
 Z8 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z9 !s110 1728283012
+Z9 !s110 1728295727
 !i10b 1
 !s100 6m1@6IG<LH;_n>D3O5^DD2
 I1WYQ56nMBEA7doTlMchiB1
@@ -99,14 +119,14 @@ Z10 dH:/ICP2_labs/lab1/icp2/lab3_4
 Z11 w1728041648
 8uvc/clock_uvc/clock_if.sv
 Fuvc/clock_uvc/clock_if.sv
-!i122 42
+!i122 70
 Z12 L0 7 0
 Z13 VDg1SIo80bB@j0V0VzS_@n1
 Z14 OL;L;2022.1;75
 r1
 !s85 0
 31
-Z15 !s108 1728283012.000000
+Z15 !s108 1728295727.000000
 Z16 !s107 serial_to_parallel/tb/parity_test.svh|serial_to_parallel/tb/basic_test.svh|serial_to_parallel/tb/base_test.svh|serial_to_parallel/tb/tb_env.svh|serial_to_parallel/tb/top_config.svh|serial_to_parallel/tb/scoreboard.svh|uvc/parallel_data_uvc/parallel_data_agent.svh|uvc/parallel_data_uvc/parallel_data_monitor.svh|uvc/parallel_data_uvc/parallel_data_driver.svh|uvc/parallel_data_uvc/parallel_data_config.svh|uvc/parallel_data_uvc/parallel_data_seq_item.svh|uvc/serial_data_uvc/serial_data_agent.svh|uvc/serial_data_uvc/serial_data_monitor.svh|uvc/serial_data_uvc/serial_data_driver.svh|uvc/serial_data_uvc/serial_data_config.svh|uvc/serial_data_uvc/serial_data_seq.svh|uvc/serial_data_uvc/serial_data_seq_item.svh|uvc/reset_uvc/reset_agent.svh|uvc/reset_uvc/reset_monitor.svh|uvc/reset_uvc/reset_driver.svh|uvc/reset_uvc/reset_config.svh|uvc/reset_uvc/reset_seq.svh|uvc/reset_uvc/reset_seq_item.svh|uvc/clock_uvc/clock_agent.svh|uvc/clock_uvc/clock_driver.svh|uvc/clock_uvc/clock_config.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|serial_to_parallel/tb/tb_top.sv|serial_to_parallel/tb/tb_pkg.sv|serial_to_parallel/dut/serial_to_parallel.sv|uvc/parallel_data_uvc/parallel_data_if.sv|uvc/serial_data_uvc/serial_data_if.sv|uvc/reset_uvc/reset_if.sv|uvc/clock_uvc/clock_if.sv|
 Z17 !s90 -reportprogress|300|-sv|-timescale|1ns/1ns|+incdir+uvc/clock_uvc+uvc/reset_uvc+uvc/serial_data_uvc+uvc/parallel_data_uvc+serial_to_parallel/tb|uvc/clock_uvc/clock_if.sv|uvc/reset_uvc/reset_if.sv|uvc/serial_data_uvc/serial_data_if.sv|uvc/parallel_data_uvc/parallel_data_if.sv|serial_to_parallel/dut/serial_to_parallel.sv|serial_to_parallel/tb/tb_pkg.sv|serial_to_parallel/tb/tb_top.sv|
 !i113 0
@@ -174,7 +194,7 @@ R10
 R11
 8uvc/parallel_data_uvc/parallel_data_if.sv
 Fuvc/parallel_data_uvc/parallel_data_if.sv
-!i122 42
+!i122 70
 Z26 L0 13 0
 R13
 R14
@@ -199,7 +219,7 @@ R10
 R11
 8uvc/reset_uvc/reset_if.sv
 Fuvc/reset_uvc/reset_if.sv
-!i122 42
+!i122 70
 R12
 R13
 R14
@@ -217,14 +237,14 @@ Yserial_data_if
 R8
 R9
 !i10b 1
-!s100 YcXCdUIfhcSS0AeQ9TjgN3
-IhS:H5Y;mQNhREE@d92a[S2
+!s100 9m`bIVUikJLz9om4:n4A42
+Inmkh>[n76meW2IWej=0d=1
 S1
 R10
-R11
+w1728287305
 8uvc/serial_data_uvc/serial_data_if.sv
 Fuvc/serial_data_uvc/serial_data_if.sv
-!i122 42
+!i122 70
 R26
 R13
 R14
@@ -249,7 +269,7 @@ R10
 R11
 8serial_to_parallel/dut/serial_to_parallel.sv
 Fserial_to_parallel/dut/serial_to_parallel.sv
-!i122 42
+!i122 70
 L0 40 55
 R13
 R14
@@ -270,13 +290,13 @@ Xtb_pkg
 !s115 clock_if
 R8
 Z27 DXx6 mtiUvm 7 uvm_pkg 0 22 8V[`8]Q0W57le7Z>zYaAj1
-Z28 !s110 1728283013
+Z28 !s110 1728295728
 !i10b 1
-!s100 6TMKa>BH`VERSkb4HJOff3
-I=>BhjaOZ64Ue6BRYmlV3f0
+!s100 60fPXedYQQakRojj<5XSE1
+IOZLQZ967W8I0ijFJAc[^A0
 S1
 R10
-w1728283000
+w1728295722
 8serial_to_parallel/tb/tb_pkg.sv
 Fserial_to_parallel/tb/tb_pkg.sv
 Z29 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
@@ -317,9 +337,9 @@ Fserial_to_parallel/tb/tb_env.svh
 Fserial_to_parallel/tb/base_test.svh
 Fserial_to_parallel/tb/basic_test.svh
 Fserial_to_parallel/tb/parity_test.svh
-!i122 42
+!i122 70
 L0 21 0
-V=>BhjaOZ64Ue6BRYmlV3f0
+VOZLQZ967W8I0ijFJAc[^A0
 R14
 r1
 !s85 0
@@ -334,7 +354,7 @@ R6
 vtb_top
 R8
 R27
-DXx4 work 6 tb_pkg 0 22 =>BhjaOZ64Ue6BRYmlV3f0
+DXx4 work 6 tb_pkg 0 22 OZLQZ967W8I0ijFJAc[^A0
 R28
 !i10b 1
 !s100 ?gJ5kEQ=^]?l<N44a>gi@0
@@ -356,7 +376,7 @@ R37
 R38
 R39
 R40
-!i122 42
+!i122 70
 L0 16 6542
 R13
 R14
