@@ -1,18 +1,18 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-class control_in_driver extends uvm_driver;
-    `uvm_component_utils(control_in_driver)
+class data1_driver extends uvm_driver;
+    `uvm_component_utils(data1_driver)
 
-    // control_in uVC configuration object.
-    control_in_config  m_config;
+    // data1 uVC configuration object.
+    data1_config  m_config;
 
     //------------------------------------------------------------------------------
     // The constructor for the component.
     //------------------------------------------------------------------------------
     function new(string name, uvm_component parent = null);
         super.new(name, parent);
-        if (!uvm_config_db #(control_in_config)::get(this,"","control_in_config", m_config)) begin
+        if (!uvm_config_db #(data1_config)::get(this,"","data1_config", m_config)) begin
             `uvm_fatal(get_name(),"Cannot find the VC configuration!")
         end
     endfunction
@@ -29,14 +29,13 @@ class control_in_driver extends uvm_driver;
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
         // Perform the requested action and send response back.
-        `uvm_info("control_in_driver",$sformatf("Start control_in with period %0d", m_config.control_in),UVM_MEDIUM)
+        `uvm_info("data1_driver",$sformatf("Start data1 with  %0d", m_config.data1),UVM_MEDIUM)
         // Reset signal
-        // sätter OP = ADD -> encoding = I-type -> ALUSrc = 1 för immediate -> MemRead = 0 inte läsa minne -> MemWrite = 0 för inte läsa minne -> RegWrite = 1 vill skriva minne -> MemToreg = 0 -> IsBranch = 0 -> BranchType spelar ingen roll
-        m_config.m_vif.control_in <= {4'b0100, 3'b001, 1'b1, 1'b0, 1'b0, 1'b1, 1'b0, 1'b0, 3'b000};              //behövs detta, ger oss NOP instruction???????????????????????????
-        // Generate control_in
+        m_config.m_vif.data1 <= 0;
+        // Generate data1
         forever begin
-            m_config.m_vif.control_in <= m_config.m_vif.control_in;
+            m_config.m_vif.data1 <= m_config.m_vif.data1;
         end
     endtask : run_phase
 
-endclass : control_in_driver
+endclass : data1_driver
