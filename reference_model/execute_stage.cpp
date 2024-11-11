@@ -5,7 +5,6 @@
 // #include <ios>
 #include <ostream>
 
-// Example class for the reference model
 class ExecuteStage {
 public:
     ExecuteStage() = default;
@@ -56,7 +55,15 @@ public:
         // Forwarding unit
         int mux_ctrl_left;
         int mux_ctrl_right;
-        forwarding_unit(rs1, rs2, rd_in, ex_mem_rd, mem_wb_rd, mem_wb_RegWrite, ex_mem_RegWrite, &mux_ctrl_left, &mux_ctrl_right)
+        forwarding_unit(rs1, 
+                        rs2, 
+                        rd_in, 
+                        ex_mem_rd, 
+                        mem_wb_rd, 
+                        mem_wb_RegWrite, 
+                        ex_mem_RegWrite, 
+                        &mux_ctrl_left, 
+                        &mux_ctrl_right);
 
         // Figure out left_operand
         if      (mux_ctrl_left == Forward_def)     left_operand = data1;
@@ -65,14 +72,14 @@ public:
 
         // Figure out right_operand
         // First mux
-        if      (mux_ctrl_right == Forward_def)    left_operand = data2;
-        else if (mux_ctrl_right == Forward_ex_mem) left_operand = forward_ex_mem;
-        else if (mux_ctrl_right == Forward_mem_wb) left_operand = forward_mem_wb;
+        if      (mux_ctrl_right == Forward_def)    right_operand = data2;
+        else if (mux_ctrl_right == Forward_ex_mem) right_operand = forward_ex_mem;
+        else if (mux_ctrl_right == Forward_mem_wb) right_operand = forward_mem_wb;
 
-        memory_data = left_operand; // left_operand before second mux
+        memory_data = right_operand; // left_operand before second mux
         
         // Second mux
-        if (ALUSrc == 1) left_operand = immediate_data;
+        if (ALUSrc == 1) right_operand = immediate_data;
 
         // ALU sets ZeroFlag and alu_data
         alu(ALUOp, left_operand, right_operand, &ZeroFlag, &alu_data);
@@ -99,22 +106,22 @@ public:
     }
 
     int get_alu_data() {
-        std::cout << "Returning alu_data: " << control_out << std::endl;
+        std::cout << "Returning alu_data: " << alu_data << std::endl;
         return alu_data;
     }
 
     int get_memory_data() {
-        std::cout << "Returning control_out: " << control_out << std::endl;
+        std::cout << "Returning memory_data: " << memory_data << std::endl;
         return memory_data;
     }
 
     int get_rd_out() {
-        std::cout << "Returning control_out: " << control_out << std::endl;
+        std::cout << "Returning rd_out: " << rd_out << std::endl;
         return rd_out;
     }
 
     int get_pc_out() {
-        std::cout << "Returning control_out: " << control_out << std::endl;
+        std::cout << "Returning pc_out: " << pc_out << std::endl;
         return pc_out;
     }
 
@@ -274,6 +281,24 @@ extern "C" int process_data(
                          mem_wb_RegWrite,
                          forward_ex_mem,
                          forward_mem_wb);
+}
+extern "C" int get_control_out() {
+    return model.get_control_out();
+}
+extern "C" int get_ZeroFlag() {
+    return model.get_ZeroFlag();
+}
+extern "C" int get_alu_data() {
+    return model.get_alu_data();
+}
+extern "C" int get_memory_data() {
+    return model.get_memory_data();
+}
+extern "C" int get_rd_out() {
+    return model.get_rd_out();
+}
+extern "C" int get_pc_out() {
+    return model.get_pc_out();
 }
 
 // Function to finalize the model

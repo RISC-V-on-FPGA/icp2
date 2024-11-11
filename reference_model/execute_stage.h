@@ -1,7 +1,5 @@
-// reference_model.h
-
-#ifndef REFERENCE_MODEL_H
-#define REFERENCE_MODEL_H
+#ifndef EXECUTE_STAGE_H
+#define EXECUTE_STAGE_H
 
 #include <cstdint>
 #include <iostream>
@@ -27,6 +25,12 @@ extern "C" int process_data(
     int forward_ex_mem,
     int forward_mem_wb
 );
+extern "C" int get_control_out();
+extern "C" int get_ZeroFlag();
+extern "C" int get_alu_data();
+extern "C" int get_memory_data();
+extern "C" int get_rd_out();
+extern "C" int get_pc_out();
 extern "C" void finalize_model();
 
 // ALU operation codes using #define for C++
@@ -52,4 +56,4 @@ extern "C" void finalize_model();
 #define Forward_ex_mem  0b10
 #define Forward_mem_wb  0b01
 
-#endif  // REFERENCE_MODEL_H
+#endif
