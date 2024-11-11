@@ -4,6 +4,10 @@
 class control_in_agent  extends uvm_agent;
     `uvm_component_param_utils(control_in_agent)
 
+    // uVC sequencer.
+    uvm_sequencer #(control_in_seq_item) m_sequencer;
+    // uVC monitor.
+    control_in_monitor m_monitor; // Behöver vi titta på denna ens?????????
     // uVC driver.
     control_in_driver m_driver;
     // uVC configuration object.
@@ -27,9 +31,16 @@ class control_in_agent  extends uvm_agent;
         end
         // Store uVC configuration into UVM config DB used by the uVC.
         uvm_config_db #(control_in_config)::set(this,"*","control_in_config",m_config);
+        // Store uVC agent into UVM config DB
         if (m_config.is_active == UVM_ACTIVE) begin
+            // Create uVC sequencer
+            m_sequencer  = uvm_sequencer #(control_in_seq_item)::type_id::create("control_in_sequencer",this);
             // Create uVC driver
             m_driver = control_in_driver::type_id::create("control_in_driver",this);
+        end
+        if (m_config.has_monitor) begin
+            // Create uVC monitor
+            m_monitor = control_in_monitor::type_id::create("control_in_monitor",this);
         end
     endfunction : build_phase
 
@@ -38,6 +49,10 @@ class control_in_agent  extends uvm_agent;
     //------------------------------------------------------------------------------
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
+        // If driver active connect then sequencer to the driver.
+        if (m_config.is_active == UVM_ACTIVE) begin
+            m_driver.seq_item_port.connect(m_sequencer.seq_item_export);
+        end
     endfunction : connect_phase
 
     //------------------------------------------------------------------------------
@@ -49,4 +64,3 @@ class control_in_agent  extends uvm_agent;
     endfunction : end_of_elaboration_phase
   
 endclass: control_in_agent
-
