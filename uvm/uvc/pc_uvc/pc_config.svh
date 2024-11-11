@@ -16,20 +16,20 @@ class pc_config extends uvm_object;
 
     // The Sequencer and driver are activated
     bit is_active=1;
-    // The clock period
-    // int unsigned  clock_period=100;
-    // clock uVC virtual CLOCK_IF interface.
+    
+    int logic[31:0]  pc = 0;        // maby NOP instruction????????
+    
     virtual pc_if  m_vif;
 
     `uvm_object_utils_begin(pc_config)
     `uvm_field_int(is_active,UVM_ALL_ON|UVM_DEC)
-    // `uvm_field_int(clock_period,UVM_ALL_ON|UVM_DEC)
+    `uvm_field_int(pc,UVM_ALL_ON|UVM_DEC)
     `uvm_object_utils_end
 
     //------------------------------------------------------------------------------
     // The constructor for the component.
     //------------------------------------------------------------------------------
-    function new (string name = "clock_config");
+    function new (string name = "pc_config");
         super.new(name);
     endfunction : new
 
