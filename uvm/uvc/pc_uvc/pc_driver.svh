@@ -1,14 +1,8 @@
 //------------------------------------------------------------------------------
-// clock_driver class
-//
-// This class generates a clock at a given period.
-//
-// The configuration object for this class is clock_config. It must be
-// passed in through the uvm_config_db at the creation of this component.
-//
+
 //------------------------------------------------------------------------------
 class pc_driver extends uvm_driver;
-    `uvm_component_utils(clock_driver)
+    `uvm_component_utils(pc_driver)
 
     // CLOCK uVC configuration object.
     pc_config  m_config;
@@ -35,13 +29,12 @@ class pc_driver extends uvm_driver;
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
         // Perform the requested action and send response back.
-        `uvm_info("clock_driver",$sformatf("Start clock with period %0d", m_config.clock_period),UVM_MEDIUM)
+        `uvm_info("pc_driver",$sformatf("Start pc with  %0d", m_config.pc),UVM_MEDIUM)
         // Reset signal
-        m_config.m_vif.clock <= 0;
+        m_config.m_vif.pc <= 0;
         // Generate clock
         forever begin
-            #(m_config.clock_period/2);
-            m_config.m_vif.clock <= ~m_config.m_vif.clock;
+            m_config.m_vif.pc <= ~m_config.m_vif.pc; // driver takes puts value from sequencer and outputs to the virtual interface 
         end
     endtask : run_phase
 
