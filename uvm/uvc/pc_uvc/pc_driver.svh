@@ -34,7 +34,7 @@ class pc_driver extends uvm_driver;
         m_config.m_vif.pc <= 0;
         // Generate clock
         forever begin
-            m_config.m_vif.pc <= ~m_config.m_vif.pc; // driver takes puts value from sequencer and outputs to the virtual interface 
+            m_config.m_vif.pc <= m_config.m_vif.pc; // driver takes puts value from sequencer and outputs to the virtual interface 
         end
     endtask : run_phase
 
