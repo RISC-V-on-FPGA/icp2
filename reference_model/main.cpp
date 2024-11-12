@@ -239,6 +239,66 @@ int main() {
     * ************************************************************************
     */
 
+    // TODO: I could expand on this to test every part of the ALU (skip above code) maybe do this later
+
+    control_in = (ALU_ADD << 12);
+    for (int i = 0; i < 1000000; i++) {
+        data1 = distrib(gen);
+        data2 = distrib(gen);
+        forward_ex_mem = distrib(gen);
+        forward_mem_wb = distrib(gen);
+
+        rs1 = distrib(gen) % 32; // We only have 32 registers
+        rs2 = distrib(gen) % 32; // We only have 32 registers
+        ex_mem_rd = distrib(gen) % 32; // We only have 32 registers
+        mem_wb_rd = distrib(gen) % 32; // We only have 32 registers
+        
+        ex_mem_RegWrite = distrib(gen) % 2; // Either 1 or 0
+        mem_wb_RegWrite = distrib(gen) % 2; // Either 1 or 0
+
+        // Call the process_data function to execute the stage logic
+        process_data(pc, control_in, data1, data2, immediate_data, rd_in,
+                     rs1, rs2, ex_mem_rd, mem_wb_rd, ex_mem_RegWrite, mem_wb_RegWrite,
+                     forward_ex_mem, forward_mem_wb);
+
+        result = get_alu_data();
+        assert(sizeof(result) <= 4 && "Result is larger than 32 bits");
+
+        int left_operand, right_operand;
+        // Logic for mux_ctrl_left
+        if (mem_wb_RegWrite
+            && (mem_wb_rd != 0)
+            && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs1)
+            && (mem_wb_rd == rs1)) {
+            std::cout << "mem_wb fowarding!!" << std::endl;
+            left_operand = forward_mem_wb; 
+        } else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs1)) {
+            std::cout << "ex_mem fowarding!!" << std::endl;
+            left_operand = forward_ex_mem;
+        } else {
+            std::cout << "normal op" << std::endl;
+            left_operand = data1;
+        }
+
+        // Logic for mux_ctrl_right
+        if (mem_wb_RegWrite
+            && (mem_wb_rd != 0)
+            && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs2)
+            && (mem_wb_rd == rs2)) {
+            std::cout << "mem_wb fowarding!!" << std::endl;
+            right_operand = forward_mem_wb;
+        } else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs2)) {
+            std::cout << "ex_mem fowarding!!" << std::endl;
+            right_operand = forward_ex_mem;
+        } else {
+            std::cout << "normal op" << std::endl;
+            right_operand = data2;
+        }
+
+        assert(result = left_operand + right_operand && "Forwarding is not correct") ;
+
+    }
+
 
     // Finalize the model
     std::cout << "Finalizing the reference model..." << std::endl;
