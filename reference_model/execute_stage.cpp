@@ -3,6 +3,7 @@
 #include "execute_stage.h"
 #include <cstdint>
 // #include <ios>
+#include <ios>
 #include <ostream>
 
 class ExecuteStage {
@@ -147,6 +148,12 @@ private:
     int rd_out;
     int pc_out;
 
+    /** 
+    * ************************************************************************
+    * ****** FORWARDING UNIT *************************************************
+    * ************************************************************************
+    */
+
     void forwarding_unit(
         int rs1,
         int rs2,
@@ -183,7 +190,13 @@ private:
         }
     }
 
-    void alu(
+    /** 
+    * ************************************************************************
+    * ****** ALU *************************************************************
+    * ************************************************************************
+    */
+
+    void alu( // TODO: The ALU must act correctly on overflow stuff. Make sure this is true
             int ALUOp,
             int left_operand,
             int right_operand,
@@ -192,13 +205,17 @@ private:
         
         switch (ALUOp) {
             case ALU_SLL:
-                // TODO
+                *alu_data = left_operand << (right_operand % 32);
                 break;
             case ALU_SRL:
-                // TODO
+                *alu_data = (unsigned)left_operand >> (right_operand % 32);
                 break;
             case ALU_SRA:
-                // TODO
+                if (left_operand < 0 && right_operand > 0) {
+                    *alu_data = left_operand >> right_operand | ~(~0U >> right_operand);
+                } else {
+                    *alu_data = left_operand >> right_operand;
+                }
                 break;
 
             case ALU_ADD:
@@ -222,11 +239,11 @@ private:
                 break;
 
             case ALU_SLTU:
-                // TODO
+                *alu_data = (unsigned)left_operand < (unsigned)right_operand;
                 break;
 
             case ALU_SLT:
-                // TODO
+                *alu_data = left_operand < right_operand;
                 break;
 
             default:
