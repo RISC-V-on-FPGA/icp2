@@ -41,7 +41,7 @@ class control_in_monitor  extends uvm_monitor;
     //------------------------------------------------------------------------------
     task run_phase(uvm_phase phase);
         process check_process;
-        bit [7:0] rec_data;         // denna skall vara en control_in ????????????
+        bit[31:0] rec_data;     // stämmer detta eller skall det egentligen vara en "control_type" -> vi har ju: "rand bit [31:0] control_in;" fårn seq item filen???????
 
         `uvm_info(get_name(),$sformatf("Starting serial interface monitoring"),UVM_HIGH)
         fork
@@ -79,49 +79,61 @@ class control_in_monitor  extends uvm_monitor;
                             check_process.kill();
                         end
                     end
-                    // Check output data_valid and serial data
+                    // Checking the control_in on the m_vif
                     forever begin
                         control_in_seq_item  seq_item;
-                        int bits;
-                        bit parity_error;
-                        bits = (m_config.parity_enable ? 9 : 8);
-                        // bits = 8;
-                        check_process = process::self();
-                        for (int nn=0; nn<bits; nn++) begin
-                            // Wait for start bit to be set
-                            if (nn==0) begin
-                                if (m_config.m_vif.start_bit==0) begin
-                                    `uvm_info(get_name(),$sformatf("Wait for start bit....."),UVM_HIGH)
-                                    @(posedge m_config.m_vif.start_bit);
-                                    @(negedge m_config.m_vif.clk);
-                                end
-                                rec_data= 0;
-                                `uvm_info(get_name(),$sformatf("Received start bit"),UVM_HIGH)
-                            end
-                            if (nn < 8) begin
-                                // Store received serial data bit
-                                rec_data[nn]= m_config.m_vif.control_in;
-                                `uvm_info(get_name(),$sformatf("Received bitno=%0d value=%0d", nn, m_config.m_vif.control_in),UVM_HIGH)
-                            end
-                            else begin
-                                // Calculate parity error based on received serial parity bit
-                                //Task 5: When everything looks good, Uncomment this!
-                                parity_error = ($countones(rec_data) + m_config.m_vif.control_in) & 1;
-                                `uvm_info(get_name(),$sformatf("Received bitno=%0d parity=%0d", nn, m_config.m_vif.control_in),UVM_HIGH)
-                            end
-                            @(negedge m_config.m_vif.clk);
-                            if (nn==(bits-1)) begin
-                                // Create a new control_in sequence item with expected data
-                                `uvm_info(get_name(),$sformatf("Predict data output value=%0d", rec_data),UVM_HIGH)
-                                seq_item = control_in_seq_item::type_id::create("seq_item");
-                                seq_item.control_in= rec_data;
-                                //Task 5: And this!
-                                #1ns;
-                                seq_item.parity_error= parity_error;
-                                seq_item.monitor_data_valid = 1;
-                                m_analysis_port.write(seq_item);
-                            end
-                        end
+                        bit[31:0] control_in;
+
+                        check_process = process::self();        
+                        control_in = m_config.m_vif.control_in; // samplar det som finns på vårt interface
+                        `uvm_info(get_name(),$sformatf("Received control_in=%0d", m_config.m_vif.control_in),UVM_HIGH) // kod for utskrift?????
+
+                        
+
+
+
+
+                        // givet från serial_data
+                        // int bits;
+                        // bit parity_error;
+                        // bits = (m_config.parity_enable ? 9 : 8);
+                        // // bits = 8;
+                        // // check_process = process::self();
+                        // for (int nn=0; nn<bits; nn++) begin
+                        //     // Wait for start bit to be set
+                        //     if (nn==0) begin
+                        //         if (m_config.m_vif.start_bit==0) begin
+                        //             `uvm_info(get_name(),$sformatf("Wait for start bit....."),UVM_HIGH)
+                        //             @(posedge m_config.m_vif.start_bit);
+                        //             @(negedge m_config.m_vif.clk);
+                        //         end
+                        //         rec_data= 0;
+                        //         `uvm_info(get_name(),$sformatf("Received start bit"),UVM_HIGH)
+                        //     end
+                        //     if (nn < 8) begin
+                        //         // Store received serial data bit
+                        //         rec_data[nn]= m_config.m_vif.control_in;
+                        //         `uvm_info(get_name(),$sformatf("Received bitno=%0d value=%0d", nn, m_config.m_vif.control_in),UVM_HIGH)
+                        //     end
+                        //     else begin
+                        //         // Calculate parity error based on received serial parity bit
+                        //         //Task 5: When everything looks good, Uncomment this!
+                        //         parity_error = ($countones(rec_data) + m_config.m_vif.control_in) & 1;
+                        //         `uvm_info(get_name(),$sformatf("Received bitno=%0d parity=%0d", nn, m_config.m_vif.control_in),UVM_HIGH)
+                        //     end
+                        //     @(negedge m_config.m_vif.clk);
+                        //     if (nn==(bits-1)) begin
+                        //         // Create a new control_in sequence item with expected data
+                        //         `uvm_info(get_name(),$sformatf("Predict data output value=%0d", rec_data),UVM_HIGH)
+                        //         seq_item = control_in_seq_item::type_id::create("seq_item");
+                        //         seq_item.control_in= rec_data;
+                        //         //Task 5: And this!
+                        //         #1ns;
+                        //         seq_item.parity_error= parity_error;
+                        //         seq_item.monitor_data_valid = 1;
+                        //         m_analysis_port.write(seq_item);
+                        //     end
+                        // end
                     end
                 join_any
             end
