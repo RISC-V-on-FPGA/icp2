@@ -1,12 +1,16 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "control_in_seq_item.svh"  // Include the item file
+
 class control_in_seq extends uvm_sequence #(control_in_seq_item);
     `uvm_object_utils(control_in_seq)
 
-    rand bit[31:0] control_in;
+    rand bit [31:0] control_in;
 
-    //TODO: Add the different fields in control_in (controltype), to be randomized and assigned to control_in.
+    // Fields to be randomized
     rand bit [3:0] ALUop;
     rand bit [2:0] encoding;
     rand bit       ALUsrc;
@@ -17,42 +21,29 @@ class control_in_seq extends uvm_sequence #(control_in_seq_item);
     rand bit       is_branch;
     rand bit [2:0] BranchType;
 
-    control_in = {ALUop,
-                 encoding,
-                 ALUsrc,
-                 MemRead,
-                 MemWrite,
-                 RegWrite,
-                 MemtoReg,
-                 is_branch,
-                 BranchType}; // This might not work, but looks nice ??????
-
-    constraint ALUop {
-        ALUop == {4'b0000 ||
-                  4'b0001 ||
-                  4'b0010 ||
-                  4'b0100 ||
-                  4'b0101 ||
-                  4'b0110 ||
-                  4'b1000 ||
-                  4'b1001 ||
-                  4'b1010 ||
-                  4'b1100 ||
-                  4'b1101;} //Might not work, :( ??????
+    // Valid ALU operation codes
+    constraint ALUop_c {
+        ALUop inside {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
+                      4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
     }
 
-    constraint encoding {
+    constraint encoding_c {
         encoding <= 6; 
     }
 
-    constraint BranchType {
+    constraint BranchType_c {
         BranchType <= 6;
     }
+
+    // Function to pack the fields into control_in
+    function void pack_control_in();
+        control_in = {ALUop, encoding, ALUsrc, MemRead, MemWrite, RegWrite, MemtoReg, is_branch, BranchType};
+    endfunction
 
     //------------------------------------------------------------------------------
     // The constructor for the sequence.
     //------------------------------------------------------------------------------
-    function new(string name="control_in_seq");
+    function new(string name ="control_in_seq");
         super.new(name);
     endfunction : new
 
@@ -60,6 +51,20 @@ class control_in_seq extends uvm_sequence #(control_in_seq_item);
     // The main task to be executed within the sequence.
     //------------------------------------------------------------------------------
     task body();
+        // From chat ;)
+        `uvm_info("control_in_seq", "Starting control_in_seq body", UVM_MEDIUM)
+        
+        // Randomize fields
+        if (!this.randomize()) begin
+            `uvm_error("control_in_seq", "Randomization failed")
+            return;
+        end
+
+        // Pack the control fields
+        pack_control_in();
+        
+        // Optionally display or perform actions with control_in here
+        `uvm_info("control_in_seq", $sformatf("Packed control_in: %h", control_in), UVM_MEDIUM)
         // Create sequence
         req = control_in_seq_item::type_id::create("req");
         // Wait for sequencer ready

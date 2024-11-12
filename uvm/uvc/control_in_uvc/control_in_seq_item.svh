@@ -1,6 +1,10 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
+// // Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+
 class control_in_seq_item extends uvm_sequence_item;
 
     // Array with serial data bits

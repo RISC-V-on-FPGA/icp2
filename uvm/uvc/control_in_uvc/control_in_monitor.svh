@@ -10,6 +10,12 @@
 // The object is then written to the analysis port.
 //
 //------------------------------------------------------------------------------
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "control_in_config.svh"
+// `include "control_in_seq_item.svh"
+
 class control_in_monitor  extends uvm_monitor;
     `uvm_component_param_utils(control_in_monitor)
 
@@ -69,7 +75,7 @@ class control_in_monitor  extends uvm_monitor;
                         // Create a new control_in sequence item with expected data. Here we sample signal to send to scoreboard.
                         `uvm_info(get_name(),$sformatf("Received data valid value=%0d", m_config.m_vif.control_in),UVM_HIGH)
                         seq_item = control_in_seq_item::type_id::create("seq_item");
-                        seq_item.data= m_config.m_vif.control_in;
+                        seq_item.control_in = m_config.m_vif.control_in;
                         m_analysis_port.write(seq_item);
                     end
                 end

@@ -1,13 +1,21 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "control_in_seq_item.svh"  // Include the item file
+// `include "control_in_monitor.svh" 
+// `include "control_in_driver.svh" 
+// `include "control_in_config.svh" 
+
 class control_in_agent  extends uvm_agent;
     `uvm_component_param_utils(control_in_agent)
 
     // uVC sequencer.
     uvm_sequencer #(control_in_seq_item) m_sequencer;
     // uVC monitor.
-    control_in_monitor m_monitor; // Behöver vi titta på denna ens?????????
+    control_in_monitor m_monitor;
     // uVC driver.
     control_in_driver m_driver;
     // uVC configuration object.

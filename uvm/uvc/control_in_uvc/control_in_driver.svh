@@ -1,6 +1,11 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "control_in_config.svh"
+
 class control_in_driver extends uvm_driver;
     `uvm_component_utils(control_in_driver)
 
