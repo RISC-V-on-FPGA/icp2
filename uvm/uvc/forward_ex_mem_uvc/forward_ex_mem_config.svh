@@ -12,7 +12,7 @@
 //  m_vif - the clock uVC virtual clock_if interface.
 //
 //------------------------------------------------------------------------------
-class pc_config extends uvm_object;
+class forward_ex_mem_config extends uvm_object;
 
     // The Sequencer and driver are activated
     bit is_active=1;

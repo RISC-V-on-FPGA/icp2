@@ -1,20 +1,25 @@
 //------------------------------------------------------------------------------
-// forward_mem_wb_agent class
-//
-// This is the top-level uVC agent for the forward_mem_wb interface.
-//
-// It reads the uvc configuration from the uvm config database and sets the
-// configuration in the uvc driver. It creates the forward_mem_wb driver if the
-// configuration is active.
-//
-//------------------------------------------------------------------------------
-class forward_mem_wb_agent  extends uvm_agent;
-    `uvm_component_param_utils(forward_mem_wb_agent)
 
+//------------------------------------------------------------------------------
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "mem_wb_RegWrite_seq_item.svh"  // Include the item file
+// `include "mem_wb_RegWrite_monitor.svh"
+// `include "mem_wb_RegWrite_driver.svh"
+// `include "mem_wb_RegWrite_config.svh"
+
+class mem_wb_RegWrite_agent  extends uvm_agent;
+    `uvm_component_param_utils(mem_wb_RegWrite_agent)
+
+    // uVC sequencer.
+    uvm_sequencer #(mem_wb_RegWrite_seq_item) m_sequencer;
+    // uVC monitor.
+    mem_wb_RegWrite_monitor m_monitor;
     // uVC driver.
-    forward_mem_wb_driver m_driver;
+    mem_wb_RegWrite_driver m_driver;
     // uVC configuration object.
-    forward_mem_wb_config m_config;
+    mem_wb_RegWrite_config m_config;
 
     //------------------------------------------------------------------------------
     // The constructor for the component.
@@ -29,14 +34,21 @@ class forward_mem_wb_agent  extends uvm_agent;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         // Read the uVC configuration object from UVM config DB.
-        if (!uvm_config_db #(forward_mem_wb_config)::get(this,"*","config",m_config)) begin
+        if (!uvm_config_db #(mem_wb_RegWrite_config)::get(this,"*","config",m_config)) begin
             `uvm_fatal(get_name(),"Cannot find <config> agent configuration!")
         end
         // Store uVC configuration into UVM config DB used by the uVC.
-        uvm_config_db #(forward_mem_wb_config)::set(this,"*","forward_mem_wb_config",m_config);
+        uvm_config_db #(mem_wb_RegWrite_config)::set(this,"*","mem_wb_RegWrite_config",m_config);
+        // Store uVC agent into UVM config DB
         if (m_config.is_active == UVM_ACTIVE) begin
+            // Create uVC sequencer
+            m_sequencer  = uvm_sequencer #(mem_wb_RegWrite_seq_item)::type_id::create("mem_wb_RegWrite_sequencer",this);
             // Create uVC driver
-            m_driver = forward_mem_wb_driver::type_id::create("forward_mem_wb_driver",this);
+            m_driver = mem_wb_RegWrite_driver::type_id::create("mem_wb_RegWrite_driver",this);
+        end
+        if (m_config.has_monitor) begin
+            // Create uVC monitor
+            m_monitor = mem_wb_RegWrite_monitor::type_id::create("mem_wb_RegWrite_monitor",this);
         end
     endfunction : build_phase
 
@@ -45,6 +57,10 @@ class forward_mem_wb_agent  extends uvm_agent;
     //------------------------------------------------------------------------------
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
+        // If driver active connect then sequencer to the driver.
+        if (m_config.is_active == UVM_ACTIVE) begin
+            m_driver.seq_item_port.connect(m_sequencer.seq_item_export);
+        end
     endfunction : connect_phase
 
     //------------------------------------------------------------------------------
@@ -52,8 +68,7 @@ class forward_mem_wb_agent  extends uvm_agent;
     //------------------------------------------------------------------------------
     function void end_of_elaboration_phase(uvm_phase phase);
         super.end_of_elaboration_phase(phase);
-        `uvm_info(get_name(),$sformatf("forward_mem_wb agent is alive...."), UVM_LOW)
+        `uvm_info(get_name(),$sformatf("mem_wb_RegWrite agent is alive...."), UVM_LOW)
     endfunction : end_of_elaboration_phase
   
-endclass: forward_mem_wb_agent
-
+endclass: mem_wb_RegWrite_agent
