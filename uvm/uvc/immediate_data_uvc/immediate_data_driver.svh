@@ -1,6 +1,11 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "immediate_data_config.svh"
+
 class immediate_data_driver extends uvm_driver;
     `uvm_component_utils(immediate_data_driver)
 
@@ -29,9 +34,10 @@ class immediate_data_driver extends uvm_driver;
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
         // Perform the requested action and send response back.
-        `uvm_info("immediate_data_driver",$sformatf("Start immediate_data with  %0d", m_config.immediate_data),UVM_MEDIUM)
+        `uvm_info("immediate_data_driver",$sformatf("Start immediate_data with period %0d", m_config.immediate_data),UVM_MEDIUM)
         // Reset signal
-        m_config.m_vif.immediate_data <= 0;
+        // sätter OP = ADD -> encoding = I-type -> ALUSrc = 1 för immediate -> MemRead = 0 inte läsa minne -> MemWrite = 0 för inte läsa minne -> RegWrite = 1 vill skriva minne -> MemToreg = 0 -> IsBranch = 0 -> BranchType spelar ingen roll
+        m_config.m_vif.immediate_data <= 0;              //behövs detta, ger oss NOP instruction???????????????????????????
         // Generate immediate_data
         forever begin
             m_config.m_vif.immediate_data <= m_config.m_vif.immediate_data;
