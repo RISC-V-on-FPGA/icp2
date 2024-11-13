@@ -15,7 +15,7 @@ class data1_agent  extends uvm_agent;
     function new(string name = "", uvm_component parent = null);
         super.new(name, parent);
     endfunction : new
-    
+
     //------------------------------------------------------------------------------
     // The build phase for the uVC.
     //------------------------------------------------------------------------------
