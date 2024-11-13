@@ -22,16 +22,16 @@ class control_in_seq extends uvm_sequence #(control_in_seq_item);
     rand bit [2:0] BranchType;
 
     // Valid ALU operation codes
-    constraint ALUop_c {
+    constraint alu_op_c {
         ALUop inside {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
                       4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
     }
 
     constraint encoding_c {
-        encoding <= 6; 
+        encoding <= 6;
     }
 
-    constraint BranchType_c {
+    constraint branch_type_c {
         BranchType <= 6;
     }
 
@@ -53,7 +53,7 @@ class control_in_seq extends uvm_sequence #(control_in_seq_item);
     task body();
         // From chat ;)
         `uvm_info("control_in_seq", "Starting control_in_seq body", UVM_MEDIUM)
-        
+
         // Randomize fields
         if (!this.randomize()) begin
             `uvm_error("control_in_seq", "Randomization failed")
@@ -62,7 +62,7 @@ class control_in_seq extends uvm_sequence #(control_in_seq_item);
 
         // Pack the control fields
         pack_control_in();
-        
+
         // Optionally display or perform actions with control_in here
         `uvm_info("control_in_seq", $sformatf("Packed control_in: %h", control_in), UVM_MEDIUM)
         // Create sequence

@@ -5,9 +5,9 @@
 // import uvm_pkg::*;
 // `include "uvm_macros.svh"
 // `include "control_in_seq_item.svh"  // Include the item file
-// `include "control_in_monitor.svh" 
-// `include "control_in_driver.svh" 
-// `include "control_in_config.svh" 
+// `include "control_in_monitor.svh"
+// `include "control_in_driver.svh"
+// `include "control_in_config.svh"
 
 class control_in_agent  extends uvm_agent;
     `uvm_component_param_utils(control_in_agent)
@@ -27,7 +27,7 @@ class control_in_agent  extends uvm_agent;
     function new(string name = "", uvm_component parent = null);
         super.new(name, parent);
     endfunction : new
-    
+
     //------------------------------------------------------------------------------
     // The build phase for the uVC.
     //------------------------------------------------------------------------------

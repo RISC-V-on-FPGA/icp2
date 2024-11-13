@@ -9,7 +9,7 @@ class control_in_config extends uvm_object;
 
     // The Sequencer and driver are activated
     bit is_active = 1;
-    // The monitor is active. 
+    // The monitor is active.
     bit has_monitor = 1;
     // The control_in period
     bit[31:0]  control_in;       //      kanske behöver importera komponenter från kommon för att han skall fatta vad control_type är?????????????????????
