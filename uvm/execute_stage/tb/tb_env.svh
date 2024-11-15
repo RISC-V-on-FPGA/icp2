@@ -19,7 +19,7 @@ class tb_env extends uvm_env;
     scoreboard   m_scoreboard;
 
     // All the agents
-    alu_data_agent m_alu_data;
+    alu_data_agent m_alu_data_agent;
     clock_agent  m_clock_agent;
     control_in_agent m_control_in_agent;
     control_out_agent m_control_out_agent;
