@@ -130,21 +130,31 @@ module tb_top;
     pc_out_if  i_pc_out_if();
     assign tb_pc_out = i_pc_out_if.pc_out;
 
+    // The DUT of doom
+    execute_stage execute_stage_dut (
+        .clk(tb_clk),
+        .pc(tb_pc),
+        .control_in(tb_control_in),
+        .data1(tb_data1),
+        .data2(tb_data2),
+        .immediate_data(tb_immediate_data),
+        .rd_in(tb_rd_in),
+        .rs1(tb_rs1),
+        .rs2(tb_rs2),
+        .ex_mem_rd(tb_ex_mem_rd),
+        .mem_wb_rd(tb_mem_wb_rd),
+        .ex_mem_RegWrite(tb_ex_mem_RegWrite),
+        .mem_wb_RegWrite(tb_mem_wb_RegWrite),
+        .forward_ex_mem(tb_forward_ex_mem),   // Value forwarded from mem stage, better name?
+        .forward_mem_wb(tb_forward_mem_wb),   // Value from write back stage
 
-    // Instantiation of the SERIAL_TO_PARALLEL RTL top
-    serial_to_parallel serial_to_parallel_dut 
-    (
-        .clock(tb_clock),
-        .reset_n(tb_reset_n),
-        .start_bit(tb_start_bit),
-        .serial_data(tb_serial_data),
-        .parity_enable(tb_parity_enable),
-        .data_valid(tb_data_valid),
-        .data(tb_data),
-        .parity_error(tb_parity_error)
+        .control_out(tb_control_out),
+        .ZeroFlag(tb_ZeroFlag),
+        .alu_data(tb_alu_data),
+        .memory_data(tb_memory_data),
+        .rd_out(tb_rd_out),
+        .pc_out(tb_pc_out)
     );
-
-
 
     
 
@@ -156,6 +166,22 @@ module tb_top;
         uvm_config_db #(top_config)::set(null,"tb_top","top_config", m_top_config);
         // Save all virtual interface instances into configuration
         m_top_config.m_clock_config.m_vif = i_clock_if;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         m_top_config.m_reset_config.m_vif = i_reset_if;
         m_top_config.m_serial_data_config.m_vif = i_serial_data_if;
         m_top_config.m_parallel_data_config.m_vif = i_parallel_data_if;
