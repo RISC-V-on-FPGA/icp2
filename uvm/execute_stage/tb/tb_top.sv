@@ -156,8 +156,6 @@ module tb_top;
         .pc_out(tb_pc_out)
     );
 
-    
-
     // Initialize TB configuration
     initial begin
         top_config  m_top_config;
@@ -166,25 +164,26 @@ module tb_top;
         uvm_config_db #(top_config)::set(null,"tb_top","top_config", m_top_config);
         // Save all virtual interface instances into configuration
         m_top_config.m_clock_config.m_vif = i_clock_if;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        m_top_config.m_reset_config.m_vif = i_reset_if;
-        m_top_config.m_serial_data_config.m_vif = i_serial_data_if;
-        m_top_config.m_parallel_data_config.m_vif = i_parallel_data_if;
+        m_top_config.m_pc_config.m_vif = i_pc_if;
+        m_top_config.m_control_in_config.m_vif = i_control_in_if;
+        m_top_config.m_data1_config.m_vif = i_data1_if;
+        m_top_config.m_data2_config.m_vif = i_data2_if;
+        m_top_config.m_immediate_data_config.m_vif = i_immediate_data_if;
+        m_top_config.m_rd_in_config.m_vif = i_rd_in_if;
+        m_top_config.m_rs1_config.m_vif = i_rs1_if;
+        m_top_config.m_rs2_config.m_vif = i_rs2_if;
+        m_top_config.m_ex_mem_rd_config.m_vif = i_ex_mem_rd_if;
+        m_top_config.m_mem_wb_rd_config.m_vif = i_mem_wb_rd_if;
+        m_top_config.m_ex_mem_RegWrite_config.m_vif = i_ex_mem_RegWrite_if;
+        m_top_config.m_mem_wb_RegWrite_config.m_vif = i_mem_wb_RegWrite_if;
+        m_top_config.m_forward_ex_mem_config.m_vif = i_forward_ex_mem_if;
+        m_top_config.m_forward_mem_wb_config.m_vif = i_forward_mem_wb_if;
+        m_top_config.m_control_out_config.m_vif = i_control_out_if;
+        m_top_config.m_ZeroFlag_config.m_vif = i_ZeroFlag_if;
+        m_top_config.m_alu_data_config.m_vif = i_alu_data_if;
+        m_top_config.m_memory_data_config.m_vif = i_memory_data_if;
+        m_top_config.m_rd_out_config.m_vif = i_rd_out_if;
+        m_top_config.m_pc_out_config.m_vif = i_pc_out_if;
     end
 
     // Start UVM test_base environment
