@@ -16,7 +16,6 @@ package tb_pkg;
 
     // Include files from the alu_data uVC
     `include "alu_data_seq_item.svh"
-    `include "alu_data_seq.svh"
     `include "alu_data_config.svh"
     `include "alu_data_driver.svh"
     `include "alu_data_monitor.svh"
@@ -37,7 +36,6 @@ package tb_pkg;
 
     // Include files from the control_out uVC
     `include "control_out_seq_item.svh"
-    `include "control_out_seq.svh"
     `include "control_out_config.svh"
     `include "control_out_driver.svh"
     `include "control_out_monitor.svh"
@@ -117,7 +115,6 @@ package tb_pkg;
 
     // Include files from the memory_data uVC
     `include "memory_data_seq_item.svh"
-    `include "memory_data_seq.svh"
     `include "memory_data_config.svh"
     `include "memory_data_driver.svh"
     `include "memory_data_monitor.svh"
@@ -125,7 +122,6 @@ package tb_pkg;
 
     // Include files from the pc_out uVC
     `include "pc_out_seq_item.svh"
-    `include "pc_out_seq.svh"
     `include "pc_out_config.svh"
     `include "pc_out_driver.svh"
     `include "pc_out_monitor.svh"
@@ -149,7 +145,6 @@ package tb_pkg;
 
     // Include files from the rd_out uVC
     `include "rd_out_seq_item.svh"
-    `include "rd_out_seq.svh"
     `include "rd_out_config.svh"
     `include "rd_out_driver.svh"
     `include "rd_out_monitor.svh"
@@ -173,7 +168,6 @@ package tb_pkg;
 
     // Include files from the ZeroFlag uVC
     `include "ZeroFlag_seq_item.svh"
-    `include "ZeroFlag_seq.svh"
     `include "ZeroFlag_config.svh"
     `include "ZeroFlag_driver.svh"
     `include "ZeroFlag_monitor.svh"
