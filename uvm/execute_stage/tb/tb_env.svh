@@ -15,16 +15,32 @@ class tb_env extends uvm_env;
 
     // TB configuration object with all setup for the TB environment
     top_config   m_top_config;
-    // clock instance with clock uVC.
-    clock_agent  m_clock_agent;
-    // reset instance with reset uVC.
-    reset_agent  m_reset_agent;
-    // serial_data instance with serial_data uVC.
-    serial_data_agent m_serial_data_agent;
-    // parallel_data instance with parallel_data uVC.
-    parallel_data_agent m_parallel_data_agent;
     // scoreboard scoreboard.
     scoreboard   m_scoreboard;
+
+    // All the agents
+    alu_data_agent m_alu_data;
+    clock_agent  m_clock_agent;
+    control_in_agent m_control_in_agent;
+    control_out_agent m_control_out_agent;
+    data1_agent m_data1_agent;
+    data2_agent m_data2_agent;
+    ex_mem_rd_agent  m_ex_mem_rd_agent;
+    ex_mem_RegWrite_agent m_ex_mem_RegWrite_agent;
+    forward_ex_mem_agent m_forward_ex_mem_agent;
+    forward_mem_wb_agent m_forward_mem_wb_agent;
+    immediate_data_agent m_immediate_data_agent;
+    mem_wb_rd_agent m_mem_wb_rd_agent;
+    mem_wb_RegWrite_agent m_mem_wb_RegWrite_agent;
+    memory_data_agent m_memory_data_agent;
+    pc_out_agent m_pc_out_agent;
+    pc_agent m_pc_agent;
+    rd_in_agent m_rd_in_agent;
+    rd_out_agent m_rd_out_agent;
+    rs1_agent m_rs1_agent;
+    rs2_agent m_rs2_agent;
+    ZeroFlag_agent m_ZeroFlag_agent;
+
 
     //------------------------------------------------------------------------------
     // Creates and initializes an instance of this class using the normal
