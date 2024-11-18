@@ -72,7 +72,9 @@ class scoreboard extends uvm_component;
     // Functional coverage definitions
     //------------------------------------------------------------------------------
     covergroup execute_stage_covergrp;
-        // TODO
+        pc : coverpoint pc_value {
+            bins pc = {[0:2147483647]}
+        } 
     endgroup
 
     //------------------------------------------------------------------------------
@@ -249,24 +251,11 @@ class scoreboard extends uvm_component;
     // Check data if both input serial data and output data are valid.
     //------------------------------------------------------------------------------
     virtual function void check_data();
-        // Both serial data and parallel data need to valid before check the DUT data and parity error
-        if (input_data_valid && dut_data_valid) begin
-            // Check DUT data is correct
-            if (dut_data != input_data) begin
-                `uvm_error(get_name(), $sformatf("Data mismatch!!! Received data=%08b(%0d) Expected data=%08b(%0d)", dut_data, dut_data, input_data, input_data))
-            end
-            else begin
-                `uvm_info(get_name(),$sformatf("Received complete 8 data bits as expected. Data=%0d", dut_data), UVM_MEDIUM)
-            end
-            data_checked++;
-            // Check DUT parity error is correct
-            if (dut_parity_error != input_parity_error) begin
-                `uvm_error(get_name(), $sformatf("Parity error mismatch!!! Received parity error=%0s Expected=%0s", (dut_parity_error ? "PARITY_ERROR" : "OK"), input_parity_error ? "PARITY_ERROR" : "OK"))
-            end
-            // Clear valid to indicate the data and parity has been checked
-            input_data_valid= 0;
-            dut_data_valid= 0;
+
+        if (pc_out != pc) begin
+            `uvm_error(get_name(), $sformatf("PC is not forwared correctly, pc=%0d, pc_out=%0d", pc, pc_out))
         end
+
     endfunction :  check_data
 
     //------------------------------------------------------------------------------
@@ -278,12 +267,12 @@ class scoreboard extends uvm_component;
         $display("*****************************************************");
         $display("Number of checked data %0d", data_checked);
         $display("*****************************************************");
-        if (serial_to_parallel_covergrp.get_coverage() == 100.0) begin
+        if (execute_stage_covergrp.get_coverage() == 100.0) begin
             $display("FUNCTIONAL COVERAGE (100.0%%) PASSED....");
         end
         else begin
             $display("FUNCTIONAL COVERAGE FAILED!!!!!!!!!!!!!!!!!");
-            $display("Coverage = %0f", serial_to_parallel_covergrp.get_coverage());
+            $display("Coverage = %0f", execute_stage_covergrp.get_coverage());
         end
         $display("*****************************************************");
     endfunction : check_phase
