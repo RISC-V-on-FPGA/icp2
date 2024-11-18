@@ -47,6 +47,9 @@ class forward_ex_mem_agent  extends uvm_agent;
     //------------------------------------------------------------------------------
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
+        if (m_config.is_active == UVM_ACTIVE) begin
+            m_driver.seq_item_port.connect(m_sequencer.seq_item_export);
+        end
     endfunction : connect_phase
 
     //------------------------------------------------------------------------------

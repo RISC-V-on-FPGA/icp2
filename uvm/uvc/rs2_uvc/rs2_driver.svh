@@ -6,7 +6,7 @@
 // `include "uvm_macros.svh"
 // `include "rs2_config.svh"
 
-class rs2_driver extends uvm_driver;
+class rs2_driver extends uvm_driver #(rs2_seq_item);
     `uvm_component_utils(rs2_driver)
 
     // rs2 uVC configuration object.
@@ -39,7 +39,9 @@ class rs2_driver extends uvm_driver;
         // sätter OP = ADD -> encoding = I-type -> ALUSrc = 1 för immediate -> MemRead = 0 inte läsa minne -> MemWrite = 0 för inte läsa minne -> RegWrite = 1 vill skriva minne -> MemToreg = 0 -> IsBranch = 0 -> BranchType spelar ingen roll
         m_config.m_vif.rs2 <= 0;              //behövs detta, ger oss NOP instruction???????????????????????????
         // Generate rs2
+        rs2_seq_item seq_item;
         forever begin
+            seq_item_port.get(seq_item);
             m_config.m_vif.rs2 <= m_config.m_vif.rs2;
         end
     endtask : run_phase
