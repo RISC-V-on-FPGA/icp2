@@ -1,99 +1,77 @@
-//------------------------------------------------------------------------------
-// Scoreboard for the TBUVM TB.
-//
-// This class is an implementation of the scoreboard that monitors the TBUVM
-// testbench and checks the behavior of the DUT with regard to the
-// serial-to-parallel conversion. It provides the following features:
-//
-// - Monitors the input serial data and the output parallel data of the DUT.
-// - Checks if the output data of the DUT is correct with regard to the
-//   input serial data.
-// - Checks if the DUT is in the correct state during the transmission of data.
-// - Provides functional coverage for the transmission of data and the
-//   activation of the DUT's output.
-// - Provides error reporting for any errors that are detected during the simulation.
-//
-// This class is derived from the `uvm_component` class and implements the
-// `uvm_analysis_imp_scoreboard_reset`, `uvm_analysis_imp_scoreboard_serial_data`
-// and `uvm_analysis_imp_scoreboard_parallel_data` analysis ports.
-//
-// The functional coverage is provided by the `serial_to_parallel_covergrp`
-// coverage group.
-//
-//------------------------------------------------------------------------------
+
 // Instance analysis defines
-`uvm_analysis_imp_decl(_scoreboard_reset)
-`uvm_analysis_imp_decl(_scoreboard_serial_data)
-`uvm_analysis_imp_decl(_scoreboard_parallel_data)
+`uvm_analysis_imp_decl(_scoreboard_clk)
+`uvm_analysis_imp_decl(_scoreboard_pc)
+`uvm_analysis_imp_decl(_scoreboard_control_in)
+`uvm_analysis_imp_decl(_scoreboard_data1)
+`uvm_analysis_imp_decl(_scoreboard_data2)
+`uvm_analysis_imp_decl(_scoreboard_immediate_data)
+`uvm_analysis_imp_decl(_scoreboard_rd_in)
+`uvm_analysis_imp_decl(_scoreboard_rs1)
+`uvm_analysis_imp_decl(_scoreboard_rs2)
+`uvm_analysis_imp_decl(_scoreboard_ex_mem_rd)
+`uvm_analysis_imp_decl(_scoreboard_mem_wb_rd)
+`uvm_analysis_imp_decl(_scoreboard_ex_mem_RegWrite)
+`uvm_analysis_imp_decl(_scoreboard_mem_wb_RegWrite)
+`uvm_analysis_imp_decl(_scoreboard_forward_ex_mem)
+`uvm_analysis_imp_decl(_scoreboard_forward_mem_wb)
+`uvm_analysis_imp_decl(_scoreboard_control_out)
+`uvm_analysis_imp_decl(_scoreboard_ZeroFlag)
+`uvm_analysis_imp_decl(_scoreboard_alu_data)
+`uvm_analysis_imp_decl(_scoreboard_memory_data)
+`uvm_analysis_imp_decl(_scoreboard_rd_out)
+`uvm_analysis_imp_decl(_scoreboard_pc_out)
 class scoreboard extends uvm_component;
     `uvm_component_utils(scoreboard)
 
-    // reset data instance analysis connection
-    uvm_analysis_imp_scoreboard_reset #(reset_seq_item, scoreboard) m_reset_ap;
-    // serial_data instance analysis connection
-    uvm_analysis_imp_scoreboard_serial_data #(serial_data_seq_item, scoreboard) m_serial_data_ap;
-    // parallel_data instance analysis connection
-    uvm_analysis_imp_scoreboard_parallel_data #(parallel_data_seq_item, scoreboard) m_parallel_data_ap;
+    uvm_analysis_imp_scoreboard_clk #(clk_seq_item, scoreboard) m_clk_ap;
+    uvm_analysis_imp_scoreboard_pc #(pc_seq_item, scoreboard) m_pc_ap;
+    uvm_analysis_imp_scoreboard_control_in #(control_in_seq_item, scoreboard) m_control_in_ap;
+    uvm_analysis_imp_scoreboard_data1 #(data1_seq_item, scoreboard) m_data1_ap;
+    uvm_analysis_imp_scoreboard_data2 #(data2_seq_item, scoreboard) m_data2_ap;
+    uvm_analysis_imp_scoreboard_immediate_data #(immediate_data_seq_item, scoreboard) m_immediate_data_ap;
+    uvm_analysis_imp_scoreboard_rd_in #(rd_in_seq_item, scoreboard) m_rd_in_ap;
+    uvm_analysis_imp_scoreboard_rs1 #(rs1_seq_item, scoreboard) m_rs1_ap;
+    uvm_analysis_imp_scoreboard_rs2 #(rs2_seq_item, scoreboard) m_rs2_ap;
+    uvm_analysis_imp_scoreboard_ex_mem_rd #(ex_mem_rd_seq_item, scoreboard) m_ex_mem_rd_ap;
+    uvm_analysis_imp_scoreboard_mem_wb_rd #(mem_wb_rd_seq_item, scoreboard) m_mem_wb_rd_ap;
+    uvm_analysis_imp_scoreboard_ex_mem_RegWrite #(ex_mem_RegWrite_seq_item, scoreboard) m_ex_mem_RegWrite_ap;
+    uvm_analysis_imp_scoreboard_mem_wb_RegWrite #(mem_wb_RegWrite_seq_item, scoreboard) m_mem_wb_RegWrite_ap;
+    uvm_analysis_imp_scoreboard_forward_ex_mem #(forward_ex_mem_seq_item, scoreboard) m_forward_ex_mem_ap;
+    uvm_analysis_imp_scoreboard_control_out #(control_out_seq_item, scoreboard) m_control_out_ap;
+    uvm_analysis_imp_scoreboard_ZeroFlag #(ZeroFlag_seq_item, scoreboard) m_ZeroFlag_ap;
+    uvm_analysis_imp_scoreboard_alu_data #(alu_data_seq_item, scoreboard) m_alu_data_ap;
+    uvm_analysis_imp_scoreboard_memory_data #(memory_data_seq_item, scoreboard) m_memory_data_ap;
+    uvm_analysis_imp_scoreboard_rd_out #(rd_out_seq_item, scoreboard) m_rd_out_ap;
+    uvm_analysis_imp_scoreboard_pc_out #(pc_out_seq_item, scoreboard) m_pc_out_ap;
 
-    // Indicates if the input serial data is valid.
-    int unsigned input_data_valid;
-    // Indicates if there is a parity error in the input serial data.
-    int unsigned input_parity_error;
-    // The input serial data.
-    int unsigned input_data;
-    // Indicates if the output parallel data is valid.
-    int unsigned dut_data_valid;
-    // Indicates if there is a parity error in the output  parallel data.
-    int unsigned dut_parity_error;
-    // The output parallel data.
-    int unsigned dut_data;
-    // Indicates if the reset signal is active.
-    int unsigned reset_valid;
-    // The value of the reset signal.
-    int unsigned reset_value;
-    // Indicates how often the data has been checked.
-    int unsigned data_checked;
-    // Indicates the state of the transmission.
-    enum  { IDLE=0, START_BIT=1, ACTIVE=2} transmission_state;
-
+    int unsigned clk;
+    int unsigned pc;
+    int unsigned control_in;
+    int unsigned data1;
+    int unsigned data2;
+    int unsigned immediate_data;
+    int unsigned rd_in;
+    int unsigned rs1;
+    int unsigned rs2;
+    int unsigned ex_mem_rd;
+    int unsigned mem_wb_rd;
+    int unsigned ex_mem_RegWrite;
+    int unsigned mem_wb_RegWrite;
+    int unsigned forward_ex_mem;
+    int unsigned forward_mem_wb;
+    int unsigned control_out;
+    int unsigned ZeroFlag;
+    int unsigned alu_data;
+    int unsigned memory_data;
+    int unsigned rd_out;
+    int unsigned pc_out;
 
     //------------------------------------------------------------------------------
     // Functional coverage definitions
     //------------------------------------------------------------------------------
-    covergroup serial_to_parallel_covergrp;
-        reset : coverpoint reset_value iff (reset_valid) {
-            bins reset =  { 0 };
-            bins run=  { 1 };
-        }
-        transmission : coverpoint transmission_state {
-            bins ilde     =  { IDLE };
-            bins active   =  { ACTIVE };
-            bins start_bit=  { START_BIT };
-        }
-        parity_error : coverpoint input_parity_error iff (input_data_valid) {
-            bins ok =   { 0 };
-            bins error= { 1 };
-        }
-        data : coverpoint input_data iff (input_data_valid) {
-            wildcard bins bit0_passive = { 8'b???????0 };
-            wildcard bins bit1_passive = { 8'b??????0? };
-            wildcard bins bit2_passive = { 8'b?????0?? };
-            wildcard bins bit3_passive = { 8'b????0??? };
-            wildcard bins bit4_passive = { 8'b???0???? };
-            wildcard bins bit5_passive = { 8'b??0????? };
-            wildcard bins bit6_passive = { 8'b?0?????? };
-            wildcard bins bit7_passive = { 8'b0??????? };
-            wildcard bins bit0_active  = { 8'b???????1 };
-            wildcard bins bit1_active  = { 8'b??????1? };
-            wildcard bins bit2_active  = { 8'b?????1?? };
-            wildcard bins bit3_active  = { 8'b????1??? };
-            wildcard bins bit4_active  = { 8'b???1???? };
-            wildcard bins bit5_active  = { 8'b??1????? };
-            wildcard bins bit6_active  = { 8'b?1?????? };
-            wildcard bins bit7_active  = { 8'b1??????? };
-        }
-        state_cross : cross transmission_state, reset;
-        pariry_cross : cross data, parity_error;
+    covergroup execute_stage_covergrp;
+        // TODO
     endgroup
 
     //------------------------------------------------------------------------------
@@ -102,7 +80,7 @@ class scoreboard extends uvm_component;
     function new(string name = "scoreboard", uvm_component parent = null);
         super.new(name,parent);
         // Create coverage group
-        serial_to_parallel_covergrp = new();
+        execute_stage_covergrp = new();
     endfunction : new
 
     //------------------------------------------------------------------------------
@@ -111,9 +89,27 @@ class scoreboard extends uvm_component;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         // Create analysis connections
-        m_reset_ap = new("m_reset_ap", this);
-        m_serial_data_ap = new("m_serial_data_ap", this);
-        m_parallel_data_ap = new("m_parallel_data_ap", this);
+        m_clk_ap = new("m_clk_ap", this);
+        m_pc_ap = new("m_pc_ap", this);
+        m_control_in_ap = new("m_control_in_ap", this);
+        m_data1_ap = new("m_data1_ap", this);
+        m_data2_ap = new("m_data2_ap", this);
+        m_immediate_data_ap = new("m_immediate_data_ap", this);
+        m_rd_in_ap = new("m_rd_in_ap", this);
+        m_rs1_ap = new("m_rs1_ap", this);
+        m_rs2_ap = new("m_rs2_ap", this);
+        m_ex_mem_rd_ap = new("m_ex_mem_rd_ap", this);
+        m_mem_wb_rd_ap = new("m_mem_wb_rd_ap", this);
+        m_ex_mem_RegWrite_ap = new("m_ex_mem_RegWrite_ap", this);
+        m_mem_wb_RegWrite_ap = new("m_mem_wb_RegWrite_ap", this);
+        m_forward_ex_mem_ap = new("m_forward_ex_mem_ap", this);
+        m_control_out_ap = new("m_control_out_ap", this);
+        m_ZeroFlag_ap = new("m_ZeroFlag_ap", this);
+        m_alu_data_ap = new("m_alu_data_ap", this);
+        m_memory_data_ap = new("m_memory_data_ap", this);
+        m_rd_out_ap = new("m_rd_out_ap", this);
+        m_pc_out_ap = new("m_pc_out_ap", this);
+
     endfunction : build_phase
 
     //------------------------------------------------------------------------------
@@ -124,68 +120,14 @@ class scoreboard extends uvm_component;
     endfunction : connect_phase
 
     //------------------------------------------------------------------------------
-    // Write implementation for write_scoreboard_reset analyze port.
+    // Write implementations
     //------------------------------------------------------------------------------
-    virtual function void write_scoreboard_reset(reset_seq_item item);
-        `uvm_info(get_name(),$sformatf("RESET_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        // Clear start bit and data
-        input_data_valid= 0;
-        input_data= 0;
-        dut_data_valid= 0;
-        dut_data= 0;
-        // Sample reset coverage
-        reset_valid= 1;
-        reset_value= item.reset_value;
-        serial_to_parallel_covergrp.sample();
-        reset_valid= 0;
-    endfunction :  write_scoreboard_reset
-
-    //------------------------------------------------------------------------------
-    // Write implementation for write_scoreboard_serial_data analyze port.
-    //------------------------------------------------------------------------------
-    virtual function void write_scoreboard_serial_data(serial_data_seq_item item);
-        `uvm_info(get_name(),$sformatf("SERIAL_DATA_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        // Check if last serial data has been checked against DUT output data
-        if (item.monitor_data_valid && input_data_valid) begin
-            `uvm_error(get_name(), $sformatf("DUT data_valid has not been activated after last received serial data! Previous serial data=%0d", input_data))
-        end
-        // Sample serial data and DUT output coverage
-        input_data_valid= item.monitor_data_valid;
-        input_data= item.serial_data;
-        input_parity_error= item.parity_error;           // denna var ursprungligen utkommenterad 
-        serial_to_parallel_covergrp.sample();
-
-        // Setup transmission_state which depends on monitor information
-        if (item.monitor_start_bit_value && item.monitor_start_bit_valid) begin
-            transmission_state = START_BIT;
-        end
-        else if (item.monitor_data_valid) begin
-            transmission_state = IDLE;
-        end
-        else if (transmission_state==START_BIT) begin
-            transmission_state = ACTIVE;
-        end
-        `uvm_info(get_name(), $sformatf("Transmission state=%s", transmission_state.name()), UVM_HIGH)
-        // Check data and parity if also data from parallel data VIP
-        check_data();
-    endfunction :  write_scoreboard_serial_data
-
-    //------------------------------------------------------------------------------
-    // Write implementation for write_scoreboard_parallel_data analyze port.
-    //------------------------------------------------------------------------------
-    virtual function void write_scoreboard_parallel_data(parallel_data_seq_item item);
-        `uvm_info(get_name(),$sformatf("PARALLEL_DATA_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        // Check if last serial data has been checked against DUT output data
-        if (dut_data_valid) begin
-            `uvm_error(get_name(), $sformatf("Received DUT data is valid for the second time without any valid serial data before! Previous output data = %0d", dut_data))
-        end
-        dut_data= item.data;
-        dut_parity_error= item.parity_error;
-        dut_data_valid= 1;
-        // Check data and parity if also data from serial data VIP
-        check_data();
-    endfunction :  write_scoreboard_parallel_data
-
+    virtual function void write_pc(clk_seq_item item);
+        `uvm_info(get_name(),$sformatf("PC_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        pc = item.pc;
+        execute_stage_covergrp.sample();
+    endfunction :  write_pc
+    
     //------------------------------------------------------------------------------
     // Check data if both input serial data and output data are valid.
     //------------------------------------------------------------------------------
