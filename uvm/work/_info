@@ -1,0 +1,728 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dH:/Documents/icp2/uvm
+valu
+Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z2 DXx4 work 6 common 0 22 DLaB<5[HILHcj1Zj9220_0
+DXx4 work 11 alu_sv_unit 0 22 K4E:QIYN>^^YD?az<>LLa3
+Z3 !s110 1731937356
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 gQZ6QGhYM3ZT?Gog2[MUR1
+IT:KLaIdVRTFDzO50f438e1
+!s105 alu_sv_unit
+S1
+R0
+Z5 w1731932876
+Z6 8execute_stage/dut/alu.sv
+Z7 Fexecute_stage/dut/alu.sv
+!i122 13
+L0 3 53
+Z8 OL;L;2022.1;75
+31
+Z9 !s108 1731937356.000000
+!s107 uvc/forward_ex_mem_uvc/forward_ex_mem_agent.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_monitor.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_driver.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_config.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq_item.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_agent.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_monitor.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_driver.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_config.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq_item.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_agent.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_monitor.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_driver.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_config.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq_item.svh|uvc/data2_uvc/data2_agent.svh|uvc/data2_uvc/data2_monitor.svh|uvc/data2_uvc/data2_driver.svh|uvc/data2_uvc/data2_config.svh|uvc/data2_uvc/data2_seq.svh|uvc/data2_uvc/data2_seq_item.svh|uvc/data1_uvc/data1_agent.svh|uvc/data1_uvc/data1_monitor.svh|uvc/data1_uvc/data1_driver.svh|uvc/data1_uvc/data1_config.svh|uvc/data1_uvc/data1_seq.svh|uvc/data1_uvc/data1_seq_item.svh|uvc/control_out_uvc/control_out_agent.svh|uvc/control_out_uvc/control_out_monitor.svh|uvc/control_out_uvc/control_out_config.svh|uvc/control_out_uvc/control_out_seq_item.svh|uvc/control_in_uvc/control_in_agent.svh|uvc/control_in_uvc/control_in_monitor.svh|uvc/control_in_uvc/control_in_driver.svh|uvc/control_in_uvc/control_in_config.svh|uvc/control_in_uvc/control_in_seq.svh|uvc/control_in_uvc/control_in_seq_item.svh|uvc/clock_uvc/clock_agent.svh|uvc/clock_uvc/clock_driver.svh|uvc/clock_uvc/clock_config.svh|uvc/alu_data_uvc/alu_data_agent.svh|uvc/alu_data_uvc/alu_data_monitor.svh|uvc/alu_data_uvc/alu_data_config.svh|uvc/alu_data_uvc/alu_data_seq_item.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|execute_stage/tb/tb_top.sv|execute_stage/tb/tb_pkg.sv|execute_stage/dut/execute_stage.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/alu.sv|execute_stage/dut/common.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/pc_uvc/pc_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/data2_uvc/data2_if.sv|uvc/data1_uvc/data1_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/clock_uvc/clock_if.sv|
+Z10 !s90 -reportprogress|300|-sv|-timescale|1ns/1ns|+acc=pr|+incdir+uvc/clock_uvc+uvc/alu_data_uvc+uvc/control_in_uvc+uvc/control_out_uvc+uvc/data1_uvc+uvc/data2_uvc+uvc/ex_mem_rd_uvc+uvc/ex_mem_RegWrite_uvc+uvc/forward_ex_mem_uvc+uvc/forward_mem_wb_uvc+uvc/immediate_data_uvc+uvc/mem_wb_rd_uvc+uvc/mem_wb_RegWrite_uvc+uvc/memory_data_uvc+uvc/pc_out_uvc+uvc/pc_uvc+uvc/rd_in_uvc+uvc/rd_out_uvc+uvc/rs1_uvc+uvc/rs2_uvc+uvc/ZeroFlag_uvc+execute_stage/tb|uvc/clock_uvc/clock_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/data1_uvc/data1_if.sv|uvc/data2_uvc/data2_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/pc_uvc/pc_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|execute_stage/dut/common.sv|execute_stage/dut/alu.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/execute_stage.sv|execute_stage/tb/tb_pkg.sv|execute_stage/tb/tb_top.sv|
+!i113 0
+Z11 o-sv -timescale 1ns/1ns +acc=pr -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 !s92 -sv -timescale 1ns/1ns +acc=pr +incdir+uvc/clock_uvc+uvc/alu_data_uvc+uvc/control_in_uvc+uvc/control_out_uvc+uvc/data1_uvc+uvc/data2_uvc+uvc/ex_mem_rd_uvc+uvc/ex_mem_RegWrite_uvc+uvc/forward_ex_mem_uvc+uvc/forward_mem_wb_uvc+uvc/immediate_data_uvc+uvc/mem_wb_rd_uvc+uvc/mem_wb_RegWrite_uvc+uvc/memory_data_uvc+uvc/pc_out_uvc+uvc/pc_uvc+uvc/rd_in_uvc+uvc/rd_out_uvc+uvc/rs1_uvc+uvc/rs2_uvc+uvc/ZeroFlag_uvc+execute_stage/tb -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z13 tCvgOpt 0
+Yalu_data_if
+R1
+R3
+!i10b 1
+!s100 a3MUh8M3fg^Z=:2SS2;BY3
+IGUh3KL^<PE3]i1j@ZFE]l0
+S1
+R0
+R5
+8uvc/alu_data_uvc/alu_data_if.sv
+Fuvc/alu_data_uvc/alu_data_if.sv
+!i122 13
+Z14 L0 7 0
+R4
+R8
+r1
+!s85 0
+31
+R9
+Z15 !s107 uvc/forward_ex_mem_uvc/forward_ex_mem_agent.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_monitor.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_driver.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_config.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq_item.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_agent.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_monitor.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_driver.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_config.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq_item.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_agent.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_monitor.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_driver.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_config.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq_item.svh|uvc/data2_uvc/data2_agent.svh|uvc/data2_uvc/data2_monitor.svh|uvc/data2_uvc/data2_driver.svh|uvc/data2_uvc/data2_config.svh|uvc/data2_uvc/data2_seq.svh|uvc/data2_uvc/data2_seq_item.svh|uvc/data1_uvc/data1_agent.svh|uvc/data1_uvc/data1_monitor.svh|uvc/data1_uvc/data1_driver.svh|uvc/data1_uvc/data1_config.svh|uvc/data1_uvc/data1_seq.svh|uvc/data1_uvc/data1_seq_item.svh|uvc/control_out_uvc/control_out_agent.svh|uvc/control_out_uvc/control_out_monitor.svh|uvc/control_out_uvc/control_out_config.svh|uvc/control_out_uvc/control_out_seq_item.svh|uvc/control_in_uvc/control_in_agent.svh|uvc/control_in_uvc/control_in_monitor.svh|uvc/control_in_uvc/control_in_driver.svh|uvc/control_in_uvc/control_in_config.svh|uvc/control_in_uvc/control_in_seq.svh|uvc/control_in_uvc/control_in_seq_item.svh|uvc/clock_uvc/clock_agent.svh|uvc/clock_uvc/clock_driver.svh|uvc/clock_uvc/clock_config.svh|uvc/alu_data_uvc/alu_data_agent.svh|uvc/alu_data_uvc/alu_data_monitor.svh|uvc/alu_data_uvc/alu_data_config.svh|uvc/alu_data_uvc/alu_data_seq_item.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|execute_stage/tb/tb_top.sv|execute_stage/tb/tb_pkg.sv|execute_stage/dut/execute_stage.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/alu.sv|execute_stage/dut/common.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/pc_uvc/pc_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/data2_uvc/data2_if.sv|uvc/data1_uvc/data1_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/clock_uvc/clock_if.sv|
+R10
+!i113 0
+R11
+R12
+R13
+Xalu_sv_unit
+R1
+R2
+R3
+VK4E:QIYN>^^YD?az<>LLa3
+r1
+!s85 0
+!i10b 1
+!s100 ]zg?z0LJ;Q:L^MVU=1QJ01
+IK4E:QIYN>^^YD?az<>LLa3
+!i103 1
+S1
+R0
+R5
+R6
+R7
+!i122 13
+Z16 L0 1 0
+R8
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yclock_if
+R1
+R3
+!i10b 1
+!s100 6m1@6IG<LH;_n>D3O5^DD2
+IkcTcE^=1h0oU?j?:?`IE83
+S1
+R0
+Z17 w1731932877
+8uvc/clock_uvc/clock_if.sv
+Fuvc/clock_uvc/clock_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Xcommon
+R1
+R3
+!i10b 1
+!s100 Z>@;Ko>1]mSV9zgbEC?LO3
+IDLaB<5[HILHcj1Zj9220_0
+S1
+R0
+R5
+8execute_stage/dut/common.sv
+Fexecute_stage/dut/common.sv
+!i122 13
+R16
+VDLaB<5[HILHcj1Zj9220_0
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ycontrol_in_if
+R1
+R3
+!i10b 1
+!s100 N7E0HL84_6of0cgBS?FjH0
+IAMO?A[z_CVVC8bmEeS[O<0
+S1
+R0
+R17
+8uvc/control_in_uvc/control_in_if.sv
+Fuvc/control_in_uvc/control_in_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ycontrol_out_if
+R1
+R3
+!i10b 1
+!s100 f^KFRDZDc9@hD8lhf`35:1
+Io=`]oH;Z[[V24XJm1>Pi00
+S1
+R0
+R17
+8uvc/control_out_uvc/control_out_if.sv
+Fuvc/control_out_uvc/control_out_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ydata1_if
+R1
+R3
+!i10b 1
+!s100 B8RTk::8:gD2FL6XmlC[S1
+Ig<F<e[g4HWk9Sk[f_jE753
+S1
+R0
+R17
+8uvc/data1_uvc/data1_if.sv
+Fuvc/data1_uvc/data1_if.sv
+!i122 13
+Z18 L0 4 0
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ydata2_if
+R1
+R3
+!i10b 1
+!s100 KVVANzVkjzGMKC8_^^LGN2
+I8gSDzB:Nc_hHXWiUElSHb2
+S1
+R0
+R17
+8uvc/data2_uvc/data2_if.sv
+Fuvc/data2_uvc/data2_if.sv
+!i122 13
+R18
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yex_mem_rd_if
+R1
+R3
+!i10b 1
+!s100 PX01hcFOdZZQVh<D@IM_B0
+I[TfB6F3=2Fa`fZ=aNoOPH0
+S1
+R0
+Z19 w1731932878
+8uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv
+Fuvc/ex_mem_rd_uvc/ex_mem_rd_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yex_mem_RegWrite_if
+R1
+R3
+!i10b 1
+!s100 gG:55gL^V;I3kmdj<3cYP1
+Ic4KA?HN5GP<7[nXCQfH4Z2
+S1
+R0
+R19
+8uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv
+Fuvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv
+!i122 13
+R18
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+nex_mem_@reg@write_if
+vexecute_stage
+R1
+R2
+DXx4 work 21 execute_stage_sv_unit 0 22 e52fDRVH^@U_mzm=FXbF]2
+R3
+R4
+r1
+!s85 0
+!i10b 1
+!s100 g]H8f4O^PKKC;m9HK>[e21
+I;lBjo@lQk21IzoYZ4i@7d3
+!s105 execute_stage_sv_unit
+S1
+R0
+R5
+Z20 8execute_stage/dut/execute_stage.sv
+Z21 Fexecute_stage/dut/execute_stage.sv
+!i122 13
+L0 7 89
+R8
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Xexecute_stage_sv_unit
+R1
+R2
+R3
+Ve52fDRVH^@U_mzm=FXbF]2
+r1
+!s85 0
+!i10b 1
+!s100 oP><2Q2g0@3CX7L1mBcAU0
+Ie52fDRVH^@U_mzm=FXbF]2
+!i103 1
+S1
+R0
+R5
+R20
+R21
+!i122 13
+L0 5 0
+R8
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yforward_ex_mem_if
+R1
+R3
+!i10b 1
+!s100 f7IW2QMdI`f8m??5N7czN1
+I6TIePa:^hZgb:5U`nCgm<1
+S1
+R0
+R19
+8uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv
+Fuvc/forward_ex_mem_uvc/forward_ex_mem_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yforward_mem_wb_if
+R1
+R3
+!i10b 1
+!s100 SjMzcJW6To6^VBGO0YGYD1
+IJai[G?5enOfgABNYcFB;j2
+S1
+R0
+R19
+8uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv
+Fuvc/forward_mem_wb_uvc/forward_mem_wb_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+vforwarding_unit
+R1
+R2
+DXx4 work 23 forwarding_unit_sv_unit 0 22 nQ@D`QlMN9fX@V1g<gQm73
+R3
+R4
+r1
+!s85 0
+!i10b 1
+!s100 9k9]]71WB@]I3B:@O[X9a1
+INF`mzZLWGDfYHOie;Jf7I0
+!s105 forwarding_unit_sv_unit
+S1
+R0
+R5
+Z22 8execute_stage/dut/forwarding_unit.sv
+Z23 Fexecute_stage/dut/forwarding_unit.sv
+!i122 13
+L0 4 58
+R8
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Xforwarding_unit_sv_unit
+R1
+R2
+R3
+VnQ@D`QlMN9fX@V1g<gQm73
+r1
+!s85 0
+!i10b 1
+!s100 ^2iD35oh:i`Hn[M34PD<D2
+InQ@D`QlMN9fX@V1g<gQm73
+!i103 1
+S1
+R0
+R5
+R22
+R23
+!i122 13
+L0 2 0
+R8
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yimmediate_data_if
+R1
+R3
+!i10b 1
+!s100 X6h1cb@kmbM^CF37kM^SW0
+In?mDM=3@F:>KE0PM4_eXa1
+S1
+R0
+R19
+8uvc/immediate_data_uvc/immediate_data_if.sv
+Fuvc/immediate_data_uvc/immediate_data_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ymem_wb_rd_if
+R1
+R3
+!i10b 1
+!s100 ]B<9`@B20AD?4Uj?`z7i:2
+I6@IG0jh<LnYlDz;X0MMXF0
+S1
+R0
+Z24 w1731932879
+8uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv
+Fuvc/mem_wb_rd_uvc/mem_wb_rd_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ymem_wb_RegWrite_if
+R1
+R3
+!i10b 1
+!s100 Y@@>z0hPLdT[<:zK`Q]S51
+ISKP69W4lX75<O=WN2[M;b1
+S1
+R0
+R24
+8uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv
+Fuvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv
+!i122 13
+R18
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+nmem_wb_@reg@write_if
+Ymemory_data_if
+R1
+R3
+!i10b 1
+!s100 V1Q8]A;3@1O^^lWoGZTJ?0
+IjHN9?_h1=PBeIDnKba28z3
+S1
+R0
+R24
+8uvc/memory_data_uvc/memory_data_if.sv
+Fuvc/memory_data_uvc/memory_data_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ypc_if
+R1
+R3
+!i10b 1
+!s100 QdfJEAIT6YiX?2N?hh]>d0
+IW;`U2l68<TEA>`^zXPl]N2
+S1
+R0
+R24
+8uvc/pc_uvc/pc_if.sv
+Fuvc/pc_uvc/pc_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Ypc_out_if
+R1
+R3
+!i10b 1
+!s100 OjSg?@gMPGAAW9KS^jgoI3
+IZg[k_?_zl?@Oke>ZoJacC0
+S1
+R0
+R24
+8uvc/pc_out_uvc/pc_out_if.sv
+Fuvc/pc_out_uvc/pc_out_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yrd_in_if
+R1
+R3
+!i10b 1
+!s100 84eYSY9:]85az^kXN9EY^2
+IPGMIjOhUlWAUZ=Rd]EgHi1
+S1
+R0
+R24
+8uvc/rd_in_uvc/rd_in_if.sv
+Fuvc/rd_in_uvc/rd_in_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yrd_out_if
+R1
+R3
+!i10b 1
+!s100 1i>GB?3fK@cbR0m73^hz53
+Ij84K8i_Izz;k47Ukc`K?T3
+S1
+R0
+Z25 w1731932880
+8uvc/rd_out_uvc/rd_out_if.sv
+Fuvc/rd_out_uvc/rd_out_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yrs1_if
+R1
+R3
+!i10b 1
+!s100 2]_5k[d31TQ8Zh[zZjKG]2
+IC7I6^<Yc:jV5Ig3P9b4O]3
+S1
+R0
+R25
+8uvc/rs1_uvc/rs1_if.sv
+Fuvc/rs1_uvc/rs1_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+Yrs2_if
+R1
+R3
+!i10b 1
+!s100 1h<oJX;z1ZAMZ@Bmj5jXh2
+IX`M2;h<=ao=gjg?]YOI1P3
+S1
+R0
+R25
+8uvc/rs2_uvc/rs2_if.sv
+Fuvc/rs2_uvc/rs2_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+YZeroFlag_if
+R1
+R3
+!i10b 1
+!s100 AkECEJdhM8>d67]oC[_dD3
+Ih>46_fY:D6N35Jg<8OD;U3
+S1
+R0
+R5
+8uvc/ZeroFlag_uvc/ZeroFlag_if.sv
+Fuvc/ZeroFlag_uvc/ZeroFlag_if.sv
+!i122 13
+R14
+R4
+R8
+r1
+!s85 0
+31
+R9
+R15
+R10
+!i113 0
+R11
+R12
+R13
+n@zero@flag_if

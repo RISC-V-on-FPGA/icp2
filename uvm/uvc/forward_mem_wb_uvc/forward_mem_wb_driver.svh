@@ -5,7 +5,7 @@ class forward_mem_wb_driver extends uvm_driver;
     `uvm_component_utils(forward_mem_wb_driver)
 
     // forward_mem_wb uVC configuration object.
-    forward_mem_wb_config  m_config;
+    forward_mem_wb_config m_config;
 
     //------------------------------------------------------------------------------
     // The constructor for the component.

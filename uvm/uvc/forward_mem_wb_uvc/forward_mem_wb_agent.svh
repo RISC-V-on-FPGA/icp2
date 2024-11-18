@@ -11,11 +11,13 @@
 class forward_mem_wb_agent  extends uvm_agent;
     `uvm_component_param_utils(forward_mem_wb_agent)
 
+    uvm_seqencer #(forward_mem_wb_seq_item) m_sequencer;
     // uVC driver.
     forward_mem_wb_driver m_driver;
     // uVC configuration object.
     forward_mem_wb_config m_config;
-
+    forward_mem_wb_monitor m_monitor;
+    
     //------------------------------------------------------------------------------
     // The constructor for the component.
     //------------------------------------------------------------------------------

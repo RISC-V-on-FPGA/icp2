@@ -31,7 +31,7 @@ class data2_seq extends uvm_sequence #(data2_seq_item);
         end
 
         // Pack the control fields
-        pack_data2();
+        //pack_data2();
 
         // Optionally display or perform actions with data2 here
         `uvm_info("data2_seq", $sformatf("Packed data2: %h", data2), UVM_MEDIUM)

@@ -31,7 +31,7 @@ class forward_mem_wb_seq extends uvm_sequence #(forward_mem_wb_seq_item);
         end
 
         // Pack the control fields
-        pack_forward_mem_wb();
+        //pack_forward_mem_wb();
 
         // Optionally display or perform actions with forward_mem_wb here
         `uvm_info("forward_mem_wb_seq", $sformatf("Packed forward_mem_wb: %h", forward_mem_wb), UVM_MEDIUM)

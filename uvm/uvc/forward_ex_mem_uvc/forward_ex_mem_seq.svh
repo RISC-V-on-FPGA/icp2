@@ -31,7 +31,7 @@ class forward_ex_mem_seq extends uvm_sequence #(forward_ex_mem_seq_item);
         end
 
         // Pack the control fields
-        pack_forward_ex_mem();
+        //pack_forward_ex_mem();
 
         // Optionally display or perform actions with forward_ex_mem here
         `uvm_info("forward_ex_mem_seq", $sformatf("Packed forward_ex_mem: %h", forward_ex_mem), UVM_MEDIUM)

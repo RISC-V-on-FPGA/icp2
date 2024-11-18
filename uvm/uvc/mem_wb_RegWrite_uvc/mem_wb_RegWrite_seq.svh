@@ -31,7 +31,7 @@ class mem_wb_RegWrite_seq extends uvm_sequence #(mem_wb_RegWrite_seq_item);
         end
 
         // Pack the control fields
-        pack_mem_wb_RegWrite();
+        //pack_mem_wb_RegWrite();
 
         // Optionally display or perform actions with mem_wb_RegWrite here
         `uvm_info("mem_wb_RegWrite_seq", $sformatf("Packed mem_wb_RegWrite: %h", mem_wb_RegWrite), UVM_MEDIUM)

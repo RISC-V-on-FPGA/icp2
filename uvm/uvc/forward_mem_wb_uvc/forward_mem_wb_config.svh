@@ -12,25 +12,26 @@
 //  m_vif - the clock uVC virtual clock_if interface.
 //
 //------------------------------------------------------------------------------
-class pc_config extends uvm_object;
+class forward_mem_wb_config extends uvm_object;
 
     // The Sequencer and driver are activated
     bit is_active=1;
+    bit has_monitor=1;
 
-    logic[31:0]  pc = 0;
+    logic[31:0]   forward_mem_wb = 0;
 
-    virtual pc_if  m_vif;
+    virtual  forward_mem_wb_if  m_vif;
 
-    `uvm_object_utils_begin(pc_config)
+    `uvm_object_utils_begin( forward_mem_wb_config)
     `uvm_field_int(is_active,UVM_ALL_ON|UVM_DEC)
-    `uvm_field_int(pc,UVM_ALL_ON|UVM_DEC)
+    `uvm_field_int( forward_mem_wb,UVM_ALL_ON|UVM_DEC)
     `uvm_object_utils_end
 
     //------------------------------------------------------------------------------
     // The constructor for the component.
     //------------------------------------------------------------------------------
-    function new (string name = "pc_config");
+    function new (string name = " forward_mem_wb_config");
         super.new(name);
     endfunction : new
 
-endclass : pc_config
+endclass :  forward_mem_wb_config

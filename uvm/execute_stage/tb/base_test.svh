@@ -52,7 +52,6 @@ class base_test extends uvm_test;
     // Start UVM test in running phase.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        clk_seq clk;
         pc_seq pc;
         control_in_seq control_in;
         data1_seq data1;
@@ -63,8 +62,8 @@ class base_test extends uvm_test;
         rs2_seq rs2;
         ex_mem_rd_seq ex_mem_rd;
         mem_wb_rd_seq mem_wb_rd;
-        ex_mem_RegWrit_seq ex_mem_RegWrite;
-        mem_wb_RegWrit_seq mem_wb_RegWrite;
+        ex_mem_RegWrite_seq ex_mem_RegWrite;
+        mem_wb_RegWrite_seq mem_wb_RegWrite;
         forward_ex_mem_seq forward_ex_mem;  
         forward_mem_wb_seq forward_mem_wb;
 
