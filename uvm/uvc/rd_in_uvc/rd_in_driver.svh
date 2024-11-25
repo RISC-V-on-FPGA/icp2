@@ -6,7 +6,7 @@
 // `include "uvm_macros.svh"
 // `include "rd_in_config.svh"
 
-class rd_in_driver extends uvm_driver;
+class rd_in_driver extends uvm_driver #(rd_in_seq_item);
     `uvm_component_utils(rd_in_driver)
 
     // rd_in uVC configuration object.
@@ -33,15 +33,23 @@ class rd_in_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("rd_in_driver",$sformatf("Start rd_in with period %0d", m_config.rd_in),UVM_MEDIUM)
-        // Reset signal
-        // sätter OP = ADD -> encoding = I-type -> ALUSrc = 1 för immediate -> MemRead = 0 inte läsa minne -> MemWrite = 0 för inte läsa minne -> RegWrite = 1 vill skriva minne -> MemToreg = 0 -> IsBranch = 0 -> BranchType spelar ingen roll
-        m_config.m_vif.rd_in <= 0;              //behövs detta, ger oss NOP instruction???????????????????????????
-        // Generate rd_in
+        rd_in_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.rd_in <= m_config.rd_in;
+
         forever begin
-            m_config.m_vif.rd_in <= m_config.m_vif.rd_in;
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. rd_in =%0d", seq_item.rd_in),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.rd_in <= seq_item.rd_in;
+                    //m_config.m_vif.rd_in <= m_config.m_vif.rd_in; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending rd_in = %0d", seq_item.rd_in), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : rd_in_driver

@@ -6,7 +6,7 @@
 // `include "uvm_macros.svh"
 // `include "pc_config.svh"
 
-class pc_driver extends uvm_driver;
+class pc_driver extends uvm_driver #(pc_seq_item);
     `uvm_component_utils(pc_driver)
 
     // pc uVC configuration object.
@@ -33,15 +33,23 @@ class pc_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("pc_driver",$sformatf("Start pc with period %0d", m_config.pc),UVM_MEDIUM)
-        // Reset signal
-        
-        m_config.m_vif.pc <= 0;              //behövs detta, ger oss NOP instruction???????????????????????????
-        // Generate pc
+        pc_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.pc <= m_config.pc;
+
         forever begin
-            m_config.m_vif.pc <= m_config.m_vif.pc;
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. pc =%0d", seq_item.pc),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.pc <= seq_item.pc;
+                    //m_config.m_vif.pc <= m_config.m_vif.pc; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending pc = %0d", seq_item.pc), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : pc_driver

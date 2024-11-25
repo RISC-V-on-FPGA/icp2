@@ -14,7 +14,7 @@ class rd_in_config extends uvm_object;
     // The rd_in period
     bit[4:0]  rd_in;       //      kanske behöver importera komponenter från kommon för att han skall fatta vad control_type är?????????????????????
     // rd_in uVC virtual rd_in_IF interface.
-    virtual rd_in_if  m_vif;
+    virtual rd_in_if m_vif;
 
     `uvm_object_utils_begin(rd_in_config)
     `uvm_field_int(is_active,UVM_ALL_ON|UVM_DEC)

@@ -1,7 +1,12 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-class data1_driver extends uvm_driver;
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "data1_config.svh"
+
+class data1_driver extends uvm_driver #(data1_seq_item);
     `uvm_component_utils(data1_driver)
 
     // data1 uVC configuration object.
@@ -28,14 +33,23 @@ class data1_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("data1_driver",$sformatf("Start data1 with  %0d", m_config.data1),UVM_MEDIUM)
-        // Reset signal
-        m_config.m_vif.data1 <= 0;
-        // Generate data1
+        data1_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.data1 <= m_config.data1;
+
         forever begin
-            m_config.m_vif.data1 <= m_config.m_vif.data1;
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. data1 =%0d", seq_item.data1),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.data1 <= seq_item.data1;
+                    //m_config.m_vif.data1 <= m_config.m_vif.data1; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending data1 = %0d", seq_item.data1), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : data1_driver

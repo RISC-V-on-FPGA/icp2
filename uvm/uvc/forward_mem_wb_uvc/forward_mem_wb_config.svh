@@ -20,7 +20,7 @@ class forward_mem_wb_config extends uvm_object;
 
     logic[31:0]   forward_mem_wb = 0;
 
-    virtual  forward_mem_wb_if  m_vif;
+    virtual forward_mem_wb_if  m_vif;
 
     `uvm_object_utils_begin( forward_mem_wb_config)
     `uvm_field_int(is_active,UVM_ALL_ON|UVM_DEC)

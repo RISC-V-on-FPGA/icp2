@@ -1,7 +1,12 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-class mem_wb_RegWrite_driver extends uvm_driver;
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "mem_wb_RegWrite_config.svh"
+
+class mem_wb_RegWrite_driver extends uvm_driver #(mem_wb_RegWrite_seq_item);
     `uvm_component_utils(mem_wb_RegWrite_driver)
 
     // mem_wb_RegWrite uVC configuration object.
@@ -28,14 +33,23 @@ class mem_wb_RegWrite_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("mem_wb_RegWrite_driver",$sformatf("Start mem_wb_RegWrite with  %0d", m_config.mem_wb_RegWrite),UVM_MEDIUM)
-        // Reset signal
-        m_config.m_vif.mem_wb_RegWrite <= 0;
-        // Generate mem_wb_RegWrite
+        mem_wb_RegWrite_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.mem_wb_RegWrite <= m_config.mem_wb_RegWrite;
+
         forever begin
-            m_config.m_vif.mem_wb_RegWrite <= m_config.m_vif.mem_wb_RegWrite;
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. mem_wb_RegWrite =%0d", seq_item.mem_wb_RegWrite),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.mem_wb_RegWrite <= seq_item.mem_wb_RegWrite;
+                    //m_config.m_vif.mem_wb_RegWrite <= m_config.m_vif.mem_wb_RegWrite; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending mem_wb_RegWrite = %0d", seq_item.mem_wb_RegWrite), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : mem_wb_RegWrite_driver

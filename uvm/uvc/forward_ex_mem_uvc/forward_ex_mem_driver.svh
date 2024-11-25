@@ -1,7 +1,12 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-class forward_ex_mem_driver extends uvm_driver;
+// Include basic packages
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
+// `include "forward_ex_mem_config.svh"
+
+class forward_ex_mem_driver extends uvm_driver #(forward_ex_mem_seq_item);
     `uvm_component_utils(forward_ex_mem_driver)
 
     // forward_ex_mem uVC configuration object.
@@ -28,14 +33,23 @@ class forward_ex_mem_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("forward_ex_mem_driver",$sformatf("Start forward_ex_mem with  %0d", m_config.forward_ex_mem),UVM_MEDIUM)
-        // Reset signal
-        m_config.m_vif.forward_ex_mem <= 0;
-        // Generate clock
+        forward_ex_mem_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.forward_ex_mem <= m_config.forward_ex_mem;
+
         forever begin
-            m_config.m_vif.forward_ex_mem <= m_config.m_vif.forward_ex_mem; // driver puts value from sequencer and outputs to the virtual interface 
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. forward_ex_mem =%0d", seq_item.forward_ex_mem),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.forward_ex_mem <= seq_item.forward_ex_mem;
+                    //m_config.m_vif.forward_ex_mem <= m_config.m_vif.forward_ex_mem; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending forward_ex_mem = %0d", seq_item.forward_ex_mem), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : forward_ex_mem_driver
