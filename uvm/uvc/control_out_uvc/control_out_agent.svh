@@ -10,11 +10,12 @@
 // `include "control_out_config.svh" 
 
 class control_out_agent  extends uvm_agent;
-    `uvm_component_param_utils(control_out_agent)
+    `uvm_component_param_utils(control_out_agent)    
     // uVC monitor.
     control_out_monitor m_monitor;
     // uVC configuration object.
     control_out_config m_config;
+    
 
     //------------------------------------------------------------------------------
     // The constructor for the component.
