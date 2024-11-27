@@ -12,7 +12,7 @@ class control_out_config extends uvm_object;
     // The monitor is active. 
     bit has_monitor = 1;
     // The control_out period
-    bit[31:0]  control_out;       //      kanske behöver importera komponenter från kommon för att han skall fatta vad control_type är?????????????????????
+    bit[15:0]  control_out;       //      kanske behöver importera komponenter från kommon för att han skall fatta vad control_type är?????????????????????
     // control_out uVC virtual control_out_IF interface.
     virtual control_out_if  m_vif;
 

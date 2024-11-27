@@ -21,20 +21,20 @@ class forward_ex_mem_seq extends uvm_sequence #(forward_ex_mem_seq_item);
     // The main task to be executed within the sequence.
     //------------------------------------------------------------------------------
     task body();
-        // From chat ;)
-        `uvm_info("forward_ex_mem_seq", "Starting forward_ex_mem_seq body", UVM_MEDIUM)
+        // // From chat ;)
+        // `uvm_info("forward_ex_mem_seq", "Starting forward_ex_mem_seq body", UVM_MEDIUM)
 
-        // Randomize fields
-        if (!this.randomize()) begin
-            `uvm_error("forward_ex_mem_seq", "Randomization failed")
-            return;
-        end
+        // // Randomize fields
+        // if (!this.randomize()) begin
+        //     `uvm_error("forward_ex_mem_seq", "Randomization failed")
+        //     return;
+        // end
 
-        // Pack the control fields
-        //pack_forward_ex_mem();
+        // // Pack the control fields
+        // //pack_forward_ex_mem();
 
-        // Optionally display or perform actions with forward_ex_mem here
-        `uvm_info("forward_ex_mem_seq", $sformatf("Packed forward_ex_mem: %h", forward_ex_mem), UVM_MEDIUM)
+        // // Optionally display or perform actions with forward_ex_mem here
+        // `uvm_info("forward_ex_mem_seq", $sformatf("Packed forward_ex_mem: %h", forward_ex_mem), UVM_MEDIUM)
         // Create sequence
         req = forward_ex_mem_seq_item::type_id::create("req");
         // Wait for sequencer ready

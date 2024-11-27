@@ -1,14 +1,6 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Include basic packages
-// import uvm_pkg::*;
-// `include "uvm_macros.svh"
-// `include "mem_wb_rd_seq_item.svh"  // Include the item file
-// `include "mem_wb_rd_monitor.svh"
-// `include "mem_wb_rd_driver.svh"
-// `include "mem_wb_rd_config.svh"
-
 class mem_wb_rd_agent  extends uvm_agent;
     `uvm_component_param_utils(mem_wb_rd_agent)
 

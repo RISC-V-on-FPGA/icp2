@@ -1,23 +1,18 @@
 //------------------------------------------------------------------------------
-// forward_mem_wb_agent class
-//
-// This is the top-level uVC agent for the forward_mem_wb interface.
-//
-// It reads the uvc configuration from the uvm config database and sets the
-// configuration in the uvc driver. It creates the forward_mem_wb driver if the
-// configuration is active.
-//
+
 //------------------------------------------------------------------------------
 class forward_mem_wb_agent  extends uvm_agent;
     `uvm_component_param_utils(forward_mem_wb_agent)
 
+    // uVC sequencer.
     uvm_sequencer #(forward_mem_wb_seq_item) m_sequencer;
+    // uVC monitor.
+    forward_mem_wb_monitor m_monitor;
     // uVC driver.
     forward_mem_wb_driver m_driver;
     // uVC configuration object.
     forward_mem_wb_config m_config;
-    forward_mem_wb_monitor m_monitor;
-    
+
     //------------------------------------------------------------------------------
     // The constructor for the component.
     //------------------------------------------------------------------------------
@@ -36,9 +31,16 @@ class forward_mem_wb_agent  extends uvm_agent;
         end
         // Store uVC configuration into UVM config DB used by the uVC.
         uvm_config_db #(forward_mem_wb_config)::set(this,"*","forward_mem_wb_config",m_config);
+        // Store uVC agent into UVM config DB
         if (m_config.is_active == UVM_ACTIVE) begin
+            // Create uVC sequencer
+            m_sequencer  = uvm_sequencer #(forward_mem_wb_seq_item)::type_id::create("forward_mem_wb_sequencer",this);
             // Create uVC driver
             m_driver = forward_mem_wb_driver::type_id::create("forward_mem_wb_driver",this);
+        end
+        if (m_config.has_monitor) begin
+            // Create uVC monitor
+            m_monitor = forward_mem_wb_monitor::type_id::create("forward_mem_wb_monitor",this);
         end
     endfunction : build_phase
 
@@ -47,6 +49,7 @@ class forward_mem_wb_agent  extends uvm_agent;
     //------------------------------------------------------------------------------
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
+        // If driver active connect then sequencer to the driver.
         if (m_config.is_active == UVM_ACTIVE) begin
             m_driver.seq_item_port.connect(m_sequencer.seq_item_export);
         end
@@ -61,4 +64,3 @@ class forward_mem_wb_agent  extends uvm_agent;
     endfunction : end_of_elaboration_phase
   
 endclass: forward_mem_wb_agent
-

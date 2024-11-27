@@ -15,7 +15,7 @@
 class forward_ex_mem_config extends uvm_object;
 
     // The Sequencer and driver are activated
-    bit is_active=1;
+    bit is_active=UVM_ACTIVE;
     bit has_monitor=1;
 
     logic[31:0]  forward_ex_mem = 0;
