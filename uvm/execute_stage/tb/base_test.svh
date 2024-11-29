@@ -53,19 +53,19 @@ class base_test extends uvm_test;
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
         pc_seq pc;
-        control_in_seq control_in;
-        data1_seq data1;
-        data2_seq data2;
-        immediate_data_seq immediate_data;
-        rd_in_seq rd_in;
-        rs1_seq rs1;
-        rs2_seq rs2;
-        ex_mem_rd_seq ex_mem_rd;
-        mem_wb_rd_seq mem_wb_rd;
-        ex_mem_RegWrite_seq ex_mem_RegWrite;
-        mem_wb_RegWrite_seq mem_wb_RegWrite;
-        forward_ex_mem_seq forward_ex_mem;  
-        forward_mem_wb_seq forward_mem_wb;
+        control_seq control_in;
+        data_seq data1;
+        data_seq data2;
+        data_seq immediate_data;
+        address_seq rd_in;
+        address_seq rs1;
+        address_seq rs2;
+        address_seq ex_mem_rd;
+        address_seq mem_wb_rd;
+        RegWrite_seq ex_mem_RegWrite;
+        RegWrite_seq mem_wb_RegWrite;
+        data_seq forward_ex_mem;  
+        data_seq forward_mem_wb;
 
         super.run_phase(phase);
         `uvm_info(get_name(),$sformatf("UVM TB Starts UVM test; '%s'",get_name()),UVM_NONE)
@@ -81,55 +81,55 @@ class base_test extends uvm_test;
                     if(!(pc.randomize())) `uvm_fatal(get_name(), "Failed to randomize pc")
                     pc.start(m_tb_env.m_pc_agent.m_sequencer);
 
-                    control_in = control_in_seq::type_id::create("control_in");
+                    control_in = control_seq::type_id::create("control_in");
                     if(!(control_in.randomize())) `uvm_fatal(get_name(), "Failed to randomize control_in")
                     control_in.start(m_tb_env.m_control_in_agent.m_sequencer);
 
-                    data1 = data1_seq::type_id::create("data1");
+                    data1 = data_seq::type_id::create("data1");
                     if(!(data1.randomize())) `uvm_fatal(get_name(), "Failed to randomize data1")
                     data1.start(m_tb_env.m_data1_agent.m_sequencer);
 
-                    data2 = data2_seq::type_id::create("data2");
+                    data2 = data_seq::type_id::create("data2");
                     if(!(data2.randomize())) `uvm_fatal(get_name(), "Failed to randomize data2")
                     data2.start(m_tb_env.m_data2_agent.m_sequencer);
 
-                    immediate_data = immediate_data_seq::type_id::create("immediate_data");
+                    immediate_data = data_seq::type_id::create("immediate_data");
                     if(!(immediate_data.randomize())) `uvm_fatal(get_name(), "Failed to randomize immediate_data")
                     immediate_data.start(m_tb_env.m_immediate_data_agent.m_sequencer);
 
-                    rd_in = rd_in_seq::type_id::create("rd_in");
+                    rd_in = address_seq::type_id::create("rd_in");
                     if(!(rd_in.randomize())) `uvm_fatal(get_name(), "Failed to randomize rd_in")
                     rd_in.start(m_tb_env.m_rd_in_agent.m_sequencer);
 
-                    rs1 = rs1_seq::type_id::create("rs1");
+                    rs1 = address_seq::type_id::create("rs1");
                     if(!(rs1.randomize())) `uvm_fatal(get_name(), "Failed to randomize rs1")
                     rs1.start(m_tb_env.m_rs1_agent.m_sequencer);
 
-                    rs2 = rs2_seq::type_id::create("rs2");
+                    rs2 = address_seq::type_id::create("rs2");
                     if(!(rs2.randomize())) `uvm_fatal(get_name(), "Failed to randomize rs2")
                     rs2.start(m_tb_env.m_rs2_agent.m_sequencer);
 
-                    ex_mem_rd = ex_mem_rd_seq::type_id::create("ex_mem_rd");
+                    ex_mem_rd = address_seq::type_id::create("ex_mem_rd");
                     if(!(ex_mem_rd.randomize())) `uvm_fatal(get_name(), "Failed to randomize ex_mem_rd")
                     ex_mem_rd.start(m_tb_env.m_ex_mem_rd_agent.m_sequencer);
 
-                    mem_wb_rd = mem_wb_rd_seq::type_id::create("mem_wb_rd");
+                    mem_wb_rd = address_seq::type_id::create("mem_wb_rd");
                     if(!(mem_wb_rd.randomize())) `uvm_fatal(get_name(), "Failed to randomize mem_wb_rd")
                     mem_wb_rd.start(m_tb_env.m_mem_wb_rd_agent.m_sequencer);
 
-                    ex_mem_RegWrite = ex_mem_RegWrite_seq::type_id::create("ex_mem_RegWrite");
+                    ex_mem_RegWrite = RegWrite_seq::type_id::create("ex_mem_RegWrite");
                     if(!(ex_mem_RegWrite.randomize())) `uvm_fatal(get_name(), "Failed to randomize ex_mem_RegWrite")
                     ex_mem_RegWrite.start(m_tb_env.m_ex_mem_RegWrite_agent.m_sequencer);
 
-                    mem_wb_RegWrite = mem_wb_RegWrite_seq::type_id::create("mem_wb_RegWrite");
+                    mem_wb_RegWrite = RegWrite_seq::type_id::create("mem_wb_RegWrite");
                     if(!(mem_wb_RegWrite.randomize())) `uvm_fatal(get_name(), "Failed to randomize mem_wb_RegWrite")
                     mem_wb_RegWrite.start(m_tb_env.m_mem_wb_RegWrite_agent.m_sequencer);
 
-                    forward_ex_mem = forward_ex_mem_seq::type_id::create("forward_ex_mem");
+                    forward_ex_mem = data_seq::type_id::create("forward_ex_mem");
                     if(!(forward_ex_mem.randomize())) `uvm_fatal(get_name(), "Failed to randomize forward_ex_mem")
                     forward_ex_mem.start(m_tb_env.m_forward_ex_mem_agent.m_sequencer);
 
-                    forward_mem_wb = forward_mem_wb_seq::type_id::create("forward_mem_wb");
+                    forward_mem_wb = data_seq::type_id::create("forward_mem_wb");
                     if(!(forward_mem_wb.randomize())) `uvm_fatal(get_name(), "Failed to randomize forward_mem_wb")
                     forward_mem_wb.start(m_tb_env.m_forward_mem_wb_agent.m_sequencer);
                 end

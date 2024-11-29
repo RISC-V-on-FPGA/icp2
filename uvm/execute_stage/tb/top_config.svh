@@ -10,28 +10,34 @@
 //------------------------------------------------------------------------------
 class top_config extends uvm_object;
     `uvm_object_param_utils(top_config)
-
-    alu_data_config m_alu_data_config;
-    clock_config  m_clock_config;
-    control_in_config m_control_in_config;
-    control_out_config m_control_out_config;
-    data1_config m_data1_config;
-    data2_config m_data2_config;
-    ex_mem_rd_config  m_ex_mem_rd_config;
-    ex_mem_RegWrite_config m_ex_mem_RegWrite_config;
-    forward_ex_mem_config m_forward_ex_mem_config;
-    forward_mem_wb_config m_forward_mem_wb_config;
-    immediate_data_config m_immediate_data_config;
-    mem_wb_rd_config m_mem_wb_rd_config;
-    mem_wb_RegWrite_config m_mem_wb_RegWrite_config;
-    memory_data_config m_memory_data_config;
-    pc_out_config m_pc_out_config;
-    pc_config m_pc_config;
-    rd_in_config m_rd_in_config;
-    rd_out_config m_rd_out_config;
-    rs1_config m_rs1_config;
-    rs2_config m_rs2_config;
-    ZeroFlag_config m_ZeroFlag_config;
+    // Adresses
+    address_config     m_rd_in_config;
+    address_config     m_rd_out_config;
+    address_config     m_rs1_config;
+    address_config     m_rs2_config;
+    address_config     m_ex_mem_rd_config;
+    address_config     m_mem_wb_rd_config;
+    // clocks
+    clock_config      m_clock_config;
+    // controls
+    control_config    m_control_in_config;
+    control_config    m_control_out_config;
+    // datas
+    data_config       m_data1_config;
+    data_config       m_data2_config;
+    data_config       m_alu_data_config;
+    data_config       m_memory_data_config;
+    data_config       m_forward_ex_mem_config;
+    data_config       m_forward_mem_wb_config;
+    data_config       m_immediate_data_config;
+    // pcs
+    pc_config         m_pc_config;
+    pc_config         m_pc_out_config;
+    // RegWrites
+    RegWrite_config   m_ex_mem_RegWrite_config;
+    RegWrite_config   m_mem_wb_RegWrite_config;
+    // ZeroFlags
+    ZeroFlag_config   m_ZeroFlag_config;
 
     //------------------------------------------------------------------------------
     // The constructor for the component.

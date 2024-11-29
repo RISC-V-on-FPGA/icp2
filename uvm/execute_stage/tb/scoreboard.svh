@@ -25,25 +25,25 @@ class scoreboard extends uvm_component;
     `uvm_component_utils(scoreboard)
 
     uvm_analysis_imp_scoreboard_pc #(pc_seq_item, scoreboard) m_pc_ap;
-    uvm_analysis_imp_scoreboard_control_in #(control_in_seq_item, scoreboard) m_control_in_ap;
-    uvm_analysis_imp_scoreboard_data1 #(data1_seq_item, scoreboard) m_data1_ap;
-    uvm_analysis_imp_scoreboard_data2 #(data2_seq_item, scoreboard) m_data2_ap;
-    uvm_analysis_imp_scoreboard_immediate_data #(immediate_data_seq_item, scoreboard) m_immediate_data_ap;
-    uvm_analysis_imp_scoreboard_rd_in #(rd_in_seq_item, scoreboard) m_rd_in_ap;
-    uvm_analysis_imp_scoreboard_rs1 #(rs1_seq_item, scoreboard) m_rs1_ap;
-    uvm_analysis_imp_scoreboard_rs2 #(rs2_seq_item, scoreboard) m_rs2_ap;
-    uvm_analysis_imp_scoreboard_ex_mem_rd #(ex_mem_rd_seq_item, scoreboard) m_ex_mem_rd_ap;
-    uvm_analysis_imp_scoreboard_mem_wb_rd #(mem_wb_rd_seq_item, scoreboard) m_mem_wb_rd_ap;
-    uvm_analysis_imp_scoreboard_ex_mem_RegWrite #(ex_mem_RegWrite_seq_item, scoreboard) m_ex_mem_RegWrite_ap;
-    uvm_analysis_imp_scoreboard_mem_wb_RegWrite #(mem_wb_RegWrite_seq_item, scoreboard) m_mem_wb_RegWrite_ap;
-    uvm_analysis_imp_scoreboard_forward_ex_mem #(forward_ex_mem_seq_item, scoreboard) m_forward_ex_mem_ap;
-    uvm_analysis_imp_scoreboard_forward_mem_wb #(forward_mem_wb_seq_item, scoreboard) m_forward_mem_wb_ap;
-    uvm_analysis_imp_scoreboard_control_out #(control_out_seq_item, scoreboard) m_control_out_ap;
+    uvm_analysis_imp_scoreboard_control_in #(control_seq_item, scoreboard) m_control_in_ap;
+    uvm_analysis_imp_scoreboard_data1 #(data_seq_item, scoreboard) m_data1_ap;
+    uvm_analysis_imp_scoreboard_data2 #(data_seq_item, scoreboard) m_data2_ap;
+    uvm_analysis_imp_scoreboard_immediate_data #(data_seq_item, scoreboard) m_immediate_data_ap;
+    uvm_analysis_imp_scoreboard_rd_in #(address_seq_item, scoreboard) m_rd_in_ap;
+    uvm_analysis_imp_scoreboard_rs1 #(address_seq_item, scoreboard) m_rs1_ap;
+    uvm_analysis_imp_scoreboard_rs2 #(address_seq_item, scoreboard) m_rs2_ap;
+    uvm_analysis_imp_scoreboard_ex_mem_rd #(address_seq_item, scoreboard) m_ex_mem_rd_ap;
+    uvm_analysis_imp_scoreboard_mem_wb_rd #(address_seq_item, scoreboard) m_mem_wb_rd_ap;
+    uvm_analysis_imp_scoreboard_ex_mem_RegWrite #(RegWrite_seq_item, scoreboard) m_ex_mem_RegWrite_ap;
+    uvm_analysis_imp_scoreboard_mem_wb_RegWrite #(RegWrite_seq_item, scoreboard) m_mem_wb_RegWrite_ap;
+    uvm_analysis_imp_scoreboard_forward_ex_mem #(data_seq_item, scoreboard) m_forward_ex_mem_ap;
+    uvm_analysis_imp_scoreboard_forward_mem_wb #(data_seq_item, scoreboard) m_forward_mem_wb_ap;
+    uvm_analysis_imp_scoreboard_control_out #(control_seq_item, scoreboard) m_control_out_ap;
     uvm_analysis_imp_scoreboard_ZeroFlag #(ZeroFlag_seq_item, scoreboard) m_ZeroFlag_ap;
-    uvm_analysis_imp_scoreboard_alu_data #(alu_data_seq_item, scoreboard) m_alu_data_ap;
-    uvm_analysis_imp_scoreboard_memory_data #(memory_data_seq_item, scoreboard) m_memory_data_ap;
-    uvm_analysis_imp_scoreboard_rd_out #(rd_out_seq_item, scoreboard) m_rd_out_ap;
-    uvm_analysis_imp_scoreboard_pc_out #(pc_out_seq_item, scoreboard) m_pc_out_ap;
+    uvm_analysis_imp_scoreboard_alu_data #(data_seq_item, scoreboard) m_alu_data_ap;
+    uvm_analysis_imp_scoreboard_memory_data #(data_seq_item, scoreboard) m_memory_data_ap;
+    uvm_analysis_imp_scoreboard_rd_out #(address_seq_item, scoreboard) m_rd_out_ap;
+    uvm_analysis_imp_scoreboard_pc_out #(pc_seq_item, scoreboard) m_pc_out_ap;
 
     int unsigned clk;
     int unsigned pc;
@@ -72,7 +72,7 @@ class scoreboard extends uvm_component;
     //------------------------------------------------------------------------------
     covergroup execute_stage_covergrp;
         pc : coverpoint pc {
-            bins pc = {[0:4294967295]};
+            bins pc = {[0:$]};
         }
     endgroup
 
@@ -130,87 +130,87 @@ class scoreboard extends uvm_component;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_pc
     
-    virtual function void write_scoreboard_control_in(control_in_seq_item item);
+    virtual function void write_scoreboard_control_in(control_seq_item item);
         `uvm_info(get_name(),$sformatf("control_in_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        control_in = item.control_in;
+        control_in = item.control;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_control_in
 
-    virtual function void write_scoreboard_data1(data1_seq_item item);
+    virtual function void write_scoreboard_data1(data_seq_item item);
         `uvm_info(get_name(),$sformatf("data1_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        data1 = item.data1;
+        data1 = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_data1
 
-    virtual function void write_scoreboard_data2(data2_seq_item item);
+    virtual function void write_scoreboard_data2(data_seq_item item);
         `uvm_info(get_name(),$sformatf("data2_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        data2 = item.data2;
+        data2 = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_data2
 
-    virtual function void write_scoreboard_immediate_data(immediate_data_seq_item item);
+    virtual function void write_scoreboard_immediate_data(data_seq_item item);
         `uvm_info(get_name(),$sformatf("immediate_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        immediate_data = item.immediate_data;
+        immediate_data = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_immediate_data
 
-    virtual function void write_scoreboard_rd_in(rd_in_seq_item item);
+    virtual function void write_scoreboard_rd_in(address_seq_item item);
         `uvm_info(get_name(),$sformatf("rd_in_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        rd_in = item.rd_in;
+        rd_in = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_rd_in
 
-    virtual function void write_scoreboard_rs1(rs1_seq_item item);
+    virtual function void write_scoreboard_rs1(address_seq_item item);
         `uvm_info(get_name(),$sformatf("rs1_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        rs1 = item.rs1;
+        rs1 = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_rs1
 
-    virtual function void write_scoreboard_rs2(rs2_seq_item item);
+    virtual function void write_scoreboard_rs2(address_seq_item item);
         `uvm_info(get_name(),$sformatf("rs2_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        rs2 = item.rs2;
+        rs2 = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_rs2
 
-    virtual function void write_scoreboard_ex_mem_rd(ex_mem_rd_seq_item item);
+    virtual function void write_scoreboard_ex_mem_rd(address_seq_item item);
         `uvm_info(get_name(),$sformatf("ex_mem_rd_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        ex_mem_rd = item.ex_mem_rd;
+        ex_mem_rd = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_ex_mem_rd
 
-    virtual function void write_scoreboard_mem_wb_rd(mem_wb_rd_seq_item item);
+    virtual function void write_scoreboard_mem_wb_rd(address_seq_item item);
         `uvm_info(get_name(),$sformatf("mem_wb_rd_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        mem_wb_rd = item.mem_wb_rd;
+        mem_wb_rd = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_mem_wb_rd
 
-    virtual function void write_scoreboard_ex_mem_RegWrite(ex_mem_RegWrite_seq_item item);
+    virtual function void write_scoreboard_ex_mem_RegWrite(RegWrite_seq_item item);
         `uvm_info(get_name(),$sformatf("ex_mem_RegWrite_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        ex_mem_RegWrite = item.ex_mem_RegWrite;
+        ex_mem_RegWrite = item.RegWrite;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_ex_mem_RegWrite
 
-    virtual function void write_scoreboard_mem_wb_RegWrite(mem_wb_RegWrite_seq_item item);
+    virtual function void write_scoreboard_mem_wb_RegWrite(RegWrite_seq_item item);
         `uvm_info(get_name(),$sformatf("mem_wb_RegWrite_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        mem_wb_RegWrite = item.mem_wb_RegWrite;
+        mem_wb_RegWrite = item.RegWrite;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_mem_wb_RegWrite
 
-    virtual function void write_scoreboard_forward_ex_mem(forward_ex_mem_seq_item item);
+    virtual function void write_scoreboard_forward_ex_mem(data_seq_item item);
         `uvm_info(get_name(),$sformatf("forward_ex_mem_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        forward_ex_mem = item.forward_ex_mem;
+        forward_ex_mem = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_forward_ex_mem
 
-    virtual function void write_scoreboard_forward_mem_wb(forward_mem_wb_seq_item item);
+    virtual function void write_scoreboard_forward_mem_wb(data_seq_item item);
         `uvm_info(get_name(),$sformatf("forward_mem_wb_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        forward_mem_wb = item.forward_mem_wb;
+        forward_mem_wb = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_forward_mem_wb
 
-    virtual function void write_scoreboard_control_out(control_out_seq_item item);
+    virtual function void write_scoreboard_control_out(control_seq_item item);
         `uvm_info(get_name(),$sformatf("control_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        control_out = item.control_out;
+        control_out = item.control;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_control_out
 
@@ -220,27 +220,27 @@ class scoreboard extends uvm_component;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_ZeroFlag
 
-    virtual function void write_scoreboard_alu_data(alu_data_seq_item item);
+    virtual function void write_scoreboard_alu_data(data_seq_item item);
         `uvm_info(get_name(),$sformatf("alu_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        alu_data = item.alu_data;
+        alu_data = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_alu_data
 
-    virtual function void write_scoreboard_memory_data(memory_data_seq_item item);
+    virtual function void write_scoreboard_memory_data(data_seq_item item);
         `uvm_info(get_name(),$sformatf("memory_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        memory_data = item.memory_data;
+        memory_data = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_memory_data
 
-    virtual function void write_scoreboard_rd_out(rd_out_seq_item item);
+    virtual function void write_scoreboard_rd_out(address_seq_item item);
         `uvm_info(get_name(),$sformatf("rd_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        rd_out = item.rd_out;
+        rd_out = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_rd_out
 
-    virtual function void write_scoreboard_pc_out(pc_out_seq_item item);
+    virtual function void write_scoreboard_pc_out(pc_seq_item item);
         `uvm_info(get_name(),$sformatf("pc_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
-        pc_out = item.pc_out;
+        pc_out = item.pc;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_pc_out
 
