@@ -38,17 +38,17 @@ class control_agent  extends uvm_agent;
             `uvm_fatal(get_name(),"Cannot find <config> agent configuration!")
         end
         // Store uVC configuration into UVM config DB used by the uVC.
-        uvm_config_db #(control_config)::set(this,"*","address_config",m_config);
+        uvm_config_db #(control_config)::set(this,"*","control_config",m_config);
         // Store uVC agent into UVM config DB
         if (m_config.is_active == UVM_ACTIVE) begin
             // Create uVC sequencer
-            m_sequencer  = uvm_sequencer #(control_seq_item)::type_id::create("address_sequencer",this);
+            m_sequencer  = uvm_sequencer #(control_seq_item)::type_id::create("control_sequencer",this);
             // Create uVC driver
-            m_driver = control_driver::type_id::create("address_driver",this);
+            m_driver = control_driver::type_id::create("control_driver",this);
         end
         if (m_config.has_monitor) begin
             // Create uVC monitor
-            m_monitor = control_monitor::type_id::create("address_monitor",this);
+            m_monitor = control_monitor::type_id::create("control_monitor",this);
         end
     endfunction : build_phase
 
