@@ -66,7 +66,7 @@ class pc_monitor  extends uvm_monitor;
                         `uvm_info(get_name(),$sformatf("Received data valid value=%0d", m_config.m_vif.pc),UVM_HIGH)
                         seq_item = pc_seq_item::type_id::create("seq_item");
                         seq_item.pc = m_config.m_vif.pc;
-                        seq_item.monitor_start_bit_valid = 1;
+                        seq_item.monitor_start_bit_valid = 1; //LÄGGA TILL I ALLA SEN? TODO
                         seq_item.monitor_start_bit_value = 1;
                         seq_item.monitor_data_valid = 1;
                         m_analysis_port.write(seq_item);

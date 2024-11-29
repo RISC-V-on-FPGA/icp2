@@ -26,6 +26,7 @@ R0
 R0
 R0
 R0
+R0
 !s11f MIXED_VERSIONS
 13
 !s112 1.1
@@ -62,21 +63,22 @@ R6
 R1
 T_opt2
 R7
-!s110 1732703253
-V8?RlI:K0UZzcF6mECSf]S0
+!s110 1732869560
+V[5=M<D?Q5gjbol?jRcd`^2
 R2
-=1-6c2b59f02d95-6746f412-2a2-2600
+=1-6c2b59f003ec-67497db4-22f-584
 R0
 R3
 R4
 R5
 n@_opt2
 R6
+R1
 valu
 Z8 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 Z9 DXx4 work 6 common 0 22 DLaB<5[HILHcj1Zj9220_0
 DXx4 work 11 alu_sv_unit 0 22 K4E:QIYN>^^YD?az<>LLa3
-Z10 !s110 1732703246
+Z10 !s110 1732872034
 Z11 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
@@ -89,20 +91,20 @@ Z12 d//stu.net.lth.se/sa1410lu-s/Desktop/icp2/uvm
 Z13 w1732695130
 Z14 8execute_stage/dut/alu.sv
 Z15 Fexecute_stage/dut/alu.sv
-!i122 44
+!i122 47
 L0 3 53
 Z16 OL;L;2022.1;75
 31
-Z17 !s108 1732703246.000000
-Z18 !s107 execute_stage/tb/basic_test.svh|execute_stage/tb/base_test.svh|execute_stage/tb/tb_env.svh|execute_stage/tb/top_config.svh|execute_stage/tb/scoreboard.svh|uvc/ZeroFlag_uvc/ZeroFlag_agent.svh|uvc/ZeroFlag_uvc/ZeroFlag_monitor.svh|uvc/ZeroFlag_uvc/ZeroFlag_config.svh|uvc/ZeroFlag_uvc/ZeroFlag_seq_item.svh|uvc/rs2_uvc/rs2_agent.svh|uvc/rs2_uvc/rs2_monitor.svh|uvc/rs2_uvc/rs2_driver.svh|uvc/rs2_uvc/rs2_config.svh|uvc/rs2_uvc/rs2_seq.svh|uvc/rs2_uvc/rs2_seq_item.svh|uvc/rs1_uvc/rs1_agent.svh|uvc/rs1_uvc/rs1_monitor.svh|uvc/rs1_uvc/rs1_driver.svh|uvc/rs1_uvc/rs1_config.svh|uvc/rs1_uvc/rs1_seq.svh|uvc/rs1_uvc/rs1_seq_item.svh|uvc/rd_out_uvc/rd_out_agent.svh|uvc/rd_out_uvc/rd_out_monitor.svh|uvc/rd_out_uvc/rd_out_config.svh|uvc/rd_out_uvc/rd_out_seq_item.svh|uvc/rd_in_uvc/rd_in_agent.svh|uvc/rd_in_uvc/rd_in_monitor.svh|uvc/rd_in_uvc/rd_in_driver.svh|uvc/rd_in_uvc/rd_in_config.svh|uvc/rd_in_uvc/rd_in_seq.svh|uvc/rd_in_uvc/rd_in_seq_item.svh|uvc/pc_uvc/pc_agent.svh|uvc/pc_uvc/pc_monitor.svh|uvc/pc_uvc/pc_driver.svh|uvc/pc_uvc/pc_config.svh|uvc/pc_uvc/pc_seq.svh|uvc/pc_uvc/pc_seq_item.svh|uvc/pc_out_uvc/pc_out_agent.svh|uvc/pc_out_uvc/pc_out_monitor.svh|uvc/pc_out_uvc/pc_out_config.svh|uvc/pc_out_uvc/pc_out_seq_item.svh|uvc/memory_data_uvc/memory_data_agent.svh|uvc/memory_data_uvc/memory_data_monitor.svh|uvc/memory_data_uvc/memory_data_config.svh|uvc/memory_data_uvc/memory_data_seq_item.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_agent.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_monitor.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_driver.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_config.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq_item.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_agent.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_monitor.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_driver.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_config.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq_item.svh|uvc/immediate_data_uvc/immediate_data_agent.svh|uvc/immediate_data_uvc/immediate_data_monitor.svh|uvc/immediate_data_uvc/immediate_data_driver.svh|uvc/immediate_data_uvc/immediate_data_config.svh|uvc/immediate_data_uvc/immediate_data_seq.svh|uvc/immediate_data_uvc/immediate_data_seq_item.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_agent.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_monitor.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_driver.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_config.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq_item.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_agent.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_monitor.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_driver.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_config.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq_item.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_agent.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_monitor.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_driver.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_config.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq_item.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_agent.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_monitor.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_driver.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_config.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq_item.svh|uvc/data2_uvc/data2_agent.svh|uvc/data2_uvc/data2_monitor.svh|uvc/data2_uvc/data2_driver.svh|uvc/data2_uvc/data2_config.svh|uvc/data2_uvc/data2_seq.svh|uvc/data2_uvc/data2_seq_item.svh|uvc/data1_uvc/data1_agent.svh|uvc/data1_uvc/data1_monitor.svh|uvc/data1_uvc/data1_driver.svh|uvc/data1_uvc/data1_config.svh|uvc/data1_uvc/data1_seq.svh|uvc/data1_uvc/data1_seq_item.svh|uvc/control_out_uvc/control_out_agent.svh|uvc/control_out_uvc/control_out_monitor.svh|uvc/control_out_uvc/control_out_config.svh|uvc/control_out_uvc/control_out_seq_item.svh|uvc/control_in_uvc/control_in_agent.svh|uvc/control_in_uvc/control_in_monitor.svh|uvc/control_in_uvc/control_in_driver.svh|uvc/control_in_uvc/control_in_config.svh|uvc/control_in_uvc/control_in_seq.svh|uvc/control_in_uvc/control_in_seq_item.svh|uvc/clock_uvc/clock_agent.svh|uvc/clock_uvc/clock_driver.svh|uvc/clock_uvc/clock_config.svh|uvc/alu_data_uvc/alu_data_agent.svh|uvc/alu_data_uvc/alu_data_monitor.svh|uvc/alu_data_uvc/alu_data_config.svh|uvc/alu_data_uvc/alu_data_seq_item.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|execute_stage/tb/tb_top.sv|execute_stage/tb/tb_pkg.sv|execute_stage/dut/execute_stage.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/alu.sv|execute_stage/dut/common.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/pc_uvc/pc_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/data2_uvc/data2_if.sv|uvc/data1_uvc/data1_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/clock_uvc/clock_if.sv|
-Z19 !s90 -reportprogress|300|-sv|-timescale|1ns/1ns|+acc=pr|+incdir+uvc/clock_uvc+uvc/alu_data_uvc+uvc/control_in_uvc+uvc/control_out_uvc+uvc/data1_uvc+uvc/data2_uvc+uvc/ex_mem_rd_uvc+uvc/ex_mem_RegWrite_uvc+uvc/forward_ex_mem_uvc+uvc/forward_mem_wb_uvc+uvc/immediate_data_uvc+uvc/mem_wb_rd_uvc+uvc/mem_wb_RegWrite_uvc+uvc/memory_data_uvc+uvc/pc_out_uvc+uvc/pc_uvc+uvc/rd_in_uvc+uvc/rd_out_uvc+uvc/rs1_uvc+uvc/rs2_uvc+uvc/ZeroFlag_uvc+execute_stage/tb|uvc/clock_uvc/clock_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/data1_uvc/data1_if.sv|uvc/data2_uvc/data2_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/pc_uvc/pc_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|execute_stage/dut/common.sv|execute_stage/dut/alu.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/execute_stage.sv|execute_stage/tb/tb_pkg.sv|execute_stage/tb/tb_top.sv|
+Z17 !s108 1732872033.000000
+!s107 execute_stage/tb/scoreboard.svh|uvc/ZeroFlag_uvc/ZeroFlag_agent.svh|uvc/ZeroFlag_uvc/ZeroFlag_monitor.svh|uvc/ZeroFlag_uvc/ZeroFlag_config.svh|uvc/ZeroFlag_uvc/ZeroFlag_seq_item.svh|uvc/rs2_uvc/rs2_agent.svh|uvc/rs2_uvc/rs2_monitor.svh|uvc/rs2_uvc/rs2_driver.svh|uvc/rs2_uvc/rs2_config.svh|uvc/rs2_uvc/rs2_seq.svh|uvc/rs2_uvc/rs2_seq_item.svh|uvc/rs1_uvc/rs1_agent.svh|uvc/rs1_uvc/rs1_monitor.svh|uvc/rs1_uvc/rs1_driver.svh|uvc/rs1_uvc/rs1_config.svh|uvc/rs1_uvc/rs1_seq.svh|uvc/rs1_uvc/rs1_seq_item.svh|uvc/rd_out_uvc/rd_out_agent.svh|uvc/rd_out_uvc/rd_out_monitor.svh|uvc/rd_out_uvc/rd_out_config.svh|uvc/rd_out_uvc/rd_out_seq_item.svh|uvc/rd_in_uvc/rd_in_agent.svh|uvc/rd_in_uvc/rd_in_monitor.svh|uvc/rd_in_uvc/rd_in_driver.svh|uvc/rd_in_uvc/rd_in_config.svh|uvc/rd_in_uvc/rd_in_seq.svh|uvc/rd_in_uvc/rd_in_seq_item.svh|uvc/pc_uvc/pc_agent.svh|uvc/pc_uvc/pc_monitor.svh|uvc/pc_uvc/pc_driver.svh|uvc/pc_uvc/pc_config.svh|uvc/pc_uvc/pc_seq.svh|uvc/pc_uvc/pc_seq_item.svh|uvc/pc_out_uvc/pc_out_agent.svh|uvc/pc_out_uvc/pc_out_monitor.svh|uvc/pc_out_uvc/pc_out_config.svh|uvc/pc_out_uvc/pc_out_seq_item.svh|uvc/memory_data_uvc/memory_data_agent.svh|uvc/memory_data_uvc/memory_data_monitor.svh|uvc/memory_data_uvc/memory_data_config.svh|uvc/memory_data_uvc/memory_data_seq_item.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_agent.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_monitor.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_driver.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_config.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq_item.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_agent.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_monitor.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_driver.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_config.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq_item.svh|uvc/immediate_data_uvc/immediate_data_agent.svh|uvc/immediate_data_uvc/immediate_data_monitor.svh|uvc/immediate_data_uvc/immediate_data_driver.svh|uvc/immediate_data_uvc/immediate_data_config.svh|uvc/immediate_data_uvc/immediate_data_seq.svh|uvc/immediate_data_uvc/immediate_data_seq_item.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_agent.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_monitor.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_driver.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_config.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq_item.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_agent.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_monitor.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_driver.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_config.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq_item.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_agent.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_monitor.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_driver.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_config.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq_item.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_agent.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_monitor.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_driver.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_config.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq_item.svh|uvc/data2_uvc/data2_agent.svh|uvc/data2_uvc/data2_monitor.svh|uvc/data2_uvc/data2_driver.svh|uvc/data2_uvc/data2_config.svh|uvc/data2_uvc/data2_seq.svh|uvc/data2_uvc/data2_seq_item.svh|uvc/data1_uvc/data1_agent.svh|uvc/data1_uvc/data1_monitor.svh|uvc/data1_uvc/data1_driver.svh|uvc/data1_uvc/data1_config.svh|uvc/data1_uvc/data1_seq.svh|uvc/data1_uvc/data1_seq_item.svh|uvc/control_out_uvc/control_out_agent.svh|uvc/control_out_uvc/control_out_monitor.svh|uvc/control_out_uvc/control_out_config.svh|uvc/control_out_uvc/control_out_seq_item.svh|uvc/control_in_uvc/control_in_agent.svh|uvc/control_in_uvc/control_in_monitor.svh|uvc/control_in_uvc/control_in_driver.svh|uvc/control_in_uvc/control_in_config.svh|uvc/control_in_uvc/control_in_seq.svh|uvc/control_in_uvc/control_in_seq_item.svh|uvc/clock_uvc/clock_agent.svh|uvc/clock_uvc/clock_driver.svh|uvc/clock_uvc/clock_config.svh|uvc/alu_data_uvc/alu_data_agent.svh|uvc/alu_data_uvc/alu_data_monitor.svh|uvc/alu_data_uvc/alu_data_config.svh|uvc/alu_data_uvc/alu_data_seq_item.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|execute_stage/tb/tb_top.sv|execute_stage/tb/tb_pkg.sv|execute_stage/dut/execute_stage.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/alu.sv|execute_stage/dut/common.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/pc_uvc/pc_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/data2_uvc/data2_if.sv|uvc/data1_uvc/data1_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/clock_uvc/clock_if.sv|
+Z18 !s90 -reportprogress|300|-sv|-timescale|1ns/1ns|+acc=pr|+incdir+uvc/clock_uvc+uvc/alu_data_uvc+uvc/control_in_uvc+uvc/control_out_uvc+uvc/data1_uvc+uvc/data2_uvc+uvc/ex_mem_rd_uvc+uvc/ex_mem_RegWrite_uvc+uvc/forward_ex_mem_uvc+uvc/forward_mem_wb_uvc+uvc/immediate_data_uvc+uvc/mem_wb_rd_uvc+uvc/mem_wb_RegWrite_uvc+uvc/memory_data_uvc+uvc/pc_out_uvc+uvc/pc_uvc+uvc/rd_in_uvc+uvc/rd_out_uvc+uvc/rs1_uvc+uvc/rs2_uvc+uvc/ZeroFlag_uvc+execute_stage/tb|uvc/clock_uvc/clock_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/data1_uvc/data1_if.sv|uvc/data2_uvc/data2_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/pc_uvc/pc_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|execute_stage/dut/common.sv|execute_stage/dut/alu.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/execute_stage.sv|execute_stage/tb/tb_pkg.sv|execute_stage/tb/tb_top.sv|
 !i113 0
-Z20 o-sv -timescale 1ns/1ns +acc=pr -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z21 !s92 -sv -timescale 1ns/1ns +acc=pr +incdir+uvc/clock_uvc+uvc/alu_data_uvc+uvc/control_in_uvc+uvc/control_out_uvc+uvc/data1_uvc+uvc/data2_uvc+uvc/ex_mem_rd_uvc+uvc/ex_mem_RegWrite_uvc+uvc/forward_ex_mem_uvc+uvc/forward_mem_wb_uvc+uvc/immediate_data_uvc+uvc/mem_wb_rd_uvc+uvc/mem_wb_RegWrite_uvc+uvc/memory_data_uvc+uvc/pc_out_uvc+uvc/pc_uvc+uvc/rd_in_uvc+uvc/rd_out_uvc+uvc/rs1_uvc+uvc/rs2_uvc+uvc/ZeroFlag_uvc+execute_stage/tb -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z19 o-sv -timescale 1ns/1ns +acc=pr -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z20 !s92 -sv -timescale 1ns/1ns +acc=pr +incdir+uvc/clock_uvc+uvc/alu_data_uvc+uvc/control_in_uvc+uvc/control_out_uvc+uvc/data1_uvc+uvc/data2_uvc+uvc/ex_mem_rd_uvc+uvc/ex_mem_RegWrite_uvc+uvc/forward_ex_mem_uvc+uvc/forward_mem_wb_uvc+uvc/immediate_data_uvc+uvc/mem_wb_rd_uvc+uvc/mem_wb_RegWrite_uvc+uvc/memory_data_uvc+uvc/pc_out_uvc+uvc/pc_uvc+uvc/rd_in_uvc+uvc/rd_out_uvc+uvc/rs1_uvc+uvc/rs2_uvc+uvc/ZeroFlag_uvc+execute_stage/tb -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R5
 Yalu_data_if
 R8
-R10
+Z21 !s110 1732872033
 !i10b 1
 !s100 a3MUh8M3fg^Z=:2SS2;BY3
 IGUh3KL^<PE3]i1j@ZFE]l0
@@ -111,7 +113,7 @@ R12
 R13
 8uvc/alu_data_uvc/alu_data_if.sv
 Fuvc/alu_data_uvc/alu_data_if.sv
-!i122 44
+!i122 47
 Z22 L0 7 0
 R11
 R16
@@ -119,11 +121,11 @@ r1
 !s85 0
 31
 R17
+Z23 !s107 execute_stage/tb/scoreboard.svh|uvc/ZeroFlag_uvc/ZeroFlag_agent.svh|uvc/ZeroFlag_uvc/ZeroFlag_monitor.svh|uvc/ZeroFlag_uvc/ZeroFlag_config.svh|uvc/ZeroFlag_uvc/ZeroFlag_seq_item.svh|uvc/rs2_uvc/rs2_agent.svh|uvc/rs2_uvc/rs2_monitor.svh|uvc/rs2_uvc/rs2_driver.svh|uvc/rs2_uvc/rs2_config.svh|uvc/rs2_uvc/rs2_seq.svh|uvc/rs2_uvc/rs2_seq_item.svh|uvc/rs1_uvc/rs1_agent.svh|uvc/rs1_uvc/rs1_monitor.svh|uvc/rs1_uvc/rs1_driver.svh|uvc/rs1_uvc/rs1_config.svh|uvc/rs1_uvc/rs1_seq.svh|uvc/rs1_uvc/rs1_seq_item.svh|uvc/rd_out_uvc/rd_out_agent.svh|uvc/rd_out_uvc/rd_out_monitor.svh|uvc/rd_out_uvc/rd_out_config.svh|uvc/rd_out_uvc/rd_out_seq_item.svh|uvc/rd_in_uvc/rd_in_agent.svh|uvc/rd_in_uvc/rd_in_monitor.svh|uvc/rd_in_uvc/rd_in_driver.svh|uvc/rd_in_uvc/rd_in_config.svh|uvc/rd_in_uvc/rd_in_seq.svh|uvc/rd_in_uvc/rd_in_seq_item.svh|uvc/pc_uvc/pc_agent.svh|uvc/pc_uvc/pc_monitor.svh|uvc/pc_uvc/pc_driver.svh|uvc/pc_uvc/pc_config.svh|uvc/pc_uvc/pc_seq.svh|uvc/pc_uvc/pc_seq_item.svh|uvc/pc_out_uvc/pc_out_agent.svh|uvc/pc_out_uvc/pc_out_monitor.svh|uvc/pc_out_uvc/pc_out_config.svh|uvc/pc_out_uvc/pc_out_seq_item.svh|uvc/memory_data_uvc/memory_data_agent.svh|uvc/memory_data_uvc/memory_data_monitor.svh|uvc/memory_data_uvc/memory_data_config.svh|uvc/memory_data_uvc/memory_data_seq_item.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_agent.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_monitor.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_driver.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_config.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq_item.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_agent.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_monitor.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_driver.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_config.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq_item.svh|uvc/immediate_data_uvc/immediate_data_agent.svh|uvc/immediate_data_uvc/immediate_data_monitor.svh|uvc/immediate_data_uvc/immediate_data_driver.svh|uvc/immediate_data_uvc/immediate_data_config.svh|uvc/immediate_data_uvc/immediate_data_seq.svh|uvc/immediate_data_uvc/immediate_data_seq_item.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_agent.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_monitor.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_driver.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_config.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq_item.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_agent.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_monitor.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_driver.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_config.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq_item.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_agent.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_monitor.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_driver.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_config.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq_item.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_agent.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_monitor.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_driver.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_config.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq_item.svh|uvc/data2_uvc/data2_agent.svh|uvc/data2_uvc/data2_monitor.svh|uvc/data2_uvc/data2_driver.svh|uvc/data2_uvc/data2_config.svh|uvc/data2_uvc/data2_seq.svh|uvc/data2_uvc/data2_seq_item.svh|uvc/data1_uvc/data1_agent.svh|uvc/data1_uvc/data1_monitor.svh|uvc/data1_uvc/data1_driver.svh|uvc/data1_uvc/data1_config.svh|uvc/data1_uvc/data1_seq.svh|uvc/data1_uvc/data1_seq_item.svh|uvc/control_out_uvc/control_out_agent.svh|uvc/control_out_uvc/control_out_monitor.svh|uvc/control_out_uvc/control_out_config.svh|uvc/control_out_uvc/control_out_seq_item.svh|uvc/control_in_uvc/control_in_agent.svh|uvc/control_in_uvc/control_in_monitor.svh|uvc/control_in_uvc/control_in_driver.svh|uvc/control_in_uvc/control_in_config.svh|uvc/control_in_uvc/control_in_seq.svh|uvc/control_in_uvc/control_in_seq_item.svh|uvc/clock_uvc/clock_agent.svh|uvc/clock_uvc/clock_driver.svh|uvc/clock_uvc/clock_config.svh|uvc/alu_data_uvc/alu_data_agent.svh|uvc/alu_data_uvc/alu_data_monitor.svh|uvc/alu_data_uvc/alu_data_config.svh|uvc/alu_data_uvc/alu_data_seq_item.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|execute_stage/tb/tb_top.sv|execute_stage/tb/tb_pkg.sv|execute_stage/dut/execute_stage.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/alu.sv|execute_stage/dut/common.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/pc_uvc/pc_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/data2_uvc/data2_if.sv|uvc/data1_uvc/data1_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/clock_uvc/clock_if.sv|
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Xalu_sv_unit
 R8
@@ -141,20 +143,20 @@ R12
 R13
 R14
 R15
-!i122 44
-Z23 L0 1 0
+!i122 47
+Z24 L0 1 0
 R16
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yclock_if
 R8
-R10
+R21
 !i10b 1
 !s100 >n;Cfi95_[dd9=Yaak6D71
 I?`dO9jMEj4>:SJ]gZXX=f3
@@ -163,7 +165,7 @@ R12
 R13
 8uvc/clock_uvc/clock_if.sv
 Fuvc/clock_uvc/clock_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -171,11 +173,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Xcommon
 R8
@@ -188,23 +190,23 @@ R12
 R13
 8execute_stage/dut/common.sv
 Fexecute_stage/dut/common.sv
-!i122 44
-R23
+!i122 47
+R24
 VDLaB<5[HILHcj1Zj9220_0
 R16
 r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ycontrol_in_if
 R8
-R10
+R21
 !i10b 1
 !s100 N7E0HL84_6of0cgBS?FjH0
 IAMO?A[z_CVVC8bmEeS[O<0
@@ -213,7 +215,7 @@ R12
 R13
 8uvc/control_in_uvc/control_in_if.sv
 Fuvc/control_in_uvc/control_in_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -221,15 +223,15 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ycontrol_out_if
 R8
-R10
+R21
 !i10b 1
 !s100 f^KFRDZDc9@hD8lhf`35:1
 Io=`]oH;Z[[V24XJm1>Pi00
@@ -238,7 +240,7 @@ R12
 R13
 8uvc/control_out_uvc/control_out_if.sv
 Fuvc/control_out_uvc/control_out_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -246,74 +248,74 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ydata1_if
 R8
-R10
+R21
 !i10b 1
 !s100 B8RTk::8:gD2FL6XmlC[S1
 Ig<F<e[g4HWk9Sk[f_jE753
 S1
 R12
-Z24 w1732695131
+Z25 w1732695131
 8uvc/data1_uvc/data1_if.sv
 Fuvc/data1_uvc/data1_if.sv
-!i122 44
-Z25 L0 4 0
+!i122 47
+Z26 L0 4 0
 R11
 R16
 r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ydata2_if
 R8
-R10
+R21
 !i10b 1
 !s100 KVVANzVkjzGMKC8_^^LGN2
 I8gSDzB:Nc_hHXWiUElSHb2
 S1
 R12
-R24
+R25
 8uvc/data2_uvc/data2_if.sv
 Fuvc/data2_uvc/data2_if.sv
-!i122 44
-R25
+!i122 47
+R26
 R11
 R16
 r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yex_mem_rd_if
 R8
-R10
+R21
 !i10b 1
 !s100 PX01hcFOdZZQVh<D@IM_B0
 I[TfB6F3=2Fa`fZ=aNoOPH0
 S1
 R12
-R24
+R25
 8uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv
 Fuvc/ex_mem_rd_uvc/ex_mem_rd_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -321,11 +323,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yex_mem_RegWrite_if
 R8
@@ -335,22 +337,22 @@ R10
 Ic4KA?HN5GP<7[nXCQfH4Z2
 S1
 R12
-R24
+R25
 8uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv
 Fuvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv
-!i122 44
-R25
+!i122 47
+R26
 R11
 R16
 r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 nex_mem_@reg@write_if
 vexecute_stage
@@ -368,18 +370,18 @@ I;lBjo@lQk21IzoYZ4i@7d3
 S1
 R12
 R13
-Z26 8execute_stage/dut/execute_stage.sv
-Z27 Fexecute_stage/dut/execute_stage.sv
-!i122 44
+Z27 8execute_stage/dut/execute_stage.sv
+Z28 Fexecute_stage/dut/execute_stage.sv
+!i122 47
 L0 7 89
 R16
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Xexecute_stage_sv_unit
 R8
@@ -395,18 +397,18 @@ Ie52fDRVH^@U_mzm=FXbF]2
 S1
 R12
 R13
-R26
 R27
-!i122 44
+R28
+!i122 47
 L0 5 0
 R16
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yforward_ex_mem_if
 R8
@@ -416,10 +418,10 @@ R10
 IVgPheV8bHfiY0=SVK=Q8@1
 S1
 R12
-R24
+R25
 8uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv
 Fuvc/forward_ex_mem_uvc/forward_ex_mem_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -427,11 +429,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yforward_mem_wb_if
 R8
@@ -441,10 +443,10 @@ R10
 IHHP<6SWLCjTWU]aSB23?U3
 S1
 R12
-R24
+R25
 8uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv
 Fuvc/forward_mem_wb_uvc/forward_mem_wb_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -452,11 +454,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 vforwarding_unit
 R8
@@ -473,18 +475,18 @@ INF`mzZLWGDfYHOie;Jf7I0
 S1
 R12
 R13
-Z28 8execute_stage/dut/forwarding_unit.sv
-Z29 Fexecute_stage/dut/forwarding_unit.sv
-!i122 44
+Z29 8execute_stage/dut/forwarding_unit.sv
+Z30 Fexecute_stage/dut/forwarding_unit.sv
+!i122 47
 L0 4 58
 R16
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Xforwarding_unit_sv_unit
 R8
@@ -500,18 +502,18 @@ InQ@D`QlMN9fX@V1g<gQm73
 S1
 R12
 R13
-R28
 R29
-!i122 44
+R30
+!i122 47
 L0 2 0
 R16
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yimmediate_data_if
 R8
@@ -521,10 +523,10 @@ R10
 In?mDM=3@F:>KE0PM4_eXa1
 S1
 R12
-R24
+R25
 8uvc/immediate_data_uvc/immediate_data_if.sv
 Fuvc/immediate_data_uvc/immediate_data_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -532,11 +534,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ymem_wb_rd_if
 R8
@@ -546,10 +548,10 @@ R10
 I6@IG0jh<LnYlDz;X0MMXF0
 S1
 R12
-Z30 w1732695132
+Z31 w1732695132
 8uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv
 Fuvc/mem_wb_rd_uvc/mem_wb_rd_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -557,11 +559,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ymem_wb_RegWrite_if
 R8
@@ -571,22 +573,22 @@ R10
 ISKP69W4lX75<O=WN2[M;b1
 S1
 R12
-R30
+R31
 8uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv
 Fuvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv
-!i122 44
-R25
+!i122 47
+R26
 R11
 R16
 r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 nmem_wb_@reg@write_if
 Ymemory_data_if
@@ -597,10 +599,10 @@ R10
 IjHN9?_h1=PBeIDnKba28z3
 S1
 R12
-R30
+R31
 8uvc/memory_data_uvc/memory_data_if.sv
 Fuvc/memory_data_uvc/memory_data_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -608,11 +610,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ypc_if
 R8
@@ -622,10 +624,10 @@ R10
 IW;`U2l68<TEA>`^zXPl]N2
 S1
 R12
-R30
+R31
 8uvc/pc_uvc/pc_if.sv
 Fuvc/pc_uvc/pc_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -633,11 +635,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Ypc_out_if
 R8
@@ -647,10 +649,10 @@ R10
 IZg[k_?_zl?@Oke>ZoJacC0
 S1
 R12
-R30
+R31
 8uvc/pc_out_uvc/pc_out_if.sv
 Fuvc/pc_out_uvc/pc_out_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -658,11 +660,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yrd_in_if
 R8
@@ -672,10 +674,10 @@ R10
 IPGMIjOhUlWAUZ=Rd]EgHi1
 S1
 R12
-R30
+R31
 8uvc/rd_in_uvc/rd_in_if.sv
 Fuvc/rd_in_uvc/rd_in_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -683,11 +685,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yrd_out_if
 R8
@@ -697,10 +699,10 @@ R10
 Ij84K8i_Izz;k47Ukc`K?T3
 S1
 R12
-Z31 w1732695133
+Z32 w1732695133
 8uvc/rd_out_uvc/rd_out_if.sv
 Fuvc/rd_out_uvc/rd_out_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -708,11 +710,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yrs1_if
 R8
@@ -722,10 +724,10 @@ R10
 IC7I6^<Yc:jV5Ig3P9b4O]3
 S1
 R12
-R31
+R32
 8uvc/rs1_uvc/rs1_if.sv
 Fuvc/rs1_uvc/rs1_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -733,11 +735,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Yrs2_if
 R8
@@ -747,10 +749,10 @@ R10
 IX`M2;h<=ao=gjg?]YOI1P3
 S1
 R12
-R31
+R32
 8uvc/rs2_uvc/rs2_if.sv
 Fuvc/rs2_uvc/rs2_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -758,11 +760,11 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 Xtb_pkg
 !s115 ZeroFlag_if
@@ -787,28 +789,28 @@ Xtb_pkg
 !s115 clock_if
 !s115 alu_data_if
 R8
-Z32 DXx6 mtiUvm 7 uvm_pkg 0 22 8V[`8]Q0W57le7Z>zYaAj1
-Z33 !s110 1732703249
+Z33 DXx6 mtiUvm 7 uvm_pkg 0 22 8V[`8]Q0W57le7Z>zYaAj1
+Z34 !s110 1732869555
 !i10b 1
-!s100 N?Bn9bFoY_QcBGX2EHai@3
-IY3ZCF=e<mIOIcc=QZAO[_3
+!s100 `egkN?J[hocU]obA3_QzY0
+Iz8g[l724<l9JL31JY1DD^2
 S1
 R12
-w1732703238
+w1732869544
 8execute_stage/tb/tb_pkg.sv
 Fexecute_stage/tb/tb_pkg.sv
-Z34 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
-Z35 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
-Z36 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
-Z37 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
-Z38 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
-Z39 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
-Z40 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
-Z41 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
-Z42 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
-Z43 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
-Z44 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
-Z45 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+Z35 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z36 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z37 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z38 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z39 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z40 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z41 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z42 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z43 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z44 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z45 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z46 FC:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
 Fuvc/alu_data_uvc/alu_data_seq_item.svh
 Fuvc/alu_data_uvc/alu_data_config.svh
 Fuvc/alu_data_uvc/alu_data_monitor.svh
@@ -925,25 +927,25 @@ Fexecute_stage/tb/top_config.svh
 Fexecute_stage/tb/tb_env.svh
 Fexecute_stage/tb/base_test.svh
 Fexecute_stage/tb/basic_test.svh
-!i122 44
+!i122 46
 L0 12 0
-VY3ZCF=e<mIOIcc=QZAO[_3
+Vz8g[l724<l9JL31JY1DD^2
 R16
 r1
 !s85 0
 31
-R17
+Z47 !s108 1732869553.000000
+Z48 !s107 execute_stage/tb/basic_test.svh|execute_stage/tb/base_test.svh|execute_stage/tb/tb_env.svh|execute_stage/tb/top_config.svh|execute_stage/tb/scoreboard.svh|uvc/ZeroFlag_uvc/ZeroFlag_agent.svh|uvc/ZeroFlag_uvc/ZeroFlag_monitor.svh|uvc/ZeroFlag_uvc/ZeroFlag_config.svh|uvc/ZeroFlag_uvc/ZeroFlag_seq_item.svh|uvc/rs2_uvc/rs2_agent.svh|uvc/rs2_uvc/rs2_monitor.svh|uvc/rs2_uvc/rs2_driver.svh|uvc/rs2_uvc/rs2_config.svh|uvc/rs2_uvc/rs2_seq.svh|uvc/rs2_uvc/rs2_seq_item.svh|uvc/rs1_uvc/rs1_agent.svh|uvc/rs1_uvc/rs1_monitor.svh|uvc/rs1_uvc/rs1_driver.svh|uvc/rs1_uvc/rs1_config.svh|uvc/rs1_uvc/rs1_seq.svh|uvc/rs1_uvc/rs1_seq_item.svh|uvc/rd_out_uvc/rd_out_agent.svh|uvc/rd_out_uvc/rd_out_monitor.svh|uvc/rd_out_uvc/rd_out_config.svh|uvc/rd_out_uvc/rd_out_seq_item.svh|uvc/rd_in_uvc/rd_in_agent.svh|uvc/rd_in_uvc/rd_in_monitor.svh|uvc/rd_in_uvc/rd_in_driver.svh|uvc/rd_in_uvc/rd_in_config.svh|uvc/rd_in_uvc/rd_in_seq.svh|uvc/rd_in_uvc/rd_in_seq_item.svh|uvc/pc_uvc/pc_agent.svh|uvc/pc_uvc/pc_monitor.svh|uvc/pc_uvc/pc_driver.svh|uvc/pc_uvc/pc_config.svh|uvc/pc_uvc/pc_seq.svh|uvc/pc_uvc/pc_seq_item.svh|uvc/pc_out_uvc/pc_out_agent.svh|uvc/pc_out_uvc/pc_out_monitor.svh|uvc/pc_out_uvc/pc_out_config.svh|uvc/pc_out_uvc/pc_out_seq_item.svh|uvc/memory_data_uvc/memory_data_agent.svh|uvc/memory_data_uvc/memory_data_monitor.svh|uvc/memory_data_uvc/memory_data_config.svh|uvc/memory_data_uvc/memory_data_seq_item.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_agent.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_monitor.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_driver.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_config.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq.svh|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_seq_item.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_agent.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_monitor.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_driver.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_config.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq.svh|uvc/mem_wb_rd_uvc/mem_wb_rd_seq_item.svh|uvc/immediate_data_uvc/immediate_data_agent.svh|uvc/immediate_data_uvc/immediate_data_monitor.svh|uvc/immediate_data_uvc/immediate_data_driver.svh|uvc/immediate_data_uvc/immediate_data_config.svh|uvc/immediate_data_uvc/immediate_data_seq.svh|uvc/immediate_data_uvc/immediate_data_seq_item.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_agent.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_monitor.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_driver.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_config.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq.svh|uvc/forward_mem_wb_uvc/forward_mem_wb_seq_item.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_agent.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_monitor.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_driver.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_config.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq.svh|uvc/forward_ex_mem_uvc/forward_ex_mem_seq_item.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_agent.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_monitor.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_driver.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_config.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq.svh|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_seq_item.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_agent.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_monitor.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_driver.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_config.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq.svh|uvc/ex_mem_rd_uvc/ex_mem_rd_seq_item.svh|uvc/data2_uvc/data2_agent.svh|uvc/data2_uvc/data2_monitor.svh|uvc/data2_uvc/data2_driver.svh|uvc/data2_uvc/data2_config.svh|uvc/data2_uvc/data2_seq.svh|uvc/data2_uvc/data2_seq_item.svh|uvc/data1_uvc/data1_agent.svh|uvc/data1_uvc/data1_monitor.svh|uvc/data1_uvc/data1_driver.svh|uvc/data1_uvc/data1_config.svh|uvc/data1_uvc/data1_seq.svh|uvc/data1_uvc/data1_seq_item.svh|uvc/control_out_uvc/control_out_agent.svh|uvc/control_out_uvc/control_out_monitor.svh|uvc/control_out_uvc/control_out_config.svh|uvc/control_out_uvc/control_out_seq_item.svh|uvc/control_in_uvc/control_in_agent.svh|uvc/control_in_uvc/control_in_monitor.svh|uvc/control_in_uvc/control_in_driver.svh|uvc/control_in_uvc/control_in_config.svh|uvc/control_in_uvc/control_in_seq.svh|uvc/control_in_uvc/control_in_seq_item.svh|uvc/clock_uvc/clock_agent.svh|uvc/clock_uvc/clock_driver.svh|uvc/clock_uvc/clock_config.svh|uvc/alu_data_uvc/alu_data_agent.svh|uvc/alu_data_uvc/alu_data_monitor.svh|uvc/alu_data_uvc/alu_data_config.svh|uvc/alu_data_uvc/alu_data_seq_item.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/Program Files/questasim64_2022.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|execute_stage/tb/tb_top.sv|execute_stage/tb/tb_pkg.sv|execute_stage/dut/execute_stage.sv|execute_stage/dut/forwarding_unit.sv|execute_stage/dut/alu.sv|execute_stage/dut/common.sv|uvc/ZeroFlag_uvc/ZeroFlag_if.sv|uvc/rs2_uvc/rs2_if.sv|uvc/rs1_uvc/rs1_if.sv|uvc/rd_out_uvc/rd_out_if.sv|uvc/rd_in_uvc/rd_in_if.sv|uvc/pc_uvc/pc_if.sv|uvc/pc_out_uvc/pc_out_if.sv|uvc/memory_data_uvc/memory_data_if.sv|uvc/mem_wb_RegWrite_uvc/mem_wb_RegWrite_if.sv|uvc/mem_wb_rd_uvc/mem_wb_rd_if.sv|uvc/immediate_data_uvc/immediate_data_if.sv|uvc/forward_mem_wb_uvc/forward_mem_wb_if.sv|uvc/forward_ex_mem_uvc/forward_ex_mem_if.sv|uvc/ex_mem_RegWrite_uvc/ex_mem_RegWrite_if.sv|uvc/ex_mem_rd_uvc/ex_mem_rd_if.sv|uvc/data2_uvc/data2_if.sv|uvc/data1_uvc/data1_if.sv|uvc/control_out_uvc/control_out_if.sv|uvc/control_in_uvc/control_in_if.sv|uvc/alu_data_uvc/alu_data_if.sv|uvc/clock_uvc/clock_if.sv|
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 vtb_top
 R8
-R32
-DXx4 work 6 tb_pkg 0 22 Y3ZCF=e<mIOIcc=QZAO[_3
 R33
+DXx4 work 6 tb_pkg 0 22 z8g[l724<l9JL31JY1DD^2
+R34
 !i10b 1
 !s100 5OJHzaFcYTB0MPBTL?UAa1
 I26YDQX48Z;]aERc?g1@dm0
@@ -952,7 +954,6 @@ R12
 w1732696737
 8execute_stage/tb/tb_top.sv
 Fexecute_stage/tb/tb_top.sv
-R34
 R35
 R36
 R37
@@ -964,19 +965,20 @@ R42
 R43
 R44
 R45
-!i122 44
+R46
+!i122 46
 L0 16 6651
 R11
 R16
 r1
 !s85 0
 31
-R17
+R47
+R48
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 YZeroFlag_if
 R8
@@ -989,7 +991,7 @@ R12
 R13
 8uvc/ZeroFlag_uvc/ZeroFlag_if.sv
 Fuvc/ZeroFlag_uvc/ZeroFlag_if.sv
-!i122 44
+!i122 47
 R22
 R11
 R16
@@ -997,10 +999,10 @@ r1
 !s85 0
 31
 R17
+R23
 R18
-R19
 !i113 0
+R19
 R20
-R21
 R5
 n@zero@flag_if
