@@ -51,19 +51,9 @@ class pc_monitor  extends uvm_monitor;
         `uvm_info(get_name(),$sformatf("Starting pc interface monitoring"),UVM_HIGH)
         forever begin
             // Wait for reset to be released
-            `uvm_info(get_name(),$sformatf("Waiting for reset signal is released..."),UVM_HIGH)
-            @(posedge m_config.m_vif.rst_n);
             @(negedge m_config.m_vif.clk); // Middle of signal, was commented ???? (wat)
-            `uvm_info(get_name(),$sformatf("Reset signal is released"),UVM_HIGH)
+            `uvm_info(get_name(),$sformatf("Negative Clock Edge DETECTED"),UVM_HIGH)
             fork
-                // Detect reset during testing
-                begin
-                    @(negedge m_config.m_vif.rst_n);
-                    `uvm_info(get_name(),$sformatf("Reset detected. Checking aborted!!"),UVM_HIGH)
-                    if (check_process != null) begin
-                        check_process.kill();
-                    end
-                end
                 begin
                     pc_seq_item  seq_item;
                     // Save process info to be able to kill the process
@@ -76,6 +66,9 @@ class pc_monitor  extends uvm_monitor;
                         `uvm_info(get_name(),$sformatf("Received data valid value=%0d", m_config.m_vif.pc),UVM_HIGH)
                         seq_item = pc_seq_item::type_id::create("seq_item");
                         seq_item.pc = m_config.m_vif.pc;
+                        seq_item.monitor_start_bit_valid = 1;
+                        seq_item.monitor_start_bit_value = 1;
+                        seq_item.monitor_data_valid = 1;
                         m_analysis_port.write(seq_item);
                     end
                 end

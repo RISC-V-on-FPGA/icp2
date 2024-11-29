@@ -14,7 +14,7 @@ class pc_config extends uvm_object;
     // The pc period
     bit[31:0]  pc;       //      kanske behöver importera komponenter från kommon för att han skall fatta vad control_type är?????????????????????
     // pc uVC virtual pc_IF interface.
-    virtual pc_if  m_vif;
+    virtual pc_if m_vif;
 
     `uvm_object_utils_begin(pc_config)
     `uvm_field_int(is_active,UVM_ALL_ON|UVM_DEC)

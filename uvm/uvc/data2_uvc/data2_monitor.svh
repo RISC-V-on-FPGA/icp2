@@ -50,20 +50,8 @@ class data2_monitor  extends uvm_monitor;
 
         `uvm_info(get_name(),$sformatf("Starting data2 interface monitoring"),UVM_HIGH)
         forever begin
-            // Wait for reset to be released
-            `uvm_info(get_name(),$sformatf("Waiting for reset signal is released..."),UVM_HIGH)
-            @(posedge m_config.m_vif.rst_n);
             @(negedge m_config.m_vif.clk); // Middle of signal, was commented ???? (wat)
-            `uvm_info(get_name(),$sformatf("Reset signal is released"),UVM_HIGH)
             fork
-                // Detect reset during testing
-                begin
-                    @(negedge m_config.m_vif.rst_n);
-                    `uvm_info(get_name(),$sformatf("Reset detected. Checking aborted!!"),UVM_HIGH)
-                    if (check_process != null) begin
-                        check_process.kill();
-                    end
-                end
                 begin
                     data2_seq_item  seq_item;
                     // Save process info to be able to kill the process

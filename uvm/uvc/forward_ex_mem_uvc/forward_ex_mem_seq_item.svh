@@ -16,7 +16,6 @@ class forward_ex_mem_seq_item extends uvm_sequence_item;
     // Monitor finshed of serial data
     bit monitor_data_valid;
 
-
     // Specify how variables shall be printed out
     `uvm_object_utils_begin(forward_ex_mem_seq_item)
     `uvm_field_int(forward_ex_mem,UVM_ALL_ON|UVM_DEC)

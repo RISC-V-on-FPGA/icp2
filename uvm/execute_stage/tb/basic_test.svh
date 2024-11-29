@@ -37,7 +37,6 @@ class basic_test extends base_test;
     virtual task run_phase(uvm_phase phase);
         // Run the test as defined in base test
         no_of_data_loop = 1000;
-        no_of_resets = 100;
         super.run_phase(phase);
     endtask : run_phase
 

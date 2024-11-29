@@ -1,16 +1,13 @@
 //------------------------------------------------------------------------------
-// forward_ex_mem_agent class
-//
-// This is the top-level uVC agent for the forward_ex_mem interface.
-//
-// It reads the uvc configuration from the uvm config database and sets the
-// configuration in the uvc driver. It creates the forward_ex_mem driver if the
-// configuration is active.
-//
+
 //------------------------------------------------------------------------------
 class forward_ex_mem_agent  extends uvm_agent;
     `uvm_component_param_utils(forward_ex_mem_agent)
 
+    // uVC sequencer.
+    uvm_sequencer #(forward_ex_mem_seq_item) m_sequencer;
+    // uVC monitor.
+    forward_ex_mem_monitor m_monitor;
     // uVC driver.
     forward_ex_mem_driver m_driver;
     // uVC configuration object.
@@ -34,9 +31,16 @@ class forward_ex_mem_agent  extends uvm_agent;
         end
         // Store uVC configuration into UVM config DB used by the uVC.
         uvm_config_db #(forward_ex_mem_config)::set(this,"*","forward_ex_mem_config",m_config);
+        // Store uVC agent into UVM config DB
         if (m_config.is_active == UVM_ACTIVE) begin
+            // Create uVC sequencer
+            m_sequencer  = uvm_sequencer #(forward_ex_mem_seq_item)::type_id::create("forward_ex_mem_sequencer",this);
             // Create uVC driver
             m_driver = forward_ex_mem_driver::type_id::create("forward_ex_mem_driver",this);
+        end
+        if (m_config.has_monitor) begin
+            // Create uVC monitor
+            m_monitor = forward_ex_mem_monitor::type_id::create("forward_ex_mem_monitor",this);
         end
     endfunction : build_phase
 
@@ -45,6 +49,10 @@ class forward_ex_mem_agent  extends uvm_agent;
     //------------------------------------------------------------------------------
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
+        // If driver active connect then sequencer to the driver.
+        if (m_config.is_active == UVM_ACTIVE) begin
+            m_driver.seq_item_port.connect(m_sequencer.seq_item_export);
+        end
     endfunction : connect_phase
 
     //------------------------------------------------------------------------------
@@ -56,4 +64,3 @@ class forward_ex_mem_agent  extends uvm_agent;
     endfunction : end_of_elaboration_phase
   
 endclass: forward_ex_mem_agent
-

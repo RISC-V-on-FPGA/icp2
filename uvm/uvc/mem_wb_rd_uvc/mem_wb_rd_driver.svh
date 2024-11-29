@@ -6,7 +6,7 @@
 // `include "uvm_macros.svh"
 // `include "mem_wb_rd_config.svh"
 
-class mem_wb_rd_driver extends uvm_driver;
+class mem_wb_rd_driver extends uvm_driver #(mem_wb_rd_seq_item);
     `uvm_component_utils(mem_wb_rd_driver)
 
     // mem_wb_rd uVC configuration object.
@@ -33,15 +33,23 @@ class mem_wb_rd_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("mem_wb_rd_driver",$sformatf("Start mem_wb_rd with period %0d", m_config.mem_wb_rd),UVM_MEDIUM)
-        // Reset signal
-        // sätter OP = ADD -> encoding = I-type -> ALUSrc = 1 för immediate -> MemRead = 0 inte läsa minne -> MemWrite = 0 för inte läsa minne -> RegWrite = 1 vill skriva minne -> MemToreg = 0 -> IsBranch = 0 -> BranchType spelar ingen roll
-        m_config.m_vif.mem_wb_rd <= 0;              //behövs detta, ger oss NOP instruction???????????????????????????
-        // Generate mem_wb_rd
+        mem_wb_rd_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.mem_wb_rd <= m_config.mem_wb_rd;
+
         forever begin
-            m_config.m_vif.mem_wb_rd <= m_config.m_vif.mem_wb_rd;
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. mem_wb_rd =%0d", seq_item.mem_wb_rd),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.mem_wb_rd <= seq_item.mem_wb_rd;
+                    //m_config.m_vif.mem_wb_rd <= m_config.m_vif.mem_wb_rd; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending mem_wb_rd = %0d", seq_item.mem_wb_rd), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : mem_wb_rd_driver

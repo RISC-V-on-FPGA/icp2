@@ -6,7 +6,7 @@
 // `include "uvm_macros.svh"
 // `include "control_in_config.svh"
 
-class control_in_driver extends uvm_driver;
+class control_in_driver extends uvm_driver #(control_in_seq_item);
     `uvm_component_utils(control_in_driver)
 
     // control_in uVC configuration object.
@@ -33,15 +33,23 @@ class control_in_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("control_in_driver",$sformatf("Start control_in with period %0d", m_config.control_in),UVM_MEDIUM)
-        // Reset signal
-        // sätter OP = ADD -> encoding = I-type -> ALUSrc = 1 för immediate -> MemRead = 0 inte läsa minne -> MemWrite = 0 för inte läsa minne -> RegWrite = 1 vill skriva minne -> MemToreg = 0 -> IsBranch = 0 -> BranchType spelar ingen roll
-        m_config.m_vif.control_in <= {4'b0100, 3'b001, 1'b1, 1'b0, 1'b0, 1'b1, 1'b0, 1'b0, 3'b000};              //behövs detta, ger oss NOP instruction???????????????????????????
-        // Generate control_in
+        control_in_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.control_in <= m_config.control_in;
+
         forever begin
-            m_config.m_vif.control_in <= m_config.m_vif.control_in;
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. control_in =%0d", seq_item.control_in),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.control_in <= seq_item.control_in;
+                    //m_config.m_vif.control_in <= m_config.m_vif.control_in; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending control_in = %0d", seq_item.control_in), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : control_in_driver

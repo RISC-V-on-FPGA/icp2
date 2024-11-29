@@ -31,7 +31,7 @@ class ex_mem_RegWrite_seq extends uvm_sequence #(ex_mem_RegWrite_seq_item);
         end
 
         // Pack the control fields
-        pack_ex_mem_RegWrite();
+        //pack_ex_mem_RegWrite();
 
         // Optionally display or perform actions with ex_mem_RegWrite here
         `uvm_info("ex_mem_RegWrite_seq", $sformatf("Packed ex_mem_RegWrite: %h", ex_mem_RegWrite), UVM_MEDIUM)

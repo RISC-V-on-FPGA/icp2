@@ -155,9 +155,28 @@ class tb_env extends uvm_env;
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
         // Making all connection all analysis ports to scoreboard
-        m_reset_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_reset_ap);
-        m_serial_data_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_serial_data_ap);
-        m_parallel_data_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_parallel_data_ap);
+        // TODO: Analysis_Export???? WHat does it mean????
+        m_pc_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_pc_ap);
+        m_control_in_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_control_in_ap);
+        m_data1_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_data1_ap);
+        m_data2_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_data2_ap);
+        m_immediate_data_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_immediate_data_ap);
+        m_rd_in_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_rd_in_ap);
+        m_rs1_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_rs1_ap);
+        m_rs2_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_rs2_ap);
+        m_ex_mem_rd_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_ex_mem_rd_ap);
+        m_mem_wb_rd_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_mem_wb_rd_ap);
+        m_ex_mem_RegWrite_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_ex_mem_RegWrite_ap);
+        m_mem_wb_RegWrite_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_mem_wb_RegWrite_ap);
+        m_forward_ex_mem_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_forward_ex_mem_ap);
+        m_forward_mem_wb_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_forward_mem_wb_ap);
+        m_control_out_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_control_out_ap);
+        m_ZeroFlag_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_ZeroFlag_ap);
+        m_alu_data_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_alu_data_ap);
+        m_memory_data_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_memory_data_ap);
+        m_rd_out_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_rd_out_ap);
+        m_pc_out_agent.m_monitor.m_analysis_port.connect(m_scoreboard.m_pc_out_ap);
+
     endfunction : connect_phase
 
 endclass : tb_env

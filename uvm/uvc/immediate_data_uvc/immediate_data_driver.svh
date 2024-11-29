@@ -6,7 +6,7 @@
 // `include "uvm_macros.svh"
 // `include "immediate_data_config.svh"
 
-class immediate_data_driver extends uvm_driver;
+class immediate_data_driver extends uvm_driver #(immediate_data_seq_item);
     `uvm_component_utils(immediate_data_driver)
 
     // immediate_data uVC configuration object.
@@ -33,15 +33,23 @@ class immediate_data_driver extends uvm_driver;
     // The run phase for the component.
     //------------------------------------------------------------------------------
     virtual task run_phase(uvm_phase phase);
-        // Perform the requested action and send response back.
-        `uvm_info("immediate_data_driver",$sformatf("Start immediate_data with period %0d", m_config.immediate_data),UVM_MEDIUM)
-        // Reset signal
-        // sätter OP = ADD -> encoding = I-type -> ALUSrc = 1 för immediate -> MemRead = 0 inte läsa minne -> MemWrite = 0 för inte läsa minne -> RegWrite = 1 vill skriva minne -> MemToreg = 0 -> IsBranch = 0 -> BranchType spelar ingen roll
-        m_config.m_vif.immediate_data <= 0;              //behövs detta, ger oss NOP instruction???????????????????????????
-        // Generate immediate_data
+        immediate_data_seq_item seq_item;        
+        // Good to assign start values?????????
+        m_config.m_vif.immediate_data <= m_config.immediate_data;
+
         forever begin
-            m_config.m_vif.immediate_data <= m_config.m_vif.immediate_data;
+            // Wait for sequence item
+            seq_item_port.get(seq_item);
+            `uvm_info(get_name(),$sformatf("Start serial interface transaction. immediate_data =%0d", seq_item.immediate_data),UVM_HIGH)
+            fork
+                begin
+                    @(posedge m_config.m_vif.clk);
+                    m_config.m_vif.immediate_data <= seq_item.immediate_data;
+                    //m_config.m_vif.immediate_data <= m_config.m_vif.immediate_data; previous statement before changes????
+                    `uvm_info(get_name(),$sformatf("Sending immediate_data = %0d", seq_item.immediate_data), UVM_FULL)
+                end
+            join
+        seq_item_port.put(seq_item);
         end
     endtask : run_phase
-
 endclass : immediate_data_driver
