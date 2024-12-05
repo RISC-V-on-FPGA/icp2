@@ -71,8 +71,66 @@ class scoreboard extends uvm_component;
     // Functional coverage definitions
     //------------------------------------------------------------------------------
     covergroup execute_stage_covergrp;
+        // PC sequence coverage
         pc : coverpoint pc {
-            bins pc = {[0:$]};
+            bins pc_bins = {[0:$]};
+        }
+
+        // Control sequence coverage
+        control_in : coverpoint control_in {
+            // Cover ALU operation types
+            bins ALUop = {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
+                          4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
+            bins encoding = {0, 1, 2, 3, 4, 5, 6};
+            bins ALUsrc = {0, 1};
+            bins MemRead = {0, 1};
+            bins MemWrite = {0, 1};
+            bins RegWrite = {0, 1};
+            bins MemtoReg = {0, 1};
+            bins is_branch = {0, 1};
+            bins BranchType = {0, 1, 2, 3, 4, 5, 6};
+        }
+
+        // Data sequences coverage
+        data1 : coverpoint data1 {
+            bins data1_bins = {[0:$]};
+        }
+        data2 : coverpoint data2 {
+            bins data2_bins = {[0:$]};
+        }
+        immediate_data : coverpoint immediate_data {
+            bins immediate_data_bins = {[0:$]};
+        }
+        forward_ex_mem : coverpoint forward_ex_mem {
+            bins forward_ex_mem_bins = {[0:$]};
+        }
+        forward_mem_wb : coverpoint forward_mem_wb {
+            bins forward_mem_wb_bins = {[0:$]};
+        }
+
+        // Address sequences coverage
+        rd_in : coverpoint rd_in {
+            bins rd_in_bins = {[0:$]};
+        }
+        rs1 : coverpoint rs1 {
+            bins rs1_bins = {[0:$]};
+        }
+        rs2 : coverpoint rs2 {
+            bins rs2_bins = {[0:$]};
+        }
+        ex_mem_rd : coverpoint ex_mem_rd {
+            bins ex_mem_rd_bins = {[0:$]};
+        }
+        mem_wb_rd : coverpoint mem_wb_rd {
+            bins mem_wb_rd_bins = {[0:$]};
+        }
+
+        // RegWrite sequences coverage
+        ex_mem_RegWrite : coverpoint ex_mem_RegWrite {
+            bins ex_mem_RegWrite_bins = {0, 1};
+        }
+        mem_wb_RegWrite : coverpoint mem_wb_RegWrite {
+            bins mem_wb_RegWrite_bins = {0, 1};
         }
     endgroup
 
