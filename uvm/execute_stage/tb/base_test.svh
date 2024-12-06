@@ -153,6 +153,7 @@ class base_test extends uvm_test;
                 end
             end
         join
+        phase.drop_objection(this);
     endtask : run_phase
 
 endclass : base_test

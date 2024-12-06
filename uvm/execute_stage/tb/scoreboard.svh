@@ -67,8 +67,16 @@ class scoreboard extends uvm_component;
     int unsigned rd_out;
     int unsigned pc_out;
 
+    // int unsigned ref_control_out;
+    // int unsigned ref_ZeroFlag;
+    // int unsigned ref_alu_data;
+    // int unsigned ref_memory_data;
+    // int unsigned ref_rd_out;
+    // int unsigned ref_pc_out;
+
     int unsigned MAX_VALUE_32 = 4294967295;
     int unsigned MAX_VALUE_5 = 31;  
+    int unsigned DEBUG = 0;
 
     //------------------------------------------------------------------------------
     // Functional coverage definitions
@@ -216,123 +224,128 @@ class scoreboard extends uvm_component;
     // Write implementations
     //------------------------------------------------------------------------------
     virtual function void write_scoreboard_pc(pc_seq_item item);
-        `uvm_info(get_name(),$sformatf("PC_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("PC_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         pc = item.pc;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_pc
     
     virtual function void write_scoreboard_control_in(control_seq_item item);
-        `uvm_info(get_name(),$sformatf("control_in_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG)  `uvm_info(get_name(),$sformatf("control_in_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         control_in = item.control;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_control_in
 
     virtual function void write_scoreboard_data1(data_seq_item item);
-        `uvm_info(get_name(),$sformatf("data1_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG)  `uvm_info(get_name(),$sformatf("data1_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         data1 = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_data1
 
     virtual function void write_scoreboard_data2(data_seq_item item);
-        `uvm_info(get_name(),$sformatf("data2_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG)  `uvm_info(get_name(),$sformatf("data2_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         data2 = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_data2
 
     virtual function void write_scoreboard_immediate_data(data_seq_item item);
-        `uvm_info(get_name(),$sformatf("immediate_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("immediate_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         immediate_data = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_immediate_data
 
     virtual function void write_scoreboard_rd_in(address_seq_item item);
-        `uvm_info(get_name(),$sformatf("rd_in_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("rd_in_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         rd_in = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_rd_in
 
     virtual function void write_scoreboard_rs1(address_seq_item item);
-        `uvm_info(get_name(),$sformatf("rs1_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("rs1_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         rs1 = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_rs1
 
     virtual function void write_scoreboard_rs2(address_seq_item item);
-        `uvm_info(get_name(),$sformatf("rs2_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("rs2_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         rs2 = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_rs2
 
     virtual function void write_scoreboard_ex_mem_rd(address_seq_item item);
-        `uvm_info(get_name(),$sformatf("ex_mem_rd_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("ex_mem_rd_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         ex_mem_rd = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_ex_mem_rd
 
     virtual function void write_scoreboard_mem_wb_rd(address_seq_item item);
-        `uvm_info(get_name(),$sformatf("mem_wb_rd_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("mem_wb_rd_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         mem_wb_rd = item.address;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_mem_wb_rd
 
     virtual function void write_scoreboard_ex_mem_RegWrite(RegWrite_seq_item item);
-        `uvm_info(get_name(),$sformatf("ex_mem_RegWrite_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("ex_mem_RegWrite_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         ex_mem_RegWrite = item.RegWrite;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_ex_mem_RegWrite
 
     virtual function void write_scoreboard_mem_wb_RegWrite(RegWrite_seq_item item);
-        `uvm_info(get_name(),$sformatf("mem_wb_RegWrite_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("mem_wb_RegWrite_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         mem_wb_RegWrite = item.RegWrite;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_mem_wb_RegWrite
 
     virtual function void write_scoreboard_forward_ex_mem(data_seq_item item);
-        `uvm_info(get_name(),$sformatf("forward_ex_mem_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("forward_ex_mem_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         forward_ex_mem = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_forward_ex_mem
 
     virtual function void write_scoreboard_forward_mem_wb(data_seq_item item);
-        `uvm_info(get_name(),$sformatf("forward_mem_wb_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("forward_mem_wb_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         forward_mem_wb = item.data;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_forward_mem_wb
 
     virtual function void write_scoreboard_control_out(control_seq_item item);
-        `uvm_info(get_name(),$sformatf("control_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("control_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         control_out = item.control;
         execute_stage_covergrp.sample();
+        check_data();
     endfunction :  write_scoreboard_control_out
 
     virtual function void write_scoreboard_ZeroFlag(ZeroFlag_seq_item item);
-        `uvm_info(get_name(),$sformatf("ZeroFlag_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("ZeroFlag_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         ZeroFlag = item.ZeroFlag;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_ZeroFlag
 
     virtual function void write_scoreboard_alu_data(data_seq_item item);
-        `uvm_info(get_name(),$sformatf("alu_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("alu_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         alu_data = item.data;
         execute_stage_covergrp.sample();
+        check_data();
     endfunction :  write_scoreboard_alu_data
 
     virtual function void write_scoreboard_memory_data(data_seq_item item);
-        `uvm_info(get_name(),$sformatf("memory_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("memory_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         memory_data = item.data;
         execute_stage_covergrp.sample();
+        check_data();
     endfunction :  write_scoreboard_memory_data
 
     virtual function void write_scoreboard_rd_out(address_seq_item item);
-        `uvm_info(get_name(),$sformatf("rd_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("rd_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         rd_out = item.address;
         execute_stage_covergrp.sample();
+        check_data();
     endfunction :  write_scoreboard_rd_out
 
     virtual function void write_scoreboard_pc_out(pc_seq_item item);
-        `uvm_info(get_name(),$sformatf("pc_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
+        if(DEBUG) `uvm_info(get_name(),$sformatf("pc_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         pc_out = item.pc;
         execute_stage_covergrp.sample();
+        check_data();
     endfunction :  write_scoreboard_pc_out
 
     //------------------------------------------------------------------------------
@@ -340,8 +353,122 @@ class scoreboard extends uvm_component;
     //------------------------------------------------------------------------------
     virtual function void check_data();
 
-        if (pc_out != pc) begin
-            `uvm_error(get_name(), $sformatf("PC is not forwared correctly, pc=%0d, pc_out=%0d", pc, pc_out))
+        int unsigned ref_control_out;
+        int unsigned ref_ZeroFlag;
+        int unsigned ref_alu_data;
+        int unsigned ref_memory_data;
+        int unsigned ref_rd_out;
+        int unsigned ref_pc_out;
+
+        int unsigned ref_ALUOp;
+        int unsigned ref_ALUSrc;
+
+        int unsigned left_operand;
+        int unsigned right_operand;
+        int unsigned mux_ctrl_left;
+        int unsigned mux_ctrl_right;
+
+        int unsigned forward_def = 0;
+
+        ref_ALUOp = control_in[15:12]; // ALUOp is [15:12]
+        ref_ALUSrc = control_in[8]; // ALUSrc is [8]
+
+        if (mem_wb_RegWrite 
+            && (mem_wb_rd != 0)
+            && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs1)
+            && (mem_wb_rd == rs1)) begin
+          mux_ctrl_left = forward_mem_wb;
+        end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs1)) begin
+          mux_ctrl_left = forward_ex_mem;
+        end else begin
+          mux_ctrl_left = forward_def;
+        end
+      
+        if (mem_wb_RegWrite
+            && (mem_wb_rd != 0)
+            && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs2)
+            && (mem_wb_rd == rs2)) begin
+          mux_ctrl_right = forward_mem_wb;
+        end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs2)) begin
+          mux_ctrl_right = forward_ex_mem;
+        end else begin
+          mux_ctrl_right = forward_def;
+        end
+
+        // Figure out left_operand
+        if      (mux_ctrl_left == forward_def)     left_operand = data1;
+        else if (mux_ctrl_left == forward_ex_mem)  left_operand = forward_ex_mem;
+        else if (mux_ctrl_left == forward_mem_wb)  left_operand = forward_mem_wb;
+
+        // Figure out right_operand
+        // First mux
+        if      (mux_ctrl_right == forward_def)    right_operand = data2;
+        else if (mux_ctrl_right == forward_ex_mem) right_operand = forward_ex_mem;
+        else if (mux_ctrl_right == forward_mem_wb) right_operand = forward_mem_wb;
+
+        ref_memory_data = right_operand;
+
+        // Second mux
+        if (ref_ALUSrc == 1) right_operand = immediate_data;
+
+        // ALU sets ZeroFlag and alu_data
+        case (ref_ALUOp)
+            // Shifts (To be added)
+            4'b0000:  ref_alu_data = left_operand << (right_operand % 32);
+            4'b0001:  ref_alu_data = left_operand >> (right_operand % 32);
+            4'b0010: begin
+              if (left_operand[31] == 1) begin
+                 ref_alu_data = ~left_operand;
+                 ref_alu_data =  ref_alu_data >> (right_operand % 32);
+                 ref_alu_data = ~ ref_alu_data;
+              end else begin
+                 ref_alu_data = left_operand >> (right_operand % 32);
+              end
+            end
+
+            // Arithmetic
+            4'b0100:  ref_alu_data = left_operand + right_operand;
+            4'b0101:  ref_alu_data = left_operand - right_operand;
+            4'b0110:  ref_alu_data = right_operand;
+
+            // Logical
+            4'b1010:  ref_alu_data = left_operand & right_operand;
+            4'b1001:  ref_alu_data = left_operand | right_operand;
+            4'b1000:  ref_alu_data = left_operand ^ right_operand;
+
+            // Compare
+            4'b1101:  ref_alu_data = left_operand < right_operand;
+            4'b1100: begin
+              if (left_operand[31] == 1 && right_operand[31] == 1) begin
+                 ref_alu_data = ((~left_operand) + 1) > ((~right_operand) + 1);
+              end else if (left_operand[31] == 1 && right_operand[31] == 0) begin
+                 ref_alu_data = 1;
+              end else if (left_operand[31] == 0 && right_operand[31] == 1) begin
+                 ref_alu_data = 0;
+              end else begin
+                 ref_alu_data = left_operand < right_operand;
+              end
+            end
+
+            default:  ref_alu_data = left_operand + right_operand;
+
+        endcase
+
+        // Things that go straight through
+        ref_control_out = control_in;
+        ref_pc_out = pc;
+        ref_rd_out = rd_in;
+
+        /******************************************************************************/
+        /********************* CHECKING ***********************************************/
+        /******************************************************************************/
+
+        if (pc_out != ref_pc_out) begin
+            `uvm_error(get_name(), $sformatf("PC out is not forwared correctly, ref_pc_out=%0d, pc_out=%0d", ref_pc_out, pc_out))
+        end
+
+        if (alu_data != ref_alu_data) begin
+            `uvm_error(get_name(), $sformatf("ALU Operation is incorrect, alu_data=%0d, ref_alu_data=%0d", alu_data, ref_alu_data))
         end
 
     endfunction :  check_data
