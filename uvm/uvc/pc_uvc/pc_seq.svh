@@ -9,12 +9,19 @@ class pc_seq extends uvm_sequence #(pc_seq_item);
     `uvm_object_utils(pc_seq)
 
     rand bit [31:0] pc;
+    int unsigned MAX_VALUE_32 = 4294967295;
 
     // the program count can oly be an even number
     constraint pc_c {
         pc % 2 == 0;
     }
-    
+
+    constraint pc_weight_c {
+        pc dist { 0              :/ 8, 
+                [0:MAX_VALUE_32 - 1] :/ 2, 
+                MAX_VALUE_32 - 1 :/ 8};
+    }
+
     //------------------------------------------------------------------------------
     // The constructor for the sequence.
     //------------------------------------------------------------------------------

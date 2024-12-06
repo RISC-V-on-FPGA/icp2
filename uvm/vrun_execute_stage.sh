@@ -1,5 +1,5 @@
 # Clear terminal in QuestaSim
-clear
+.main clear
 
 # Compile the design and testbench
 vlog -sv -timescale 1ns/1ns +acc=pr \
@@ -8,4 +8,4 @@ vlog -sv -timescale 1ns/1ns +acc=pr \
         execute_stage/dut/common.sv execute_stage/dut/alu.sv execute_stage/dut/forwarding_unit.sv execute_stage/dut/execute_stage.sv execute_stage/tb/tb_pkg.sv execute_stage/tb/tb_top.sv
 
 # Launch simulation
-vsim -i work.tb_top -coverage +UVM_NO_RELNOTES +UVM_VERBOSITY=UVM_HIGH +UVM_TESTNAME=basic_test -do "run 100us; quit"
+vsim -i work.tb_top -coverage +UVM_NO_RELNOTES +UVM_VERBOSITY=UVM_HIGH +UVM_TESTNAME=basic_test -do "run 1us"

@@ -77,16 +77,14 @@ class scoreboard extends uvm_component;
         // PC sequence coverage
         pc : coverpoint pc {
             bins pc_min = {0};
-            bins pc_max = {MAX_VALUE_32};
-            bins pc_100_in_between[100] = {[0:$]};
+            bins pc_max = {MAX_VALUE_32 - 1};
+            bins pc_100_in_between = {[0:$]};
         }
 
         // Control sequence coverage with multiple hit counts
         control_in : coverpoint control_in {
             bins ALUop = {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
                         4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
-            bins ALUop_hit10[5] = {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
-                                4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
             bins encoding = {0, 1, 2, 3, 4, 5, 6};
             bins ALUsrc = {0, 1};
             bins MemRead = {0, 1};
@@ -108,50 +106,53 @@ class scoreboard extends uvm_component;
         data2 : coverpoint data2 {
             bins data2_min = {0};
             bins data2_max = {MAX_VALUE_32};
-            bins data2_100_in_between[10] = {[1:$]};
+            bins data2_100_in_between = {[1:$]};
             illegal_bins bad = default;
         }
+
         immediate_data : coverpoint immediate_data {
             bins immediate_min = {0};
             bins immediate_max = {MAX_VALUE_32};
-            bins immediate_100_in_between[100] = {[1:$]};
+            bins immediate_100_in_between = {[1:$]};
         }
+
         forward_ex_mem : coverpoint forward_ex_mem {
             bins forward_ex_mem_min = {0};
             bins forward_ex_mem_max = {MAX_VALUE_32};
-            bins forward_ex_mem_100_in_between[100] = {[1:$]};
+            bins forward_ex_mem_100_in_between = {[1:$]};
         }
+
         forward_mem_wb : coverpoint forward_mem_wb {
             bins forward_mem_wb_min = {0};
             bins forward_mem_wb_max = {MAX_VALUE_32};
-            bins forward_mem_wb_100_in_between[100] = {[1:$]};
+            bins forward_mem_wb_100_in_between = {[1:$]};
         }
 
         // Address sequences coverage
         rd_in : coverpoint rd_in {
             bins rd_in_min = {0};
             bins rd_in_max = {MAX_VALUE_5};
-            bins rd_in_100_in_between[100] = {[1:$]};
+            bins rd_in_100_in_between = {[1:$]};
         }
         rs1 : coverpoint rs1 {
             bins rs1_min = {0};
             bins rs1_max = {MAX_VALUE_5};
-            bins rs1_100_in_between[100] = {[1:$]};
+            bins rs1_100_in_between = {[1:$]};
         }
         rs2 : coverpoint rs2 {
             bins rs2_min = {0};
             bins rs2_max = {MAX_VALUE_5};
-            bins rs2_100_in_between[100] = {[1:$]};
+            bins rs2_100_in_between = {[1:$]};
         }
         ex_mem_rd : coverpoint ex_mem_rd {
             bins ex_mem_rd_min = {0};
             bins ex_mem_rd_max = {MAX_VALUE_5};
-            bins ex_mem_rd_100_in_between[100] = {[1:$]};
+            bins ex_mem_rd_100_in_between = {[1:$]};
         }
         mem_wb_rd : coverpoint mem_wb_rd {
             bins mem_wb_rd_min = {0};
             bins mem_wb_rd_max = {MAX_VALUE_5};
-            bins mem_wb_rd_100_in_between[100] = {[1:$]};
+            bins mem_wb_rd_100_in_between = {[1:$]};
         }
 
         // RegWrite sequences coverage
@@ -159,6 +160,7 @@ class scoreboard extends uvm_component;
             bins ex_mem_RegWrite_0 = {0};
             bins ex_mem_RegWrite_1 = {1};
         }
+
         mem_wb_RegWrite : coverpoint mem_wb_RegWrite {
             bins mem_wb_RegWrite_0 = {0};
             bins mem_wb_RegWrite_1 = {1};
@@ -332,7 +334,6 @@ class scoreboard extends uvm_component;
         pc_out = item.pc;
         execute_stage_covergrp.sample();
     endfunction :  write_scoreboard_pc_out
-
 
     //------------------------------------------------------------------------------
     // Check data if both input serial data and output data are valid.

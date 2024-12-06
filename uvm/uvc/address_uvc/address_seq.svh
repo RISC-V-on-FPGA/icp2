@@ -9,6 +9,14 @@ class address_seq extends uvm_sequence #(address_seq_item);
     `uvm_object_utils(address_seq)
 
     rand bit [4:0] address;
+    int unsigned MAX_VALUE_5 = 31;
+
+    
+    constraint address_weight_c {
+        address dist { 0        :/ 6, 
+                [0:MAX_VALUE_5] :/ 2, 
+                MAX_VALUE_5     :/ 6};
+    }
     
     //------------------------------------------------------------------------------
     // The constructor for the sequence.
