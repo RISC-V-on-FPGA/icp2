@@ -26,7 +26,7 @@ class base_test extends uvm_test;
     int unsigned no_of_data_loop = 40;
 
     //------------------------------------------------------------------------------
-// FUNCTION: new
+    // FUNCTION: new
     // Creates and constructs the sequence.
     //------------------------------------------------------------------------------
     function new (string name = "test",uvm_component parent = null);
@@ -149,10 +149,10 @@ class base_test extends uvm_test;
                             forward_mem_wb.start(m_tb_env.m_forward_mem_wb_agent.m_sequencer);
                         end
                     join
+                    #40ns;
                 end
             end
         join
-
     endtask : run_phase
 
 endclass : base_test

@@ -27,12 +27,38 @@ class control_seq extends uvm_sequence #(control_seq_item);
                       4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
     }
 
+    constraint ALUsrc_c{
+        ALUsrc inside {0, 1}; //Jag och benjamin tar ansvar // sakarias
+        // Nils sa att vi sög :O
+        //Benjamin sa att han är nöjd :O
+    }
+
     constraint encoding_c {
-        encoding <= 6;
+        encoding == 0;
     }
 
     constraint branch_type_c {
-        BranchType <= 6;
+        BranchType == 0;
+    }
+
+    constraint MemRead_c {
+        MemRead == 0;
+    }
+
+    constraint MemWrite_c {
+        MemWrite == 0;
+    }
+
+    constraint RegWrite_c {
+        RegWrite == 0;
+    }
+
+    constraint MemtoReg_c {
+        MemtoReg == 0;
+    }
+
+    constraint is_branch_c {
+        is_branch == 0;
     }
 
     // Function to pack the fields into control

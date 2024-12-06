@@ -67,20 +67,26 @@ class scoreboard extends uvm_component;
     int unsigned rd_out;
     int unsigned pc_out;
 
+    int unsigned MAX_VALUE_32 = 4294967295;
+    int unsigned MAX_VALUE_5 = 31;  
+
     //------------------------------------------------------------------------------
     // Functional coverage definitions
     //------------------------------------------------------------------------------
     covergroup execute_stage_covergrp;
         // PC sequence coverage
         pc : coverpoint pc {
-            bins pc_bins = {[0:$]};
+            bins pc_min = {0};
+            bins pc_max = {MAX_VALUE_32};
+            bins pc_100_in_between[100] = {[0:$]};
         }
 
-        // Control sequence coverage
+        // Control sequence coverage with multiple hit counts
         control_in : coverpoint control_in {
-            // Cover ALU operation types
             bins ALUop = {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
-                          4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
+                        4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
+            bins ALUop_hit10[5] = {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
+                                4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
             bins encoding = {0, 1, 2, 3, 4, 5, 6};
             bins ALUsrc = {0, 1};
             bins MemRead = {0, 1};
@@ -93,45 +99,70 @@ class scoreboard extends uvm_component;
 
         // Data sequences coverage
         data1 : coverpoint data1 {
-            bins data1_bins = {[0:$]};
+            bins data1_min = {0};
+            bins data1_max = {MAX_VALUE_32};
+            bins data1_100_in_between = {[1:$]};
+            illegal_bins bad = default;
         }
+
         data2 : coverpoint data2 {
-            bins data2_bins = {[0:$]};
+            bins data2_min = {0};
+            bins data2_max = {MAX_VALUE_32};
+            bins data2_100_in_between[10] = {[1:$]};
+            illegal_bins bad = default;
         }
         immediate_data : coverpoint immediate_data {
-            bins immediate_data_bins = {[0:$]};
+            bins immediate_min = {0};
+            bins immediate_max = {MAX_VALUE_32};
+            bins immediate_100_in_between[100] = {[1:$]};
         }
         forward_ex_mem : coverpoint forward_ex_mem {
-            bins forward_ex_mem_bins = {[0:$]};
+            bins forward_ex_mem_min = {0};
+            bins forward_ex_mem_max = {MAX_VALUE_32};
+            bins forward_ex_mem_100_in_between[100] = {[1:$]};
         }
         forward_mem_wb : coverpoint forward_mem_wb {
-            bins forward_mem_wb_bins = {[0:$]};
+            bins forward_mem_wb_min = {0};
+            bins forward_mem_wb_max = {MAX_VALUE_32};
+            bins forward_mem_wb_100_in_between[100] = {[1:$]};
         }
 
         // Address sequences coverage
         rd_in : coverpoint rd_in {
-            bins rd_in_bins = {[0:$]};
+            bins rd_in_min = {0};
+            bins rd_in_max = {MAX_VALUE_5};
+            bins rd_in_100_in_between[100] = {[1:$]};
         }
         rs1 : coverpoint rs1 {
-            bins rs1_bins = {[0:$]};
+            bins rs1_min = {0};
+            bins rs1_max = {MAX_VALUE_5};
+            bins rs1_100_in_between[100] = {[1:$]};
         }
         rs2 : coverpoint rs2 {
-            bins rs2_bins = {[0:$]};
+            bins rs2_min = {0};
+            bins rs2_max = {MAX_VALUE_5};
+            bins rs2_100_in_between[100] = {[1:$]};
         }
         ex_mem_rd : coverpoint ex_mem_rd {
-            bins ex_mem_rd_bins = {[0:$]};
+            bins ex_mem_rd_min = {0};
+            bins ex_mem_rd_max = {MAX_VALUE_5};
+            bins ex_mem_rd_100_in_between[100] = {[1:$]};
         }
         mem_wb_rd : coverpoint mem_wb_rd {
-            bins mem_wb_rd_bins = {[0:$]};
+            bins mem_wb_rd_min = {0};
+            bins mem_wb_rd_max = {MAX_VALUE_5};
+            bins mem_wb_rd_100_in_between[100] = {[1:$]};
         }
 
         // RegWrite sequences coverage
         ex_mem_RegWrite : coverpoint ex_mem_RegWrite {
-            bins ex_mem_RegWrite_bins = {0, 1};
+            bins ex_mem_RegWrite_0 = {0};
+            bins ex_mem_RegWrite_1 = {1};
         }
         mem_wb_RegWrite : coverpoint mem_wb_RegWrite {
-            bins mem_wb_RegWrite_bins = {0, 1};
-        }
+            bins mem_wb_RegWrite_0 = {0};
+            bins mem_wb_RegWrite_1 = {1};
+        }        
     endgroup
 
     //------------------------------------------------------------------------------

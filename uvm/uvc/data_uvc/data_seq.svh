@@ -9,6 +9,13 @@ class data_seq extends uvm_sequence #(data_seq_item);
     `uvm_object_utils(data_seq)
 
     rand bit [31:0] data;
+    int unsigned MAX_VALUE_32 = 4294967295;
+    
+    constraint data_weight_c {
+        data dist { 0              :/ 8, 
+                    [0:MAX_VALUE_32] :/ 2, 
+                    MAX_VALUE_32   :/ 8};
+    }
 
     //------------------------------------------------------------------------------
     // The constructor for the sequence.
