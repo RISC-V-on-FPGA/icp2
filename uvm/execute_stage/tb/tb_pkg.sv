@@ -72,4 +72,31 @@ package tb_pkg;
     `include "tb_env.svh"
     `include "base_test.svh"
     `include "basic_test.svh"
+
+    import "DPI-C" function void initialize_model();
+    import "DPI-C" function int process(
+        int pc,
+        int control_in,
+        int data1,
+        int data2,
+        int immediate_data,
+        int rd_in,
+        int rs1,
+        int rs2,
+        int ex_mem_rd,
+        int mem_wb_rd,
+        int ex_mem_RegWrite,
+        int mem_wb_RegWrite,
+        int forward_ex_mem,
+        int forward_mem_wb
+    );
+    import "DPI-C" function int get_control_out();
+    import "DPI-C" function int get_ZeroFlag();
+    import "DPI-C" function int get_alu_data();
+    import "DPI-C" function int get_memory_data();
+    import "DPI-C" function int get_rd_out();
+    import "DPI-C" function int get_pc_out();
+    import "DPI-C" function void finalize_model();
+
 endpackage: tb_pkg
+
