@@ -13,9 +13,9 @@ class address_seq extends uvm_sequence #(address_seq_item);
 
     
     constraint address_weight_c {
-        address dist { 0        :/ 6, 
+        address dist { 0        :/ 2, 
                 [0:MAX_VALUE_5] :/ 2, 
-                MAX_VALUE_5     :/ 6};
+                MAX_VALUE_5     :/ 2};
     }
     
     //------------------------------------------------------------------------------

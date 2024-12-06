@@ -41,7 +41,7 @@ class control_monitor  extends uvm_monitor;
 
         `uvm_info(get_name(),$sformatf("Starting control interface monitoring"),UVM_HIGH)
         forever begin
-            @(negedge m_config.m_vif.clk); // Middle of signal, was commented out ???? (wat)
+            //@(negedge m_config.m_vif.clk); // Middle of signal, was commented out ???? (wat)
             fork
                 begin
                     control_seq_item  seq_item;
@@ -50,7 +50,7 @@ class control_monitor  extends uvm_monitor;
                     // Check output data_valid and parallel data
                     forever begin
                         // Sample middle of clk cycle
-                        @(negedge m_config.m_vif.clk);
+                        @(posedge m_config.m_vif.clk);
                         // Create a new control sequence item with expected data. Here we sample signal to send to scoreboard.
                         `uvm_info(get_name(),$sformatf("Received data valid value=%0d", m_config.m_vif.control),UVM_HIGH)
                         seq_item = control_seq_item::type_id::create("seq_item");

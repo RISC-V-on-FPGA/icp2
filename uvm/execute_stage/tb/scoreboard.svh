@@ -91,16 +91,19 @@ class scoreboard extends uvm_component;
 
         // Control sequence coverage with multiple hit counts
         control_in : coverpoint control_in {
-            bins ALUop = {4'b0000, 4'b0001, 4'b0010, 4'b0100, 4'b0101, 4'b0110,
-                        4'b1000, 4'b1001, 4'b1010, 4'b1100, 4'b1101};
-            bins encoding = {0, 1, 2, 3, 4, 5, 6};
-            bins ALUsrc = {0, 1};
-            bins MemRead = {0, 1};
-            bins MemWrite = {0, 1};
-            bins RegWrite = {0, 1};
-            bins MemtoReg = {0, 1};
-            bins is_branch = {0, 1};
-            bins BranchType = {0, 1, 2, 3, 4, 5, 6};
+            wildcard bins ALUop_SLL  = {16'b0000????????????};
+            wildcard bins ALUop_SRL  = {16'b0001????????????};
+            wildcard bins ALUop_SRA  = {16'b0010????????????};
+            wildcard bins ALUop_ADD  = {16'b0100????????????};
+            wildcard bins ALUop_SUB  = {16'b0101????????????};
+            wildcard bins ALUop_LUI  = {16'b0110????????????};
+            wildcard bins ALUop_XOR  = {16'b1000????????????};
+            wildcard bins ALUop_OR   = {16'b1001????????????};
+            wildcard bins ALUop_AND  = {16'b1010????????????};
+            wildcard bins ALUop_SLT  = {16'b1100????????????};
+            wildcard bins ALUop_SLTU = {16'b1101????????????};
+            wildcard bins ALUsrc_0 = {16'b???????0????????};
+            wildcard bins ALUdrc_1 = {16'b???????1????????};
         }
 
         // Data sequences coverage
@@ -311,7 +314,6 @@ class scoreboard extends uvm_component;
         if(DEBUG) `uvm_info(get_name(),$sformatf("control_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         control_out = item.control;
         execute_stage_covergrp.sample();
-        check_data();
     endfunction :  write_scoreboard_control_out
 
     virtual function void write_scoreboard_ZeroFlag(ZeroFlag_seq_item item);
@@ -324,21 +326,18 @@ class scoreboard extends uvm_component;
         if(DEBUG) `uvm_info(get_name(),$sformatf("alu_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         alu_data = item.data;
         execute_stage_covergrp.sample();
-        check_data();
     endfunction :  write_scoreboard_alu_data
 
     virtual function void write_scoreboard_memory_data(data_seq_item item);
         if(DEBUG) `uvm_info(get_name(),$sformatf("memory_data_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         memory_data = item.data;
         execute_stage_covergrp.sample();
-        check_data();
     endfunction :  write_scoreboard_memory_data
 
     virtual function void write_scoreboard_rd_out(address_seq_item item);
         if(DEBUG) `uvm_info(get_name(),$sformatf("rd_out_MONITOR:\n%s",item.sprint()),UVM_HIGH)
         rd_out = item.address;
         execute_stage_covergrp.sample();
-        check_data();
     endfunction :  write_scoreboard_rd_out
 
     virtual function void write_scoreboard_pc_out(pc_seq_item item);
@@ -351,24 +350,25 @@ class scoreboard extends uvm_component;
     //------------------------------------------------------------------------------
     // Check data if both input serial data and output data are valid.
     //------------------------------------------------------------------------------
+    int unsigned ref_control_out;
+    int unsigned ref_ZeroFlag;
+    int unsigned ref_alu_data;
+    int unsigned ref_memory_data;
+    int unsigned ref_rd_out;
+    int unsigned ref_pc_out;
+    int unsigned ref_ALUOp;
+    int unsigned ref_ALUSrc;
+
     virtual function void check_data();
-
-        int unsigned ref_control_out;
-        int unsigned ref_ZeroFlag;
-        int unsigned ref_alu_data;
-        int unsigned ref_memory_data;
-        int unsigned ref_rd_out;
-        int unsigned ref_pc_out;
-
-        int unsigned ref_ALUOp;
-        int unsigned ref_ALUSrc;
 
         int unsigned left_operand;
         int unsigned right_operand;
         int unsigned mux_ctrl_left;
         int unsigned mux_ctrl_right;
 
-        int unsigned forward_def = 0;
+        int unsigned Forward_def = 0;
+        int unsigned Forward_ex_mem = 2'b10;
+        int unsigned Forward_mem_wb = 2'b01;
 
         ref_ALUOp = control_in[15:12]; // ALUOp is [15:12]
         ref_ALUSrc = control_in[8]; // ALUSrc is [8]
@@ -377,34 +377,34 @@ class scoreboard extends uvm_component;
             && (mem_wb_rd != 0)
             && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs1)
             && (mem_wb_rd == rs1)) begin
-          mux_ctrl_left = forward_mem_wb;
+          mux_ctrl_left = Forward_mem_wb;
         end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs1)) begin
-          mux_ctrl_left = forward_ex_mem;
+          mux_ctrl_left = Forward_ex_mem;
         end else begin
-          mux_ctrl_left = forward_def;
+          mux_ctrl_left = Forward_def;
         end
       
         if (mem_wb_RegWrite
             && (mem_wb_rd != 0)
             && !(ex_mem_RegWrite && (ex_mem_rd != 0) && ex_mem_rd == rs2)
             && (mem_wb_rd == rs2)) begin
-          mux_ctrl_right = forward_mem_wb;
+          mux_ctrl_right = Forward_mem_wb;
         end else if (ex_mem_RegWrite && (ex_mem_rd != 0) && (ex_mem_rd == rs2)) begin
-          mux_ctrl_right = forward_ex_mem;
+          mux_ctrl_right = Forward_ex_mem;
         end else begin
-          mux_ctrl_right = forward_def;
+          mux_ctrl_right = Forward_def;
         end
 
         // Figure out left_operand
-        if      (mux_ctrl_left == forward_def)     left_operand = data1;
-        else if (mux_ctrl_left == forward_ex_mem)  left_operand = forward_ex_mem;
-        else if (mux_ctrl_left == forward_mem_wb)  left_operand = forward_mem_wb;
+        if      (mux_ctrl_left == Forward_def)     left_operand = data1;
+        else if (mux_ctrl_left == Forward_ex_mem)  left_operand = forward_ex_mem;
+        else if (mux_ctrl_left == Forward_mem_wb)  left_operand = forward_mem_wb;
 
         // Figure out right_operand
         // First mux
-        if      (mux_ctrl_right == forward_def)    right_operand = data2;
-        else if (mux_ctrl_right == forward_ex_mem) right_operand = forward_ex_mem;
-        else if (mux_ctrl_right == forward_mem_wb) right_operand = forward_mem_wb;
+        if      (mux_ctrl_right == Forward_def)    right_operand = data2;
+        else if (mux_ctrl_right == Forward_ex_mem) right_operand = forward_ex_mem;
+        else if (mux_ctrl_right == Forward_mem_wb) right_operand = forward_mem_wb;
 
         ref_memory_data = right_operand;
 
@@ -469,6 +469,18 @@ class scoreboard extends uvm_component;
 
         if (alu_data != ref_alu_data) begin
             `uvm_error(get_name(), $sformatf("ALU Operation is incorrect, alu_data=%0d, ref_alu_data=%0d", alu_data, ref_alu_data))
+        end
+
+        if (control_out != ref_control_out) begin
+            `uvm_error(get_name(), $sformatf("Control is not forwared correctly, control_out=%0d, ref_control_out=%0d", control_out, ref_control_out))
+        end
+
+        if (memory_data != ref_memory_data) begin
+            `uvm_error(get_name(), $sformatf("Memory data output is incorrect, memory_data=%0d, ref_memory_dara=%0d", memory_data, ref_memory_data))
+        end
+
+        if (rd_out != ref_rd_out) begin
+            `uvm_error(get_name(), $sformatf("rd_out is not forwarded correctly, rd_out=%0d, ref_rd_out=%0d", rd_out, ref_rd_out))
         end
 
     endfunction :  check_data

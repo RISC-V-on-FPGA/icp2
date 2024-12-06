@@ -51,7 +51,7 @@ class pc_monitor  extends uvm_monitor;
         `uvm_info(get_name(),$sformatf("Starting pc interface monitoring"),UVM_HIGH)
         forever begin
             // Wait for reset to be released
-            @(negedge m_config.m_vif.clk); // Middle of signal, was commented ???? (wat)
+            //@(negedge m_config.m_vif.clk); // Middle of signal, was commented ???? (wat)
             `uvm_info(get_name(),$sformatf("Negative Clock Edge DETECTED"),UVM_HIGH)
             fork
                 begin
@@ -61,7 +61,7 @@ class pc_monitor  extends uvm_monitor;
                     // Check output data_valid and parallel data
                     forever begin
                         // Sample middle of clk cycle
-                        @(negedge m_config.m_vif.clk);
+                        @(posedge m_config.m_vif.clk);
                         // Create a new pc sequence item with expected data. Here we sample signal to send to scoreboard.
                         `uvm_info(get_name(),$sformatf("Received data valid value=%0d", m_config.m_vif.pc),UVM_HIGH)
                         seq_item = pc_seq_item::type_id::create("seq_item");

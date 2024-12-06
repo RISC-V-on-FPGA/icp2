@@ -17,9 +17,9 @@ class pc_seq extends uvm_sequence #(pc_seq_item);
     }
 
     constraint pc_weight_c {
-        pc dist { 0              :/ 8, 
+        pc dist { 0              :/ 2, 
                 [0:MAX_VALUE_32 - 1] :/ 2, 
-                MAX_VALUE_32 - 1 :/ 8};
+                MAX_VALUE_32 - 1 :/ 2};
     }
 
     //------------------------------------------------------------------------------
