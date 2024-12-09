@@ -176,6 +176,105 @@ class scoreboard extends uvm_component;
             bins mem_wb_RegWrite_0 = {0};
             bins mem_wb_RegWrite_1 = {1};
         }        
+
+        // Left shift at boundary
+        ls_data1 : coverpoint data1 {
+            //bins 10_data1 = {32'b1???????????????????????????????};
+            bins ls_data1 = {32'b10000000000000000000000000000000};
+        }
+
+        ls_control_in : coverpoint control_in {
+            wildcard bins ls_SLL  = {16'b0000????????????};
+        }
+
+        cc_ALU_10 : cross ls_data1, ls_control_in;
+
+        // Signed stuff
+        negative_data1 : coverpoint data1 {
+            wildcard bins negative_data1 = {32'b1???????????????????????????????};
+        }
+
+        rls_control_in : coverpoint control_in {
+            wildcard bins ALUop_SRL  = {16'b0001????????????};
+        }
+
+        ras_control_in : coverpoint control_in {
+            wildcard bins ALUop_SRA  = {16'b0010????????????};
+        }
+
+        cc_ALU_11 : cross negative_data1, rls_control_in;
+
+        cc_ALU_12 : cross negative_data1, ras_control_in;
+
+        // adding / subbing zero to stuff
+
+        zero_data2 : coverpoint data2 {
+            bins zero_data2 = {32'b0};
+        }
+
+        max_data2 : coverpoint data2 {
+            bins max_data2 = {32'hFFFFFFFF};
+        }
+
+        add_zero_control_in : coverpoint control_in {
+            wildcard bins ALUop_ADD  = {16'b0100????????????};
+        }
+
+        sub_zero_control_in : coverpoint control_in {
+            wildcard bins ALUop_SUB  = {16'b0101????????????};
+        } 
+
+        cc_ALU_13 : cross add_zero_control_in, zero_data2;
+        
+        cc_ALU_14 : cross sub_zero_control_in, zero_data2; // faaatalityyy
+
+        cc_ALU_15 : cross add_zero_control_in, max_data2; // faaatalityyy
+
+        cc_ALU_16 : cross sub_zero_control_in, max_data2; // fatality?
+
+
+        // // comparisons
+        // max_data1 : coverpoint data2 {
+        //     bins max_data1 = {32'hFFFFFFFF};
+        // }
+
+        // one_data2 : coverpoint data2 {
+        //     bins one_data2 = {1};
+        // }
+
+        // slt_control_in : coverpoint control_in {
+        //     wildcard bins ALUop_SLT  =  {16'b1100????????????};
+        //     wildcard bins ALUop_SLTU  = {16'b1101????????????};
+        // }
+
+        // cc_ALU_24_25 : cross max_data1, one_data2, slt_control_in;
+
+        // Logical operations
+        max_data1 : coverpoint data1 {
+            bins max_data1 = {32'hFFFFFFFF};
+        }
+
+        aaaa_data1 : coverpoint data1 {
+            bins aaaa_data1 = {32'hAAAAAAAA};
+        }
+
+        and_control_in : coverpoint control_in {
+            wildcard bins ALUop_AND  = {16'b1010????????????};
+        } 
+
+        cc_ALU_17 : cross max_data1, and_control_in;
+        cc_ALU_18 : cross aaaa_data1, and_control_in;
+
+        or_xor_control_in : coverpoint control_in {
+            wildcard bins ALUop_XOR  = {16'b1000????????????};
+            wildcard bins ALUop_OR   = {16'b1001????????????};
+        }
+
+        cc_ALU_19_22 : cross zero_data2, or_xor_control_in;
+        cc_ALU_20_23 : cross max_data1, or_xor_control_in;
+        cc_ALU_21_24 : cross aaaa_data1, or_xor_control_in;
+
+
     endgroup
 
     //------------------------------------------------------------------------------

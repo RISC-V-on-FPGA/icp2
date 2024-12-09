@@ -12,9 +12,11 @@ class data_seq extends uvm_sequence #(data_seq_item);
     int unsigned MAX_VALUE_32 = 4294967295;
     
     constraint data_weight_c {
-        data dist { 0                :/ 2, 
-                    [0:MAX_VALUE_32] :/ 2, 
-                    MAX_VALUE_32     :/ 2};
+        data dist { 0                :/ 4,
+                    [0:MAX_VALUE_32] :/ 4,
+                    32'h80000000     :/ 1,     
+                    32'hAAAAAAAA     :/ 1,
+                    MAX_VALUE_32     :/ 4};
     }
 
     //------------------------------------------------------------------------------

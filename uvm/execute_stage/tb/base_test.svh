@@ -153,6 +153,31 @@ class base_test extends uvm_test;
                 end
             end
         join
+
+        // // Directed tests
+        // fork 
+        //     begin
+        //         fork
+        //             // SLT and SLTU
+        //             begin
+        //                 data1 = data_seq::type_id::create("data1");
+        //                 data1.data = 0'hFFFFFFFF;
+        //                 data1.start(m_tb_env.m_data1_agent.m_sequencer);
+        //             end
+        //             begin
+        //                 data2 = data_seq::type_id::create("data2");
+        //                 data2.data = 1;
+        //                 data2.start(m_tb_env.m_data2_agent.m_sequencer);
+        //             end
+        //             begin
+        //                 control_in = control_seq::type_id::create("control_in");
+        //                 control_in.control = 0'b1100000000000000;
+        //                 control_in.start(m_tb_env.m_control_in_agent.m_sequencer);          
+        //             end
+        //         join                
+        //     end                
+        // join
+
         phase.drop_objection(this);
     endtask : run_phase
 
